@@ -13,10 +13,12 @@ public class Trainer extends Employee {
     
     private ArrayList<Member> assignedMembers;
 
-    public Trainer( double salary, String fName, String lName, String address, int phone) {
-        super(salary, fName, lName, address, phone);
+    public Trainer(double salary, String fName, String lName, String address, int phone, boolean isTrainer) {
+        super(salary, fName, lName, address, phone, isTrainer);
         this.assignedMembers = new ArrayList<>();
     }
+
+    
 
     public ArrayList<Member> getAssignedMembers() {
         return assignedMembers;

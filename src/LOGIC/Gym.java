@@ -39,6 +39,7 @@ public class Gym {
     public ArrayList<Employee> getEmployeesList() {
         return employeesList;
     }
+    
 
     public void setEmployeesList(ArrayList<Employee> employeesList) {
         this.employeesList = employeesList;

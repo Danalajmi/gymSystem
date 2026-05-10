@@ -14,7 +14,7 @@ public class Employee extends Person{
     private int staffID; 
     private static int ID = 100;
     private double salary;
-
+    private boolean isTrainer;
     /**
      *
      * @param salary
@@ -23,10 +23,11 @@ public class Employee extends Person{
      * @param address
      * @param phone
      */
-    public Employee(double salary, String fName, String lName, String address, int phone) {
+    public Employee(double salary, String fName, String lName, String address, int phone, boolean isTrainer) {
         super(fName, lName, address, phone);
         this.staffID = ID++;
         this.salary = salary;
+        this.isTrainer = isTrainer;
     }
 
    
@@ -42,6 +43,14 @@ public class Employee extends Person{
 
     public double getSalary() {
         return salary;
+    }
+
+    public boolean getIsTrainer() {
+        return isTrainer;
+    }
+
+    public void setIsTrainer(boolean isTrainer) {
+        this.isTrainer = isTrainer;
     }
     
     
