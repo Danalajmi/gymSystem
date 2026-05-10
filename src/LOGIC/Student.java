@@ -12,16 +12,17 @@ public class Student extends Member{
     private String course;
     private String team;
 
-    public Student(String course, String team, String dateOfBirth, char gender, String fName, String lName, String address, int phone) {
-        super(dateOfBirth, gender, fName, lName, address, phone);
+    public Student(String course, String dateOfBirth, String gender, String type, String fName, String lName, String address, int phone) {
+        super(dateOfBirth, gender, type, fName, lName, address, phone);
+        this.course = course;
+    }
+
+    public Student(String course, String team, String dateOfBirth, String gender, String type, String fName, String lName, String address, int phone) {
+        super(dateOfBirth, gender, type, fName, lName, address, phone);
         this.course = course;
         this.team = team;
     }
 
-    public Student(String course, String dateOfBirth, char gender, String fName, String lName, String address, int phone) {
-        super(dateOfBirth, gender, fName, lName, address, phone);
-        this.course = course;
-    }
 
     
 

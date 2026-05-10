@@ -12,11 +12,13 @@ public class Staff extends Member {
     private String position;
     private String department;
 
-    public Staff(String position, String department, String dateOfBirth, char gender, String fName, String lName, String address, int phone) {
-        super(dateOfBirth, gender, fName, lName, address, phone);
+    public Staff(String position, String department, String dateOfBirth, String gender, String type, String fName, String lName, String address, int phone) {
+        super(dateOfBirth, gender, type, fName, lName, address, phone);
         this.position = position;
         this.department = department;
     }
+
+
 
     
 

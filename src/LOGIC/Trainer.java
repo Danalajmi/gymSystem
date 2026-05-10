@@ -13,8 +13,8 @@ public class Trainer extends Employee {
     
     private ArrayList<Member> assignedMembers;
 
-    public Trainer(double salary, String fName, String lName, String address, int phone, boolean isTrainer) {
-        super(salary, fName, lName, address, phone, isTrainer);
+    public Trainer(double salary, String fName, String lName, String address, int phone, String type) {
+        super(salary, fName, lName, address, phone, type);
         this.assignedMembers = new ArrayList<>();
     }
 
