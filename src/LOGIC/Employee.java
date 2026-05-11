@@ -4,11 +4,13 @@
  */
 package LOGIC;
 
+import java.io.Serializable;
+
 /**
  *
  * @author danalajmi
  */
-public class Employee extends Person{
+public class Employee extends Person implements Serializable{
     
 
     private int staffID; 

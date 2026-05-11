@@ -12,13 +12,13 @@ import java.util.ArrayList;
  */
 public class Gym {
 
-    private ArrayList<Member> membersList;
-    private ArrayList<Employee> employeesList;
+    private static ArrayList<Member> membersList;
+    private static ArrayList<Employee> employeesList;
  
 
     public Gym() {
-        this.membersList = new ArrayList<>();
-        this.employeesList = new ArrayList<>();
+        Gym.membersList = new ArrayList<>();
+        Gym.employeesList = new ArrayList<>();
 
     }
 
@@ -26,25 +26,28 @@ public class Gym {
         return membersList;
     }
 
-    public void setMembersList(ArrayList<Member> membersList) {
-        this.membersList = membersList;
+    public static void setMembersList(ArrayList<Member> membersList) {
+        Gym.membersList = membersList;
     }
     
-    
-    public void addMember(Member newMember){
+    /**
+     *
+     * @param newMember
+     */
+    public static void addMember(Member newMember){
         membersList.add(newMember);
     }
     
     
-    public ArrayList<Employee> getEmployeesList() {
+    public static ArrayList<Employee> getEmployeesList() {
         return employeesList;
     }
     
 
-    public void setEmployeesList(ArrayList<Employee> employeesList) {
-        this.employeesList = employeesList;
+    public static void setEmployeesList(ArrayList<Employee> employeesList) {
+        Gym.employeesList = employeesList;
     }
-    public void addEmployee(Employee newEmployee){
+    public static void addEmployee(Employee newEmployee){
         employeesList.add(newEmployee);
     }
 
