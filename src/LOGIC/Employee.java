@@ -33,25 +33,39 @@ public class Employee extends Person implements Serializable{
         this.type = type;
     }
 
-   
-    
+    /**
+     *
+     */
     public Employee() {
     }
 
-
+/**
+ * 
+ * @return 
+ */
     public int getStaffID() {
         return staffID;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public double getSalary() {
         return salary;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getType() {
         return type;
     }
-
+/**
+ * 
+ * @param type 
+ */
     public void setType(String type) {
         this.type = type;
     }

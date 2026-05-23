@@ -35,10 +35,13 @@ public class MainWindow extends javax.swing.JFrame {
      *
      * @throws java.io.IOException
      */
-    public MainWindow() throws IOException {
+    public MainWindow() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
-        
-        loadDATFile();
+
+        try {
+            loadDATFile();
+        } catch (Exception e) {
+        }
     }
 
     /**
@@ -118,29 +121,49 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loadDATFile() throws FileNotFoundException, IOException {
+    private void loadDATFile() throws FileNotFoundException, IOException, ClassNotFoundException {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
-        if (Files.exists(pathEmp) && Files.exists(pathMember)) {
-            FileInputStream fileInEmp = new FileInputStream("employees.dat");
-            FileInputStream fileInMember = new FileInputStream("members.dat");
-            
-            ObjectInputStream inEmp = new ObjectInputStream(fileInEmp);
-            ObjectInputStream inMember = new ObjectInputStream(fileInMember);
-            
+        if (Files.exists(pathEmp) || Files.exists(pathMember)) {
+            FileInputStream fileInEmp;
             try {
+                fileInEmp = new FileInputStream("employees.dat");
+                ObjectInputStream inEmp = new ObjectInputStream(fileInEmp);
                 Gym.setEmployeesList((ArrayList<Employee>) inEmp.readObject());
-                Gym.setMembersList((ArrayList<Member>) inMember.readObject());
-                
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException e) {
+                fileInEmp = null;
             }
+            FileInputStream fileInMember;
+            try {
+                fileInMember = new FileInputStream("members.dat");
+                ObjectInputStream inMember = new ObjectInputStream(fileInMember);
+                Gym.setMembersList((ArrayList<Member>) inMember.readObject());
+                for (Member member : Gym.getMembersList()) {
+                    System.out.println("name: " + member.getfName());
+                }
+            } catch (FileNotFoundException e) {
+                fileInMember = null;
+            } catch(ClassNotFoundException ex){
+                System.out.println("class not found");
+            }
+
+            
+
         } else {
             loadStartUpFile();
         }
     }
-    
+
     private void loadStartUpFile() throws FileNotFoundException {
+        Path pathEmp = Paths.get("employees.dat");
+        Path pathMember = Paths.get("members.dat");
+        if (Files.exists(pathEmp) || Files.exists(pathMember)) {
+            File empFile = new File("employees.dat");
+            File memberFile = new File("members.dat");
+            empFile.delete();
+            memberFile.delete();
+        }
+
         File startUpFile = new File("startup.txt");
         ArrayList<Employee> gymemployees = new ArrayList<>();
         Scanner scan = new Scanner(startUpFile);
@@ -182,12 +205,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
             gymemployees.add(newEmp);
             Gym.setEmployeesList(gymemployees);
-            
 
         }
-    
+
     }
-    
+
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
         EmployeeDisplay empDis = new EmployeeDisplay();
@@ -202,6 +224,10 @@ public class MainWindow extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnMemberActionPerformed
 
+    /**
+     *
+     * @param evt
+     */
     private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanStartActionPerformed
         // TODO add your handling code here:
         JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
@@ -245,6 +271,8 @@ public class MainWindow extends javax.swing.JFrame {
                 try {
                     new MainWindow().setVisible(true);
                 } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
                     Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

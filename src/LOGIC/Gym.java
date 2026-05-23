@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Gym {
 
-    private static ArrayList<Member> membersList;
+    private static ArrayList<Member> membersList = new ArrayList<>();
     private static ArrayList<Employee> employeesList = new ArrayList<>();
  
 

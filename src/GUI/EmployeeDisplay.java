@@ -260,6 +260,12 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNameActionPerformed
 
+    
+    /** 
+     * 
+     *
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {

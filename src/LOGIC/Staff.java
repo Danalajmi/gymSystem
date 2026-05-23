@@ -4,11 +4,13 @@
  */
 package LOGIC;
 
+import java.io.Serializable;
+
 /**
  *
  * @author danalajmi
  */
-public class Staff extends Member {
+public class Staff extends Member implements Serializable{
     private String position;
     private String department;
 

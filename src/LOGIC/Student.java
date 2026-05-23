@@ -4,11 +4,13 @@
  */
 package LOGIC;
 
+import java.io.Serializable;
+
 /**
  *
  * @author danalajmi
  */
-public class Student extends Member{
+public class Student extends Member implements Serializable{
     private String course;
     private String team;
 

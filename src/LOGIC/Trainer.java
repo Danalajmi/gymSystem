@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package LOGIC;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author danalajmi
  */
-public class Trainer extends Employee {
+public class Trainer extends Employee implements Serializable{
     
     private ArrayList<Member> assignedMembers;
 
