@@ -8,6 +8,12 @@ import LOGIC.Gym;
 import LOGIC.Member;
 import LOGIC.Staff;
 import LOGIC.Student;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -448,6 +454,17 @@ public class MemberDisplay extends javax.swing.JFrame {
 
             }
             Gym.addMember(newMember);
+           
+            try {
+                FileOutputStream fileOut = new FileOutputStream("members.dat");
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(Gym.getMembersList());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             JOptionPane.showMessageDialog(rootPane, "Member Added to gym!", "Success", HEIGHT);
         }catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
@@ -498,7 +515,11 @@ public class MemberDisplay extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MainWindow().setVisible(true);
+        try {
+            new MainWindow().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

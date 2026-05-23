@@ -7,6 +7,11 @@ package GUI;
 import LOGIC.Employee;
 import LOGIC.Gym;
 import LOGIC.Trainer;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +19,13 @@ import javax.swing.JOptionPane;
  * @author danalajmi
  */
 public class EmployeeDisplay extends javax.swing.JFrame {
-private Gym polyGym;
+    
     /**
      * Creates new form EmployeeDisplay
      */
     public EmployeeDisplay() {
         initComponents();
-        polyGym = new Gym();
+ 
     }
 
     /**
@@ -97,11 +102,6 @@ private Gym polyGym;
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
-        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonYesActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -277,8 +277,14 @@ private Gym polyGym;
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
+            
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
+            
+            FileOutputStream fileOut = new FileOutputStream("employees.dat");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(Gym.getEmployeesList());
+           
             txtfName.setText(null);
             txtLName.setText(null);
             txtaddress.setText(null);
@@ -293,14 +299,14 @@ private Gym polyGym;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonYesActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MainWindow().setVisible(true);
+        try {
+            new MainWindow().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

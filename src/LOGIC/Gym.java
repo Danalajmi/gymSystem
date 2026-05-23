@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Gym {
 
     private static ArrayList<Member> membersList;
-    private static ArrayList<Employee> employeesList;
+    private static ArrayList<Employee> employeesList = new ArrayList<>();
  
 
     public Gym() {
@@ -22,7 +22,7 @@ public class Gym {
 
     }
 
-    public ArrayList<Member> getMembersList() {
+    public static ArrayList<Member> getMembersList() {
         return membersList;
     }
 

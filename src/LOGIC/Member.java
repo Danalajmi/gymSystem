@@ -4,11 +4,13 @@
  */
 package LOGIC;
 
+import java.io.Serializable;
+
 /**
  *
  * @author danalajmi
  */
-public class Member extends Person{
+public class Member extends Person implements Serializable{
   
     private int membershipID;
     private static int ID = 100;
@@ -19,7 +21,6 @@ public class Member extends Person{
     public Member() {
     }
 
-
     public Member(String dateOfBirth, String gender, String type, String fName, String lName, String address, int phone) {
         super(fName, lName, address, phone);
         this.dateOfBirth = dateOfBirth;
@@ -27,6 +28,9 @@ public class Member extends Person{
         this.type = type;
         this.membershipID = ID++;
     }
+
+
+
 
    
 

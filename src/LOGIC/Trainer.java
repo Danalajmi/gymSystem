@@ -28,7 +28,9 @@ public class Trainer extends Employee {
         this.assignedMembers = assignedMembers;
     }
 
-    
+    public void addMember(Member newMember){
+        this.assignedMembers.add(newMember);
+    }
    
     
     

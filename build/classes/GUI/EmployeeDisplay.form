@@ -242,9 +242,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonYesActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonNo">
               <Properties>

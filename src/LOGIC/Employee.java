@@ -56,7 +56,7 @@ public class Employee extends Person implements Serializable{
         this.type = type;
     }
 
-
+    
     
     
 }

@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Employee.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MainFrame.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Person.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Member.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Student.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Trainer.java</file>
-            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Staff.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MainWindow.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/EmployeeDisplay.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Gym.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Employee.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MemberDisplay.java</file>
         </group>
     </open-files>
 </project-private>
