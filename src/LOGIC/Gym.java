@@ -4,13 +4,14 @@
  */
 package LOGIC;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author danalajmi
  */
-public class Gym {
+public class Gym implements Serializable{
 
     private static ArrayList<Member> membersList = new ArrayList<>();
     private static ArrayList<Employee> employeesList = new ArrayList<>();
