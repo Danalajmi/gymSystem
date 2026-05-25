@@ -7,9 +7,8 @@ package GUI;
 import LOGIC.Employee;
 import LOGIC.Gym;
 import LOGIC.Trainer;
-<<<<<<< HEAD
-import javax.swing.JOptionPane;
-=======
+
+import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,28 +20,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
 /**
  *
  * @author danalajmi
  */
 public class EmployeeDisplay extends javax.swing.JFrame {
-<<<<<<< HEAD
 private Gym polyGym;
-=======
-
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     /**
      * Creates new form EmployeeDisplay
      */
     public EmployeeDisplay() {
         initComponents();
-<<<<<<< HEAD
         polyGym = new Gym();
-=======
-
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     }
 
     /**
@@ -76,25 +66,19 @@ private Gym polyGym;
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-<<<<<<< HEAD
-=======
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployees = new javax.swing.JTable();
         jButtonDelete1 = new javax.swing.JButton();
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-=======
         jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPane1StateChanged(evt);
             }
         });
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         lblTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblTitle.setText("Add employee");
 
@@ -134,14 +118,13 @@ private Gym polyGym;
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
-<<<<<<< HEAD
         jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonYesActionPerformed(evt);
             }
+
+
         });
-=======
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -254,8 +237,6 @@ private Gym polyGym;
 
         jTabbedPane1.addTab("Edit Employee", jPanel1);
 
-<<<<<<< HEAD
-=======
         jTableEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -291,21 +272,10 @@ private Gym polyGym;
             }
         });
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 602, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("All employees", jPanel2);
-=======
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
@@ -326,7 +296,6 @@ private Gym polyGym;
         );
 
         jTabbedPane1.addTab("Delete Employee", jPanel2);
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -361,14 +330,15 @@ private Gym polyGym;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNameActionPerformed
 
-<<<<<<< HEAD
-=======
+    private void jRadioButtonYesActionPerformed(ActionEvent evt) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'jRadioButtonYesActionPerformed'");
+            }
     /**
      *
      *
      * @param evt
      */
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
@@ -382,14 +352,6 @@ private Gym polyGym;
             if (jRadioButtonYes.isSelected()) {
                 type = "PT";
                 newEmployee = new Trainer(salary, fname, lname, address, phone, type);
-<<<<<<< HEAD
-            }else{
-                type = "E";
-                newEmployee = new Employee(salary, fname, lname, address, phone, type);
-            }
-            JOptionPane.showMessageDialog(rootPane, "Created");
-            Gym.addEmployee(newEmployee);
-=======
             } else {
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
@@ -402,42 +364,20 @@ private Gym polyGym;
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(Gym.getEmployeesList());
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             txtfName.setText(null);
             txtLName.setText(null);
             txtaddress.setText(null);
             txtPhone.setText(null);
             txtSalary.setText(null);
             buttonGroup1.clearSelection();
-<<<<<<< HEAD
-            
-            
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
-        } catch(Exception ex){
-=======
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
         } catch (Exception ex) {
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             JOptionPane.showMessageDialog(rootPane, ex, "Error", HEIGHT);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-<<<<<<< HEAD
-    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonYesActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new MainWindow().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-=======
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -531,11 +471,10 @@ private Gym polyGym;
             loadEmployeesIntoTable();
         }
 
-        
-        
+
+
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     /**
      * @param args the command line arguments
      */
@@ -543,7 +482,7 @@ private Gym polyGym;
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -570,10 +509,8 @@ private Gym polyGym;
             }
         });
     }
-<<<<<<< HEAD
-=======
-    
-      // Method to populate the table 
+
+      // Method to populate the table
 
     private void loadEmployeesIntoTable() {
 
@@ -609,17 +546,13 @@ private Gym polyGym;
             JOptionPane.showMessageDialog(this, "Error loading employees: " + e.getMessage());
         }
     }
-    
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton jButtonDelete1;
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -628,13 +561,9 @@ private Gym polyGym;
     private javax.swing.JPanel jPanelAddEmp;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
-<<<<<<< HEAD
-    private javax.swing.JTabbedPane jTabbedPane1;
-=======
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableEmployees;
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JLabel lblFname;
     private javax.swing.JLabel lblLName;
     private javax.swing.JLabel lblPhone;

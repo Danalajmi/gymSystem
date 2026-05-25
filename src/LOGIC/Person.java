@@ -4,20 +4,13 @@
  */
 package LOGIC;
 
-<<<<<<< HEAD
-=======
 import java.io.Serializable;
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 /**
  *
  * @author danalajmi
  */
-<<<<<<< HEAD
-public class Person {
-=======
 abstract public class Person implements Serializable{
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private String fName;
     private String lName;
     private String address;
@@ -64,8 +57,8 @@ abstract public class Person implements Serializable{
     public void setPhone(int phone) {
         this.phone = phone;
     }
-    
-    
-            
-    
+
+
+
+
 }

@@ -11,9 +11,9 @@ import java.io.Serializable;
  * @author danalajmi
  */
 public class Employee extends Person implements Serializable{
-    
 
-    private int staffID; 
+
+    private int staffID;
     private static int ID = 100;
     private double salary;
     private String type;
@@ -33,14 +33,6 @@ public class Employee extends Person implements Serializable{
         this.type = type;
     }
 
-<<<<<<< HEAD
-   
-    
-    public Employee() {
-    }
-
-
-=======
     /**
      *
      */
@@ -48,32 +40,21 @@ public class Employee extends Person implements Serializable{
     }
 
 /**
- * 
- * @return 
+ *
+ * @return
  */
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     public int getStaffID() {
         return staffID;
     }
 
-<<<<<<< HEAD
-
-=======
     /**
      *
      * @return
      */
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     public double getSalary() {
         return salary;
     }
 
-<<<<<<< HEAD
-    public String getType() {
-        return type;
-    }
-
-=======
     /**
      *
      * @return
@@ -82,19 +63,13 @@ public class Employee extends Person implements Serializable{
         return type;
     }
 /**
- * 
- * @param type 
+ *
+ * @param type
  */
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     public void setType(String type) {
         this.type = type;
     }
 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
-    
-    
+
 }

@@ -4,20 +4,13 @@
  */
 package LOGIC;
 
-<<<<<<< HEAD
-=======
 import java.io.Serializable;
 
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 /**
  *
  * @author danalajmi
  */
-<<<<<<< HEAD
-public class Staff extends Member {
-=======
 public class Staff extends Member implements Serializable{
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private String position;
     private String department;
 
@@ -29,7 +22,7 @@ public class Staff extends Member implements Serializable{
 
 
 
-    
+
 
 
     public String getPosition() {
@@ -47,6 +40,6 @@ public class Staff extends Member implements Serializable{
     public void setDepartment(String department) {
         this.department = department;
     }
-    
-    
+
+
 }

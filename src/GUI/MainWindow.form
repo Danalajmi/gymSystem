@@ -3,16 +3,10 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-<<<<<<< HEAD
-=======
-    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Default Cursor"/>
-    </Property>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -29,35 +23,27 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="90" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnEmployee" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-          </Group>
-=======
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
               <Component id="btnCleanStart" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnEmployee" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnMember" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="btnEmployee" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
-              <Component id="btnMember" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-          </Group>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -65,13 +51,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="btnEmployee" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
-=======
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -80,7 +59,6 @@
               <EmptySpace pref="93" max="32767" attributes="0"/>
               <Component id="btnCleanStart" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,18 +80,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmployeeActionPerformed"/>
       </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JButton" name="jButton2">
-=======
     <Component class="javax.swing.JButton" name="btnMember">
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
       <Properties>
-        <Property name="text" type="java.lang.String" value="Member Managememt"/>
+        <Property name="text" type="java.lang.String" value="Member Management"/>
       </Properties>
       <Events>
-<<<<<<< HEAD
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-=======
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMemberActionPerformed"/>
       </Events>
     </Component>
@@ -123,7 +94,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCleanStartActionPerformed"/>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
       </Events>
     </Component>
   </SubComponents>

@@ -3,22 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/GUI/MainWindow.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/LOGIC/Gym.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/LOGIC/Member.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/LOGIC/Trainer.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/GUI/EmployeeDisplay.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/LOGIC/Person.java</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/GUI/PolyGym</file>
-            <file>file:/C:/Users/fatim/Downloads/gymSystem-main%20(1)/gymSystem-main/src/GUI/MemberDisplay.java</file>
-=======
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MainWindow.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/EmployeeDisplay.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Gym.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Employee.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MemberDisplay.java</file>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Person.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Staff.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Student.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Member.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Trainer.java</file>
+            <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/AssignTrainer.java</file>
         </group>
     </open-files>
 </project-private>
