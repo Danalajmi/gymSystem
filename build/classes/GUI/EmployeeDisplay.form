@@ -48,12 +48,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-<<<<<<< HEAD
-=======
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jTabbedPane1StateChanged"/>
       </Events>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -248,12 +245,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
-<<<<<<< HEAD
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonYesActionPerformed"/>
-              </Events>
-=======
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonNo">
               <Properties>
@@ -325,13 +316,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-<<<<<<< HEAD
-              <JTabbedPaneConstraints tabName="All employees">
-                <Property name="tabTitle" type="java.lang.String" value="All employees"/>
-=======
               <JTabbedPaneConstraints tabName="Delete Employee">
                 <Property name="tabTitle" type="java.lang.String" value="Delete Employee"/>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -339,9 +325,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="602" max="32767" attributes="0"/>
-=======
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" pref="571" max="32767" attributes="0"/>
@@ -352,17 +335,10 @@
                       <Component id="jButtonDelete1" min="-2" pref="154" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="491" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-=======
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="212" max="-2" attributes="0"/>
@@ -408,7 +384,6 @@
               </Events>
             </Component>
           </SubComponents>
->>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         </Container>
       </SubComponents>
     </Container>

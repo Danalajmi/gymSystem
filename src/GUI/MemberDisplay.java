@@ -8,8 +8,17 @@ import LOGIC.Gym;
 import LOGIC.Member;
 import LOGIC.Staff;
 import LOGIC.Student;
+<<<<<<< HEAD
 import LOGIC.Employee;
 import LOGIC.Trainer;
+=======
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +32,7 @@ public class MemberDisplay extends javax.swing.JFrame {
      */
     public MemberDisplay() {
         initComponents();
+<<<<<<< HEAD
         AddTrainers();
         
     }
@@ -61,6 +71,10 @@ public class MemberDisplay extends javax.swing.JFrame {
         }
     }
 }
+=======
+    }
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,6 +117,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         txtPosition = new javax.swing.JTextField();
         lblDepartment = new javax.swing.JLabel();
         jComboBoxDep = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         TrainerComboBox = new javax.swing.JComboBox<>();
         AssignTrainerButton = new javax.swing.JButton();
@@ -117,6 +132,8 @@ public class MemberDisplay extends javax.swing.JFrame {
         TrainerMemberComboBox = new javax.swing.JComboBox<>();
         RemoveMemberButton1 = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,11 +225,14 @@ public class MemberDisplay extends javax.swing.JFrame {
         pnlStudent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, -1, -1));
 
         jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
+<<<<<<< HEAD
         jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCourseActionPerformed(evt);
             }
         });
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         pnlStudent.add(jComboBoxCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 29, -1, -1));
 
         jLabel5.setText("Are you in a sports Team?");
@@ -235,11 +255,14 @@ public class MemberDisplay extends javax.swing.JFrame {
         pnlStudent.add(jRadioButtonTeamN, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 136, -1, -1));
 
         jComboBoxTeam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vollyball", "basketball", "football", "running", "tennis" }));
+<<<<<<< HEAD
         jComboBoxTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTeamActionPerformed(evt);
             }
         });
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         javax.swing.GroupLayout pnlTeamLayout = new javax.swing.GroupLayout(pnlTeam);
         pnlTeam.setLayout(pnlTeamLayout);
@@ -307,20 +330,39 @@ public class MemberDisplay extends javax.swing.JFrame {
             pnlMemberTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMemberTypeLayout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(pnlStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addComponent(pnlStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlMemberTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlMemberTypeLayout.createSequentialGroup()
+                    .addGap(55, 55, 55)
+                    .addComponent(pnlStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         );
         pnlMemberTypeLayout.setVerticalGroup(
             pnlMemberTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMemberTypeLayout.createSequentialGroup()
                 .addComponent(pnlStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlMemberTypeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(10, Short.MAX_VALUE))
+=======
+                .addGap(0, 118, Short.MAX_VALUE))
+            .addGroup(pnlMemberTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMemberTypeLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -422,6 +464,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Add Member", jPanel2);
 
+<<<<<<< HEAD
         TrainerComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TrainerComboBoxActionPerformed(evt);
@@ -557,6 +600,8 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Remove Member ", jPanel3);
 
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         jButton1.setText("Home");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -568,27 +613,41 @@ public class MemberDisplay extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+=======
+            .addComponent(jTabbedPane1)
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -679,6 +738,32 @@ public class MemberDisplay extends javax.swing.JFrame {
             pnlStaff.setVisible(true);
         }
     }//GEN-LAST:event_jRadioButtonStaffActionPerformed
+=======
+    private void txtfName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfName1ActionPerformed
+
+    private void txtLName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLName1ActionPerformed
+
+    private void txtaddress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddress1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtaddress1ActionPerformed
+
+    private void txtPhone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhone1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhone1ActionPerformed
+
+    private void txtDOBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDOBMouseClicked
+        // TODO add your handling code here:
+        txtDOB.setText(null);
+    }//GEN-LAST:event_txtDOBMouseClicked
+
+    private void jRadioButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonWActionPerformed
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
     private void btnAddMemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMemeberActionPerformed
         // TODO add your handling code here:
@@ -710,8 +795,22 @@ public class MemberDisplay extends javax.swing.JFrame {
 
             }
             Gym.addMember(newMember);
+<<<<<<< HEAD
             String fullName = fname + " " + lname;
             MemberComboBox.addItem(fullName);  //add to combo box
+=======
+           
+            try {
+                FileOutputStream fileOut = new FileOutputStream("members.dat");
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(Gym.getMembersList());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             JOptionPane.showMessageDialog(rootPane, "Member Added to gym!", "Success", HEIGHT);
         }catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
@@ -720,6 +819,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddMemeberActionPerformed
 
+<<<<<<< HEAD
     private void jRadioButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonWActionPerformed
@@ -780,6 +880,56 @@ public class MemberDisplay extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_TrainerComboBox2ActionPerformed
+=======
+    private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStaffActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonStaff.isSelected()){
+            pnlStudent.setVisible(false);
+            pnlStaff.setVisible(true);
+        }
+    }//GEN-LAST:event_jRadioButtonStaffActionPerformed
+
+    private void jRadioButtonStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStudentActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonStudent.isSelected()){
+
+            pnlStudent.setVisible(true);
+            pnlStaff.setVisible(false);
+            pnlTeam.setVisible(false);
+        }
+    }//GEN-LAST:event_jRadioButtonStudentActionPerformed
+
+    private void jRadioButtonTeamYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTeamYActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonTeamY.isSelected()){
+            pnlTeam.setVisible(true);
+
+        }
+    }//GEN-LAST:event_jRadioButtonTeamYActionPerformed
+
+    private void jRadioButtonTeamNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTeamNActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButtonTeamN.isSelected()){
+
+            pnlTeam.setVisible(true);
+
+        }
+    }//GEN-LAST:event_jRadioButtonTeamNActionPerformed
+
+    private void jComboBoxDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDepActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        try {
+            new MainWindow().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
     /**
      * @param args the command line arguments
@@ -817,18 +967,22 @@ public class MemberDisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton AssignTrainerButton;
     private javax.swing.JComboBox<String> MemberComboBox;
     private javax.swing.JToggleButton RemoveMemberButton1;
     private javax.swing.JComboBox<String> TrainerComboBox;
     private javax.swing.JComboBox<String> TrainerComboBox2;
     private javax.swing.JComboBox<String> TrainerMemberComboBox;
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JButton btnAddMemeber;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxCourse;
     private javax.swing.JComboBox<String> jComboBoxDep;
     private javax.swing.JComboBox<String> jComboBoxTeam;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -841,6 +995,12 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+=======
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JRadioButton jRadioButtonM;
     private javax.swing.JRadioButton jRadioButtonStaff;
     private javax.swing.JRadioButton jRadioButtonStudent;

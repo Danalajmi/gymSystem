@@ -4,6 +4,29 @@
  */
 package GUI;
 
+<<<<<<< HEAD
+=======
+import LOGIC.Employee;
+import LOGIC.Gym;
+import LOGIC.Member;
+import LOGIC.Staff;
+import LOGIC.Student;
+import LOGIC.Trainer;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 /**
  *
  * @author danalajmi
@@ -12,9 +35,22 @@ public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form MainWindow
+<<<<<<< HEAD
      */
     public MainWindow() {
         initComponents();
+=======
+     *
+     * @throws java.io.IOException
+     */
+    public MainWindow() throws IOException, FileNotFoundException, ClassNotFoundException {
+        initComponents();
+
+        try {
+            loadDATFile();
+        } catch (Exception e) {
+        }
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     }
 
     /**
@@ -28,9 +64,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         btnEmployee = new javax.swing.JButton();
+<<<<<<< HEAD
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+=======
+        btnMember = new javax.swing.JButton();
+        btnCleanStart = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         jLabel2.setFont(new java.awt.Font("Publico Text", 1, 24)); // NOI18N
         jLabel2.setText("Bahrain Polytechnic Gym");
@@ -42,10 +86,24 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jButton2.setText("Member Managememt");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+=======
+        btnMember.setText("Member Managememt");
+        btnMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMemberActionPerformed(evt);
+            }
+        });
+
+        btnCleanStart.setText("Clean start");
+        btnCleanStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanStartActionPerformed(evt);
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             }
         });
 
@@ -53,6 +111,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,22 +119,140 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btnEmployee)
                     .addComponent(jLabel2))
                 .addGap(89, 89, 89))
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(btnCleanStart)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(89, 89, 89))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnEmployee)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(btnMember)
+                .addGap(53, 53, 53))
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(jLabel2)
+<<<<<<< HEAD
                 .addGap(26, 26, 26)
                 .addComponent(btnEmployee)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(111, Short.MAX_VALUE))
+=======
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEmployee)
+                    .addComponent(btnMember))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(btnCleanStart)
+                .addGap(24, 24, 24))
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+=======
+    private void loadDATFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+        Path pathEmp = Paths.get("employees.dat");
+        Path pathMember = Paths.get("members.dat");
+        if (Files.exists(pathEmp) || Files.exists(pathMember)) {
+            FileInputStream fileInEmp;
+            try {
+                fileInEmp = new FileInputStream("employees.dat");
+                ObjectInputStream inEmp = new ObjectInputStream(fileInEmp);
+                Gym.setEmployeesList((ArrayList<Employee>) inEmp.readObject());
+            } catch (FileNotFoundException e) {
+                fileInEmp = null;
+            }
+            FileInputStream fileInMember;
+            try {
+                fileInMember = new FileInputStream("members.dat");
+                ObjectInputStream inMember = new ObjectInputStream(fileInMember);
+                Gym.setMembersList((ArrayList<Member>) inMember.readObject());
+                for (Member member : Gym.getMembersList()) {
+                    System.out.println("name: " + member.getfName());
+                }
+            } catch (FileNotFoundException e) {
+                fileInMember = null;
+            } catch(ClassNotFoundException ex){
+                System.out.println("class not found");
+            }
+
+            
+
+        } else {
+            loadStartUpFile();
+        }
+    }
+
+    private void loadStartUpFile() throws FileNotFoundException {
+        Path pathEmp = Paths.get("employees.dat");
+        Path pathMember = Paths.get("members.dat");
+        if (Files.exists(pathEmp) || Files.exists(pathMember)) {
+            File empFile = new File("employees.dat");
+            File memberFile = new File("members.dat");
+            empFile.delete();
+            memberFile.delete();
+        }
+
+        File startUpFile = new File("startup.txt");
+        ArrayList<Employee> gymemployees = new ArrayList<>();
+        Scanner scan = new Scanner(startUpFile);
+        int employeeCount = Integer.valueOf(scan.nextLine());
+        for (int i = 0; i < employeeCount; i++) {
+            Employee newEmp = null;
+            String empType = scan.nextLine();
+            String fname = scan.nextLine();
+            String lname = scan.nextLine();
+            String address = scan.nextLine();
+            int phone = Integer.parseInt(scan.nextLine());
+            double salary = Double.parseDouble(scan.nextLine());
+            if (empType.equals("PT")) {
+                newEmp = new Trainer(salary, fname, lname, address, phone, empType);
+                int membersCount = Integer.valueOf(scan.nextLine());
+                for (int j = 0; j < membersCount; j++) {
+                    Member newMember = null;
+                    String memType = scan.nextLine();
+                    String memFName = scan.nextLine();
+                    String memLName = scan.nextLine();
+                    String memaddress = scan.nextLine();
+                    String memdob = scan.nextLine();
+                    int memphone = Integer.parseInt(scan.nextLine());
+                    String gender = scan.nextLine();
+                    if (memType.equals("staff")) {
+                        String position = scan.nextLine();
+                        String department = scan.nextLine();
+                        newMember = new Staff(position, department, memdob, gender, memType, memFName, memLName, memaddress, memphone);
+                    } else if (memType.equals("student")) {
+                        String degree = scan.nextLine();
+                        String team = scan.nextLine();
+                        newMember = new Student(degree, team, degree, gender, team, memFName, memLName, memaddress, memphone);
+                    }
+                    Trainer trainer = (Trainer) newEmp;
+                    trainer.addMember(newMember);
+                }
+            } else {
+                newEmp = new Employee(salary, fname, lname, address, phone, empType);
+            }
+            gymemployees.add(newEmp);
+            Gym.setEmployeesList(gymemployees);
+
+        }
+
+    }
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
         EmployeeDisplay empDis = new EmployeeDisplay();
@@ -83,12 +260,34 @@ public class MainWindow extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
+<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+=======
+    private void btnMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMemberActionPerformed
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         // TODO add your handling code here:
         MemberDisplay memberDisplay = new MemberDisplay();
         memberDisplay.setVisible(true);
         this.setVisible(false);
+<<<<<<< HEAD
     }//GEN-LAST:event_jButton2ActionPerformed
+=======
+    }//GEN-LAST:event_btnMemberActionPerformed
+
+    /**
+     *
+     * @param evt
+     */
+    private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanStartActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
+        try {
+            loadStartUpFile();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCleanStartActionPerformed
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
     /**
      * @param args the command line arguments
@@ -120,14 +319,30 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+<<<<<<< HEAD
                 new MainWindow().setVisible(true);
+=======
+                try {
+                    new MainWindow().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton btnEmployee;
     private javax.swing.JButton jButton2;
+=======
+    private javax.swing.JButton btnCleanStart;
+    private javax.swing.JButton btnEmployee;
+    private javax.swing.JButton btnMember;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

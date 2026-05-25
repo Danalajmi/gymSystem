@@ -4,11 +4,20 @@
  */
 package LOGIC;
 
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 /**
  *
  * @author danalajmi
  */
+<<<<<<< HEAD
 public class Member extends Person{
+=======
+public class Member extends Person implements Serializable{
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
   
     private int membershipID;
     private static int ID = 100;
@@ -19,7 +28,10 @@ public class Member extends Person{
     public Member() {
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     public Member(String dateOfBirth, String gender, String type, String fName, String lName, String address, int phone) {
         super(fName, lName, address, phone);
         this.dateOfBirth = dateOfBirth;
@@ -28,6 +40,12 @@ public class Member extends Person{
         this.membershipID = ID++;
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
    
 
    
@@ -45,5 +63,9 @@ public class Member extends Person{
         return gender;
     }
     
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 }

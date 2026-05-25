@@ -7,20 +7,42 @@ package GUI;
 import LOGIC.Employee;
 import LOGIC.Gym;
 import LOGIC.Trainer;
+<<<<<<< HEAD
 import javax.swing.JOptionPane;
+=======
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
 /**
  *
  * @author danalajmi
  */
 public class EmployeeDisplay extends javax.swing.JFrame {
+<<<<<<< HEAD
 private Gym polyGym;
+=======
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     /**
      * Creates new form EmployeeDisplay
      */
     public EmployeeDisplay() {
         initComponents();
+<<<<<<< HEAD
         polyGym = new Gym();
+=======
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     }
 
     /**
@@ -54,10 +76,25 @@ private Gym polyGym;
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+<<<<<<< HEAD
+=======
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableEmployees = new javax.swing.JTable();
+        jButtonDelete1 = new javax.swing.JButton();
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
+=======
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         lblTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblTitle.setText("Add employee");
 
@@ -97,11 +134,14 @@ private Gym polyGym;
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
+<<<<<<< HEAD
         jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonYesActionPerformed(evt);
             }
         });
+=======
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -214,10 +254,49 @@ private Gym polyGym;
 
         jTabbedPane1.addTab("Edit Employee", jPanel1);
 
+<<<<<<< HEAD
+=======
+        jTableEmployees.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "First Name", "Last Name", "Phone", "PT/E"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableEmployees);
+
+        jButtonDelete1.setText("Delete Employee");
+        jButtonDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDelete1ActionPerformed(evt);
+            }
+        });
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 602, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -226,6 +305,28 @@ private Gym polyGym;
         );
 
         jTabbedPane1.addTab("All employees", jPanel2);
+=======
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jButtonDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jButtonDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Delete Employee", jPanel2);
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -260,6 +361,14 @@ private Gym polyGym;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNameActionPerformed
 
+<<<<<<< HEAD
+=======
+    /**
+     *
+     *
+     * @param evt
+     */
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
@@ -273,28 +382,51 @@ private Gym polyGym;
             if (jRadioButtonYes.isSelected()) {
                 type = "PT";
                 newEmployee = new Trainer(salary, fname, lname, address, phone, type);
+<<<<<<< HEAD
             }else{
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
+=======
+            } else {
+                type = "E";
+                newEmployee = new Employee(salary, fname, lname, address, phone, type);
+            }
+
+            JOptionPane.showMessageDialog(rootPane, "Created");
+            Gym.addEmployee(newEmployee);
+
+            FileOutputStream fileOut = new FileOutputStream("employees.dat");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(Gym.getEmployeesList());
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             txtfName.setText(null);
             txtLName.setText(null);
             txtaddress.setText(null);
             txtPhone.setText(null);
             txtSalary.setText(null);
             buttonGroup1.clearSelection();
+<<<<<<< HEAD
             
             
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
         } catch(Exception ex){
+=======
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
+        } catch (Exception ex) {
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
             JOptionPane.showMessageDialog(rootPane, ex, "Error", HEIGHT);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+<<<<<<< HEAD
     private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonYesActionPerformed
@@ -305,6 +437,105 @@ private Gym polyGym;
         new MainWindow().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+=======
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        try {
+            try {
+                new MainWindow().setVisible(true);
+            } catch (FileNotFoundException ex) {
+                System.getLogger(EmployeeDisplay.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            } catch (ClassNotFoundException ex) {
+                System.getLogger(EmployeeDisplay.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelete1ActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = jTableEmployees.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select an employee to delete.");
+            return;
+        }
+        // Get Employee ID and Name from the selected row
+        int staffId = (int) jTableEmployees.getValueAt(selectedRow, 0);
+        String fname = (String) jTableEmployees.getValueAt(selectedRow, 1);
+        String lname = (String) jTableEmployees.getValueAt(selectedRow, 2);
+
+        // Show confirmation dialog
+        int choice = JOptionPane.showConfirmDialog(
+                this,
+                "Are you sure you want to delete " + fname + " " + lname + "?",
+                "Confirm Deletion",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (choice != JOptionPane.YES_OPTION) {
+            return; // user clicked No, cancel deletion
+        }
+
+        // Get Employee ID from the selected row
+        // int staffId = (int) jTableEmployees.getValueAt(selectedRow, 0);
+        Employee toRemove = null;
+        for (Employee e : Gym.getEmployeesList()) {
+            if (e.getStaffID() == staffId) {
+                toRemove = e;
+                break;
+            }
+        }
+
+        if (toRemove == null) {
+            JOptionPane.showMessageDialog(this, "Employee not found.");
+            return;
+        }
+
+        // 🔑 Business rule: if Trainer, check assigned members
+        if (toRemove instanceof Trainer) {
+            Trainer trainer = (Trainer) toRemove;
+            if (!trainer.getAssignedMembers().isEmpty()) {
+                JOptionPane.showMessageDialog(this, """
+                    This trainer cannot be deleted because members are still assigned.
+                    Please reassign or remove those members first.""");
+                return;
+            }
+        }
+
+        // Safe to delete
+        Gym.getEmployeesList().remove(toRemove);
+        JOptionPane.showMessageDialog(this, "Employee deleted successfully.");
+
+        // ✅ Save updated list back to file
+        try (FileOutputStream fileOut = new FileOutputStream("employees.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(Gym.getEmployeesList());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error saving updated employees: " + ex.getMessage());
+        }
+
+        // Refresh table
+        loadEmployeesIntoTable();
+    }//GEN-LAST:event_jButtonDelete1ActionPerformed
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        // TODO add your handling code here:
+           int selectedIndex = jTabbedPane1.getSelectedIndex();
+        String tabTitle = jTabbedPane1.getTitleAt(selectedIndex);
+
+        if ("Delete Employee".equals(tabTitle)) {
+            loadEmployeesFromFile();
+            loadEmployeesIntoTable();
+        }
+
+        
+        
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     /**
      * @param args the command line arguments
      */
@@ -339,11 +570,56 @@ private Gym polyGym;
             }
         });
     }
+<<<<<<< HEAD
+=======
+    
+      // Method to populate the table 
+
+    private void loadEmployeesIntoTable() {
+
+        String[] columns = {"Id", "First Name", "Last Name", "Phone Number", "PT/E"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+        for (Employee e : Gym.getEmployeesList()) {
+            Object[] row = {
+                e.getStaffID(),
+                e.getfName(),
+                e.getlName(),
+                e.getPhone(),
+                e.getType()
+            };
+            model.addRow(row);
+        }
+
+        jTableEmployees.setModel(model);
+    }
+
+ @SuppressWarnings("unchecked")
+    private void loadEmployeesFromFile() {
+
+        try (FileInputStream fileIn = new FileInputStream("employees.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
+
+            ArrayList<Employee> savedList = (ArrayList<Employee>) in.readObject();
+            Gym.setEmployeesList(savedList);   // update Gym’s list
+
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "No saved employees yet.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error loading employees: " + e.getMessage());
+        }
+    }
+    
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+<<<<<<< HEAD
+=======
+    private javax.swing.JButton jButtonDelete1;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -352,7 +628,13 @@ private Gym polyGym;
     private javax.swing.JPanel jPanelAddEmp;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
+<<<<<<< HEAD
     private javax.swing.JTabbedPane jTabbedPane1;
+=======
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTableEmployees;
+>>>>>>> 3c2eb58ff75668cedddae4892cf3cb51a5dc68ba
     private javax.swing.JLabel lblFname;
     private javax.swing.JLabel lblLName;
     private javax.swing.JLabel lblPhone;
