@@ -13,8 +13,10 @@ import LOGIC.Trainer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,11 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
-
-        try {
-            loadDATFile();
-        } catch (Exception e) {
-        }
+        loadDATFile();
     }
 
     /**
@@ -81,7 +79,14 @@ public class MainWindow extends javax.swing.JFrame {
         btnCleanStart.setText("Clean start");
         btnCleanStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCleanStartActionPerformed(evt);
+                try {
+                    btnCleanStartActionPerformed(evt);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch(ClassNotFoundException ex){
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -127,6 +132,7 @@ public class MainWindow extends javax.swing.JFrame {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
         if (Files.exists(pathEmp) || Files.exists(pathMember)) {
+            
             FileInputStream fileInEmp;
             try {
                 fileInEmp = new FileInputStream("employees.dat");
@@ -140,9 +146,7 @@ public class MainWindow extends javax.swing.JFrame {
                 fileInMember = new FileInputStream("members.dat");
                 ObjectInputStream inMember = new ObjectInputStream(fileInMember);
                 Gym.setMembersList((ArrayList<Member>) inMember.readObject());
-                for (Member member : Gym.getMembersList()) {
-                    System.out.println("name: " + member.getfName());
-                }
+
             } catch (FileNotFoundException e) {
                 fileInMember = null;
             } catch (ClassNotFoundException ex) {
@@ -150,11 +154,16 @@ public class MainWindow extends javax.swing.JFrame {
             }
 
         } else {
-            loadStartUpFile();
+            try {
+                loadStartUpFile();
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+     
     }
 
-    private void loadStartUpFile() throws FileNotFoundException {
+    private void loadStartUpFile() throws FileNotFoundException, IOException, ClassNotFoundException {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
         if (Files.exists(pathEmp) || Files.exists(pathMember)) {
@@ -164,50 +173,78 @@ public class MainWindow extends javax.swing.JFrame {
             memberFile.delete();
         }
 
-        File startUpFile = new File("startup.txt");
-        ArrayList<Employee> gymemployees = new ArrayList<>();
-        Scanner scan = new Scanner(startUpFile);
-        int employeeCount = Integer.valueOf(scan.nextLine());
-        for (int i = 0; i < employeeCount; i++) {
-            Employee newEmp = null;
-            String empType = scan.nextLine();
-            String fname = scan.nextLine();
-            String lname = scan.nextLine();
-            String address = scan.nextLine();
-            int phone = Integer.parseInt(scan.nextLine());
-            double salary = Double.parseDouble(scan.nextLine());
-            if (empType.equals("PT")) {
-                newEmp = new Trainer(salary, fname, lname, address, phone, empType);
-                int membersCount = Integer.valueOf(scan.nextLine());
-                for (int j = 0; j < membersCount; j++) {
-                    Member newMember = null;
-                    String memType = scan.nextLine();
-                    String memFName = scan.nextLine();
-                    String memLName = scan.nextLine();
-                    String memaddress = scan.nextLine();
-                    String memdob = scan.nextLine();
-                    int memphone = Integer.parseInt(scan.nextLine());
-                    String gender = scan.nextLine();
-                    if (memType.equals("staff")) {
-                        String position = scan.nextLine();
-                        String department = scan.nextLine();
-                        newMember = new Staff(position, department, memdob, gender, memType, memFName, memLName,
-                                memaddress, memphone);
-                    } else if (memType.equals("student")) {
-                        String degree = scan.nextLine();
-                        String team = scan.nextLine();
-                        newMember = new Student(degree, team, degree, gender, team, memFName, memLName, memaddress,
-                                memphone);
+        try {
+            File startUpFile = new File("startup.txt");
+            ArrayList<Employee> gymemployees = new ArrayList<>();
+            Scanner scan = new Scanner(startUpFile);
+            int employeeCount = Integer.parseInt(scan.nextLine());
+            for (int i = 0; i < employeeCount; i++) {
+                Employee newEmp = null;
+                String empType = scan.nextLine();
+                String fname = scan.nextLine();
+                String lname = scan.nextLine();
+                String address = scan.nextLine();
+                int phone = Integer.parseInt(scan.nextLine());
+                double salary = Double.parseDouble(scan.nextLine());
+                if (empType.equals("PT")) {
+                    newEmp = new Trainer(salary, fname, lname, address, phone, empType);
+                    int membersCount = Integer.parseInt(scan.nextLine());
+                    for (int j = 0; j < membersCount; j++) {
+                        Member newMember = null;
+                        String memType = scan.nextLine();
+                        String memFName = scan.nextLine();
+                        String memLName = scan.nextLine();
+                        String memaddress = scan.nextLine();
+                        String memdob = scan.nextLine();
+                        int memphone = Integer.parseInt(scan.nextLine());
+                        String gender = scan.nextLine();
+                        if (memType.equals("staff")) {
+                            String position = scan.nextLine();
+                            String department = scan.nextLine();
+                            newMember = new Staff(position, department, memdob, gender, memType, memFName, memLName,
+                                    memaddress, memphone);
+                        } else if (memType.equals("student")) {
+                            String degree = scan.nextLine();
+                            String team = scan.nextLine();
+                            newMember = new Student(degree, team, degree, gender, team, memFName, memLName, memaddress,
+                                    memphone);
+                        }
+                        Trainer trainer = (Trainer) newEmp;
+                        trainer.addMember(newMember);
+                        Gym.addMember(newMember);
                     }
-                    Trainer trainer = (Trainer) newEmp;
-                    trainer.addMember(newMember);
+                } else {
+                    newEmp = new Employee(salary, fname, lname, address, phone, empType);
                 }
-            } else {
-                newEmp = new Employee(salary, fname, lname, address, phone, empType);
+                gymemployees.add(newEmp);
+                Gym.setEmployeesList(gymemployees);
+                
             }
-            gymemployees.add(newEmp);
-            Gym.setEmployeesList(gymemployees);
+            try {
+                    FileOutputStream fileOut = new FileOutputStream("employees.dat");
+                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    out.writeObject(Gym.getEmployeesList());
 
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                try {
+                    FileOutputStream memFileOut = new FileOutputStream("members.dat");
+                    ObjectOutputStream memOut = new ObjectOutputStream(memFileOut);
+                    memOut.writeObject(Gym.getMembersList());
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                loadDATFile();
+        } catch (IOException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex){
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -218,9 +255,6 @@ public class MainWindow extends javax.swing.JFrame {
         empDis.setVisible(true);
         this.setVisible(false);
     }// GEN-LAST:event_btnEmployeeActionPerformed
-
-
-
 
     private void btnMemberActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnMemberActionPerformed
         // TODO add your handling code here:
@@ -233,13 +267,17 @@ public class MainWindow extends javax.swing.JFrame {
      *
      * @param evt
      */
-    private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCleanStartActionPerformed
+    private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) throws IOException, ClassNotFoundException {// GEN-FIRST:event_btnCleanStartActionPerformed
         // TODO add your handling code here:
         JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
         try {
+            Gym.getMembersList().clear();
+            Gym.getEmployeesList().clear();
             loadStartUpFile();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex){
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }// GEN-LAST:event_btnCleanStartActionPerformed
 

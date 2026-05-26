@@ -18,9 +18,7 @@ public class Gym implements Serializable{
 
 
     public Gym() {
-        Gym.membersList = new ArrayList<>();
-        Gym.employeesList = new ArrayList<>();
-
+       
     }
 
     public static ArrayList<Member> getMembersList() {
@@ -50,6 +48,7 @@ public class Gym implements Serializable{
     }
     public static void addEmployee(Employee newEmployee){
         employeesList.add(newEmployee);
+        
     }
 
 }

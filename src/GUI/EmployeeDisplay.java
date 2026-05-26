@@ -26,13 +26,13 @@ import javax.swing.table.DefaultTableModel;
  * @author danalajmi
  */
 public class EmployeeDisplay extends javax.swing.JFrame {
-private Gym polyGym;
+
     /**
      * Creates new form EmployeeDisplay
      */
     public EmployeeDisplay() {
         initComponents();
-        polyGym = new Gym();
+       loadEmployeesIntoTable();
     }
 
     /**
@@ -118,13 +118,6 @@ private Gym polyGym;
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
-        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonYesActionPerformed(evt);
-            }
-
-
-        });
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -295,7 +288,7 @@ private Gym polyGym;
                 .addContainerGap(169, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Delete Employee", jPanel2);
+        jTabbedPane1.addTab("All employees", jPanel2);
 
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -324,6 +317,7 @@ private Gym polyGym;
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNameActionPerformed
@@ -356,13 +350,20 @@ private Gym polyGym;
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
-
+           
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
-
-            FileOutputStream fileOut = new FileOutputStream("employees.dat");
+            loadEmployeesIntoTable();
+            try {
+                FileOutputStream fileOut = new FileOutputStream("employees.dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(Gym.getEmployeesList());
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             txtfName.setText(null);
             txtLName.setText(null);
