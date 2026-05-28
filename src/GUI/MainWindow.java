@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -56,6 +57,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnEmployee = new javax.swing.JButton();
         btnMember = new javax.swing.JButton();
         btnCleanStart = new javax.swing.JButton();
+        btnReport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,14 +81,14 @@ public class MainWindow extends javax.swing.JFrame {
         btnCleanStart.setText("Clean start");
         btnCleanStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    btnCleanStartActionPerformed(evt);
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch(ClassNotFoundException ex){
-                    ex.printStackTrace();
-                }
+                btnCleanStartActionPerformed(evt);
+            }
+        });
+
+        btnReport.setText("Generate report");
+        btnReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportActionPerformed(evt);
             }
         });
 
@@ -94,10 +96,6 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(btnCleanStart)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +107,14 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnMember)
                         .addGap(53, 53, 53))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReport)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCleanStart)
+                        .addGap(18, 18, 18)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,20 +125,63 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEmployee)
                     .addComponent(btnMember))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnReport)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnCleanStart)
-                .addGap(24, 24, 24))
+                .addGap(26, 26, 26))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
+        // TODO add your handling code here:
+        String title = "Bahrain Polytechnic GYM report \n";
+        try {
+            FileWriter reportFile = new FileWriter("report.txt");
+            reportFile.write(title);
+            reportFile.write("Polytechnic staff \n");
+
+            int staffCount = 0;
+            for (Member member : Gym.getMembersList()) {
+                if (member instanceof Staff) {
+                    staffCount++;
+                    String staffInfo = staffCount + ".Name: " + member.getfName() + " " + member.getlName()
+                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone() 
+                            + "\n \t Department: " + ((Staff) member).getDepartment() + "\n \t Position: " + ((Staff) member).getPosition() + "\n";
+                    reportFile.write(staffInfo);
+                }
+            }
+                reportFile.write("\nTotal staff members: " + staffCount);
+                
+                reportFile.write("\n \nPolytechnic students \n");
+
+            int studentCount = 0;
+            for (Member member : Gym.getMembersList()) {
+                if (member instanceof Student) {
+                    studentCount++;
+                    String studentInfo = studentCount + ".Name: " + member.getfName() + " " + member.getlName()
+                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone() 
+                            + "\n \t Enrolled course: " + ((Student) member).getCourse() + "\n \t Team: " + ((Student) member).getTeam() + "\n";
+                    reportFile.write(studentInfo);
+                }
+                
+            }
+            reportFile.write("\nTotal student members: " + studentCount);
+            reportFile.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnReportActionPerformed
+
     private void loadDATFile() throws FileNotFoundException, IOException, ClassNotFoundException {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
         if (Files.exists(pathEmp) || Files.exists(pathMember)) {
-            
+
             FileInputStream fileInEmp;
             try {
                 fileInEmp = new FileInputStream("employees.dat");
@@ -160,7 +209,7 @@ public class MainWindow extends javax.swing.JFrame {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-     
+
     }
 
     private void loadStartUpFile() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -218,32 +267,32 @@ public class MainWindow extends javax.swing.JFrame {
                 }
                 gymemployees.add(newEmp);
                 Gym.setEmployeesList(gymemployees);
-                
+
             }
             try {
-                    FileOutputStream fileOut = new FileOutputStream("employees.dat");
-                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                    out.writeObject(Gym.getEmployeesList());
+                FileOutputStream fileOut = new FileOutputStream("employees.dat");
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(Gym.getEmployeesList());
 
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-                try {
-                    FileOutputStream memFileOut = new FileOutputStream("members.dat");
-                    ObjectOutputStream memOut = new ObjectOutputStream(memFileOut);
-                    memOut.writeObject(Gym.getMembersList());
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                loadDATFile();
+            try {
+                FileOutputStream memFileOut = new FileOutputStream("members.dat");
+                ObjectOutputStream memOut = new ObjectOutputStream(memFileOut);
+                memOut.writeObject(Gym.getMembersList());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            loadDATFile();
         } catch (IOException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -276,7 +325,7 @@ public class MainWindow extends javax.swing.JFrame {
             loadStartUpFile();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }// GEN-LAST:event_btnCleanStartActionPerformed
@@ -334,6 +383,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnCleanStart;
     private javax.swing.JButton btnEmployee;
     private javax.swing.JButton btnMember;
+    private javax.swing.JButton btnReport;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
