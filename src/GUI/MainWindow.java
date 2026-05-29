@@ -81,7 +81,15 @@ public class MainWindow extends javax.swing.JFrame {
         btnCleanStart.setText("Clean start");
         btnCleanStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCleanStartActionPerformed(evt);
+                try {
+                    btnCleanStartActionPerformed(evt);
+                } catch (ClassNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -149,13 +157,13 @@ public class MainWindow extends javax.swing.JFrame {
                 if (member instanceof Staff) {
                     staffCount++;
                     String staffInfo = staffCount + ".Name: " + member.getfName() + " " + member.getlName()
-                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone() 
+                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone()
                             + "\n \t Department: " + ((Staff) member).getDepartment() + "\n \t Position: " + ((Staff) member).getPosition() + "\n";
                     reportFile.write(staffInfo);
                 }
             }
                 reportFile.write("\nTotal staff members: " + staffCount);
-                
+
                 reportFile.write("\n \nPolytechnic students \n");
 
             int studentCount = 0;
@@ -163,11 +171,11 @@ public class MainWindow extends javax.swing.JFrame {
                 if (member instanceof Student) {
                     studentCount++;
                     String studentInfo = studentCount + ".Name: " + member.getfName() + " " + member.getlName()
-                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone() 
+                            + "\n \t address: " + member.getAddress() + "\n \t Phone Number: " + member.getPhone()
                             + "\n \t Enrolled course: " + ((Student) member).getCourse() + "\n \t Team: " + ((Student) member).getTeam() + "\n";
                     reportFile.write(studentInfo);
                 }
-                
+
             }
             reportFile.write("\nTotal student members: " + studentCount);
             reportFile.close();

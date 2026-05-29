@@ -13,14 +13,18 @@ import LOGIC.Staff;
 import LOGIC.Student;
 import LOGIC.Employee;
 import LOGIC.Trainer;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.RootPaneUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -133,9 +137,21 @@ public class MemberDisplay extends javax.swing.JFrame {
         TrainerMemberComboBox = new javax.swing.JComboBox<>();
         RemoveMemberButton1 = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableMembers = new javax.swing.JTable();
+        jButtonDelete = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("Add member");
@@ -220,10 +236,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         });
 
-        pnlStudent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel4.setText("Study Course");
-        pnlStudent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, -1, -1));
 
         jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
         jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -231,10 +244,8 @@ public class MemberDisplay extends javax.swing.JFrame {
                 jComboBoxCourseActionPerformed(evt);
             }
         });
-        pnlStudent.add(jComboBoxCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 29, -1, -1));
 
         jLabel5.setText("Are you in a sports Team?");
-        pnlStudent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 68, -1, -1));
 
         jRadioButtonTeamY.setText("Yes");
         jRadioButtonTeamY.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +253,6 @@ public class MemberDisplay extends javax.swing.JFrame {
                 jRadioButtonTeamYActionPerformed(evt);
             }
         });
-        pnlStudent.add(jRadioButtonTeamY, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 103, -1, -1));
 
         jRadioButtonTeamN.setText("No");
         jRadioButtonTeamN.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +260,6 @@ public class MemberDisplay extends javax.swing.JFrame {
                 jRadioButtonTeamNActionPerformed(evt);
             }
         });
-        pnlStudent.add(jRadioButtonTeamN, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 136, -1, -1));
 
         jComboBoxTeam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vollyball", "basketball", "football", "running", "tennis" }));
         jComboBoxTeam.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +284,40 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addContainerGap(166, Short.MAX_VALUE))
         );
 
-        pnlStudent.add(pnlTeam, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
+        javax.swing.GroupLayout pnlStudentLayout = new javax.swing.GroupLayout(pnlStudent);
+        pnlStudent.setLayout(pnlStudentLayout);
+        pnlStudentLayout.setHorizontalGroup(
+            pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStudentLayout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(12, 12, 12)
+                .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pnlTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnlStudentLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jRadioButtonTeamY)
+                    .addComponent(jRadioButtonTeamN)))
+        );
+        pnlStudentLayout.setVerticalGroup(
+            pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStudentLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStudentLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel4))
+                    .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButtonTeamY)
+                .addGap(12, 12, 12)
+                .addComponent(jRadioButtonTeamN)
+                .addGap(3, 3, 3)
+                .addComponent(pnlTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         lblPosition.setText("Department");
 
@@ -488,7 +530,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jLabel9)))
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,7 +598,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jLabel10)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,6 +620,82 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Remove Member ", jPanel3);
 
+        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel11.setText("Delete Members");
+
+        jLabel12.setText("This feature will delete membership of members from the gym");
+
+        jTableMembers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Membership ID", "First Name", "Last Name", "Phone Number"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableMembers);
+
+        jButtonDelete.setText("Delete Membership");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(307, 307, 307))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(349, 349, 349)
+                        .addComponent(jButtonDelete)))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jButtonDelete)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Delete Members", jPanel4);
+
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -589,19 +707,23 @@ public class MemberDisplay extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(btnHome)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 16, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnHome)
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -831,6 +953,95 @@ public class MemberDisplay extends javax.swing.JFrame {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        // TODO add your handling code here:
+
+        int selectedIndex = jTabbedPane1.getSelectedIndex();
+        String tabTitle = jTabbedPane1.getTitleAt(selectedIndex);
+
+        if ("Delete Members".equals(tabTitle)) {
+            loadMembersFromFile();
+            loadMembersIntoTable();
+
+        }
+
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTableMembers.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a member to delete.");
+            return;
+        }
+
+        // Get Member ID and Name from the selected row
+        int membershipId = (int) jTableMembers.getValueAt(selectedRow, 0);
+        String fname = (String) jTableMembers.getValueAt(selectedRow, 1);
+        String lname = (String) jTableMembers.getValueAt(selectedRow, 2);
+
+        // Show confirmation dialog
+        int choice = JOptionPane.showConfirmDialog(
+                this,
+                "Are you sure you want to delete member " + fname + " " + lname + "?",
+                "Confirm Deletion",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (choice != JOptionPane.YES_OPTION) {
+            return; // user clicked No, cancel deletion
+        }
+
+        // Find the member object
+        Member toRemove = null;
+        for (Member m : Gym.getMembersList()) {
+            if (m.getMembershipID() == membershipId) {
+                toRemove = m;
+                break;
+            }
+        }
+
+        if (toRemove == null) {
+            JOptionPane.showMessageDialog(this, "Member not found.");
+            return;
+        }
+
+        // 🔑 Business rule: remove from any trainer’s assigned list
+        boolean removedFromTrainer = false;
+        for (Employee e : Gym.getEmployeesList()) {
+            if (e instanceof Trainer) {
+                Trainer t = (Trainer) e;
+                if (t.getAssignedMembers().remove(toRemove)) {
+                    removedFromTrainer = true;
+                }
+            }
+        }
+
+        // Safe to delete from members list
+        Gym.getMembersList().remove(toRemove);
+
+        if (removedFromTrainer) {
+            JOptionPane.showMessageDialog(this,
+                    "Member deleted successfully and also removed from their trainer’s list.");
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Member deleted successfully.");
+        }
+
+        // Save updated list back to file
+        try (FileOutputStream fileOut = new FileOutputStream("members.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(Gym.getMembersList());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error saving updated members: " + ex.getMessage());
+        }
+
+        // Refresh table
+        loadMembersIntoTable();
+        loadTrainerMembers();
+
+
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     private void jRadioButtonTeamNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonTeamNActionPerformed
         // TODO add your handling code here:
         if (jRadioButtonTeamN.isSelected()) {
@@ -844,8 +1055,42 @@ public class MemberDisplay extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    private void loadMembersFromFile() {
+
+        try (FileInputStream fileIn = new FileInputStream("members.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
+
+            ArrayList<Member> savedList = (ArrayList<Member>) in.readObject();
+            Gym.setMembersList(savedList);   // update Gym’s list
+
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "No saved members yet.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error loading Mmebers: " + e.getMessage());
+        }
+    }
+
+    private void loadMembersIntoTable() {
+        String[] columns = {"Membership Id", "First Name", "Last Name", "Phone Number"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+        for (Member m : Gym.getMembersList()) {
+            Object[] row = {
+                m.getMembershipID(),
+                m.getfName(),
+                m.getlName(),
+                m.getPhone()
+
+            };
+            model.addRow(row);
+        }
+
+        jTableMembers.setModel(model);
+    }
+    
+    
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -886,11 +1131,14 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.JButton btnAddMemeber;
     private javax.swing.JButton btnHome;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButtonDelete;
     private javax.swing.JComboBox<String> jComboBoxCourse;
     private javax.swing.JComboBox<String> jComboBoxDep;
     private javax.swing.JComboBox<String> jComboBoxTeam;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -902,13 +1150,16 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButtonM;
     private javax.swing.JRadioButton jRadioButtonStaff;
     private javax.swing.JRadioButton jRadioButtonStudent;
     private javax.swing.JRadioButton jRadioButtonTeamN;
     private javax.swing.JRadioButton jRadioButtonTeamY;
     private javax.swing.JRadioButton jRadioButtonW;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTableMembers;
     private javax.swing.JLabel lblDOB;
     private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblFname1;

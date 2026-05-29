@@ -50,5 +50,37 @@ public class Gym implements Serializable{
         employeesList.add(newEmployee);
         
     }
+    
+  public static boolean deleteMemberById(int membershipId) {
+    Member target = null;
+
+    for (Member m : membersList) {
+        if (m.getMembershipID() == membershipId) {
+            target = m;
+            break;
+        }
+    }
+
+    if (target != null) {
+        boolean removedFromTrainer = false;
+
+        // Remove from trainers’ assigned lists
+        for (Employee e : employeesList) {
+            if (e instanceof Trainer) {
+                Trainer t = (Trainer) e;
+                if (t.getAssignedMembers().remove(target)) {
+                    removedFromTrainer = true;
+                }
+            }
+        }
+
+        // Remove from members list
+        membersList.remove(target);
+
+        return removedFromTrainer;
+    }
+    return false;
+}
+
 
 }
