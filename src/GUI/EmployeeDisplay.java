@@ -451,7 +451,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         Gym.getEmployeesList().remove(toRemove);
         JOptionPane.showMessageDialog(this, "Employee deleted successfully.");
 
-        // ✅ Save updated list back to file
+        //  Save updated list back to file
         try (FileOutputStream fileOut = new FileOutputStream("employees.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(Gym.getEmployeesList());
         } catch (Exception ex) {
