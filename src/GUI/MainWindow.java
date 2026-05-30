@@ -198,7 +198,7 @@ public class MainWindow extends javax.swing.JFrame {
                         String memdob = scan.nextLine();
                         int memphone = Integer.parseInt(scan.nextLine());
                         String gender = scan.nextLine();
-                        if (memType.equals("staff")) {
+                      if (memType.equals("staff")) {
                             String position = scan.nextLine();
                             String department = scan.nextLine();
                             newMember = new Staff(position, department, memdob, gender, memType, memFName, memLName,
@@ -206,9 +206,10 @@ public class MainWindow extends javax.swing.JFrame {
                         } else if (memType.equals("student")) {
                             String degree = scan.nextLine();
                             String team = scan.nextLine();
-                            newMember = new Student(degree, team, degree, gender, team, memFName, memLName, memaddress,
+                            newMember = new Student(degree, team, memdob, gender, memType, memFName, memLName, memaddress,
                                     memphone);
                         }
+
                         Trainer trainer = (Trainer) newEmp;
                         trainer.addMember(newMember);
                         Gym.addMember(newMember);
@@ -247,6 +248,10 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        
+        
+        
+        
     }
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEmployeeActionPerformed

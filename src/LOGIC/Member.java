@@ -11,7 +11,8 @@ import java.io.Serializable;
  * @author danalajmi
  */
 public class Member extends Person implements Serializable{
-
+    
+private static final long serialVersionUID = 3119492020456487270L;
     private int membershipID;
     private static int ID = 100;
     private String dateOfBirth;
@@ -27,6 +28,10 @@ public class Member extends Person implements Serializable{
         this.gender = gender;
         this.type = type;
         this.membershipID = ID++;
+    }
+
+    public String getType() {
+        return type;
     }
 
 
@@ -46,4 +51,22 @@ public class Member extends Person implements Serializable{
         return gender;
     }
 
+    public void setMembershipID(int membershipID) {
+        this.membershipID = membershipID;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    
+    
 }

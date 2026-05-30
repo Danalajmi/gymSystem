@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,6 +26,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author danalajmi
  */
+
+
 public class EmployeeDisplay extends javax.swing.JFrame {
 
     /**
@@ -32,7 +35,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
      */
     public EmployeeDisplay() {
         initComponents();
-       loadEmployeesIntoTable();
+        loadEmployeesIntoTable();
+        initialiseCombo();
+
     }
 
     /**
@@ -45,7 +50,8 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jTabbedPaneAlter = new javax.swing.JTabbedPane();
         jPanelAddEmp = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblFname = new javax.swing.JLabel();
@@ -69,13 +75,35 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployees = new javax.swing.JTable();
         jButtonDelete1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanelAddEmp1 = new javax.swing.JPanel();
+        lblBigTitle = new javax.swing.JLabel();
+        lblFNamee = new javax.swing.JLabel();
+        txtfNameE = new javax.swing.JTextField();
+        lblLNameE = new javax.swing.JLabel();
+        txtLNameE = new javax.swing.JTextField();
+        lbladdressE = new javax.swing.JLabel();
+        txtaddressE = new javax.swing.JTextField();
+        txtPhoneE = new javax.swing.JTextField();
+        lblPhoneE = new javax.swing.JLabel();
+        lblSalaryE = new javax.swing.JLabel();
+        txtTrainer = new javax.swing.JTextField();
+        jLabelE = new javax.swing.JLabel();
+        btnDone = new javax.swing.JButton();
+        txtSalaryE = new javax.swing.JTextField();
+        lblFNamee1 = new javax.swing.JLabel();
+        jComboBoxID = new javax.swing.JComboBox<>();
+        RbtnPT = new javax.swing.JRadioButton();
+        RbtnE = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(248, 236, 214));
 
-        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+        jTabbedPaneAlter.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPaneAlter.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPane1StateChanged(evt);
+                jTabbedPaneAlterStateChanged(evt);
             }
         });
 
@@ -118,6 +146,11 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
+        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonYesActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -164,7 +197,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                                     .addComponent(lblSalary)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         jPanelAddEmpLayout.setVerticalGroup(
             jPanelAddEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +234,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jTabbedPane1.addTab("Add Employee", jPanelAddEmp);
+        jTabbedPaneAlter.addTab("Add Employee", jPanelAddEmp);
 
         jLabel1.setText("Choose Employee to Edit");
 
@@ -216,7 +249,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(48, 48, 48)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +261,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addContainerGap(401, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edit Employee", jPanel1);
+        jTabbedPaneAlter.addTab("Edit Employee", jPanel1);
 
         jTableEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -271,7 +304,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(220, 220, 220)
@@ -288,7 +321,190 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addContainerGap(169, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("All employees", jPanel2);
+        jTabbedPaneAlter.addTab("All employees", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanelAddEmp1.setBackground(new java.awt.Color(207, 217, 228));
+
+        lblBigTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblBigTitle.setText("Edit employee's Information");
+
+        lblFNamee.setText("First name: ");
+
+        txtfNameE.setColumns(10);
+        txtfNameE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfNameEActionPerformed(evt);
+            }
+        });
+
+        lblLNameE.setText("Last name: ");
+
+        txtLNameE.setColumns(10);
+
+        lbladdressE.setText("address");
+
+        txtaddressE.setColumns(10);
+
+        txtPhoneE.setColumns(10);
+
+        lblPhoneE.setText("phone Number");
+
+        lblSalaryE.setText("Salary");
+
+        txtTrainer.setColumns(10);
+
+        jLabelE.setText("Trainer");
+
+        btnDone.setText("Done");
+        btnDone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoneActionPerformed(evt);
+            }
+        });
+
+        txtSalaryE.setColumns(10);
+        txtSalaryE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalaryEActionPerformed(evt);
+            }
+        });
+
+        lblFNamee1.setText("Please Choose The ID Of The Employee You Wish To change Threir Information :");
+
+        jComboBoxID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(RbtnPT);
+        RbtnPT.setText("PT/Personal Trainer");
+        RbtnPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RbtnPTActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(RbtnE);
+        RbtnE.setText("E/Employee");
+        RbtnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RbtnEActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAddEmp1Layout = new javax.swing.GroupLayout(jPanelAddEmp1);
+        jPanelAddEmp1.setLayout(jPanelAddEmp1Layout);
+        jPanelAddEmp1Layout.setHorizontalGroup(
+            jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(lblBigTitle))
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblFNamee)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtfNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblLNameE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtLNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lbladdressE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtaddressE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblPhoneE)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtPhoneE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelE)
+                            .addComponent(lblSalaryE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTrainer)
+                            .addComponent(txtSalaryE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RbtnPT, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RbtnE)
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblFNamee1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBoxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
+        );
+        jPanelAddEmp1Layout.setVerticalGroup(
+            jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblBigTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFNamee1)
+                    .addComponent(jComboBoxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFNamee)
+                    .addComponent(txtfNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLNameE)
+                    .addComponent(txtLNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbladdressE)
+                    .addComponent(txtaddressE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPhoneE)
+                    .addComponent(txtPhoneE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSalaryE)
+                    .addComponent(txtSalaryE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelE)
+                    .addComponent(txtTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RbtnE)
+                    .addComponent(RbtnPT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(btnDone)
+                .addGap(32, 32, 32))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelAddEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jPanelAddEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        jTabbedPaneAlter.addTab("Alter Employee's Information", jPanel3);
 
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -301,7 +517,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPaneAlter, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton2)
@@ -313,7 +529,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPaneAlter, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -324,10 +540,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNameActionPerformed
 
-    private void jRadioButtonYesActionPerformed(ActionEvent evt) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'jRadioButtonYesActionPerformed'");
-            }
     /**
      *
      *
@@ -350,14 +562,14 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
-           
+
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
             loadEmployeesIntoTable();
             try {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(Gym.getEmployeesList());
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(Gym.getEmployeesList());
 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
@@ -462,10 +674,10 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         loadEmployeesIntoTable();
     }//GEN-LAST:event_jButtonDelete1ActionPerformed
 
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+    private void jTabbedPaneAlterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneAlterStateChanged
         // TODO add your handling code here:
-           int selectedIndex = jTabbedPane1.getSelectedIndex();
-        String tabTitle = jTabbedPane1.getTitleAt(selectedIndex);
+        int selectedIndex = jTabbedPaneAlter.getSelectedIndex();
+        String tabTitle = jTabbedPaneAlter.getTitleAt(selectedIndex);
 
         if ("Delete Employee".equals(tabTitle)) {
             loadEmployeesFromFile();
@@ -473,8 +685,113 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         }
 
 
+    }//GEN-LAST:event_jTabbedPaneAlterStateChanged
 
-    }//GEN-LAST:event_jTabbedPane1StateChanged
+    private void txtfNameEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNameEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfNameEActionPerformed
+
+    private void txtSalaryEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalaryEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalaryEActionPerformed
+
+    private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDActionPerformed
+        // TODO add your handling code here:
+//when we click on the ID it attribute should appear (the data changes based on the ID selected)
+        Object selected = jComboBoxID.getSelectedItem();
+        if (selected != null) {
+            int selection = Integer.parseInt(selected.toString());
+            for (Employee emp : Gym.getEmployeesList()) {
+                if (emp.getStaffID() == selection) {
+                    txtfNameE.setText(emp.getfName());
+                    txtLNameE.setText(emp.getlName());
+                    txtPhoneE.setText(Integer.toString(emp.getPhone()));
+                    txtaddressE.setText(emp.getAddress());
+                    txtTrainer.setText(emp.getType());
+                    txtSalaryE.setText(Double.toString(emp.getSalary()));
+                    break;
+                }
+            }
+        }
+
+
+    }//GEN-LAST:event_jComboBoxIDActionPerformed
+
+    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
+        FileOutputStream fileOut = null;
+        try {
+            // TODO add your handling code here:
+            //on click
+            int id = Integer.parseInt(jComboBoxID.getSelectedItem().toString());//take id from combo
+            for (int i = 0; i < Gym.getEmployeesList().size(); i++) {
+//i did basic loop this time just to trin
+
+if (Gym.getEmployeesList().get(i).getStaffID() == id) { // search for same id from the loop
+    Gym.getEmployeesList().get(i).setfName(txtfNameE.getText()); //if id found we gonna set new info in the array list
+    Gym.getEmployeesList().get(i).setlName(txtLNameE.getText());
+    Gym.getEmployeesList().get(i).setAddress(txtaddressE.getText());
+    Gym.getEmployeesList().get(i).setPhone(Integer.parseInt(txtPhoneE.getText()));
+    Gym.getEmployeesList().get(i).setSalary(Double.parseDouble(txtSalaryE.getText()));
+    if (RbtnPT.isSelected()) {
+        Gym.getEmployeesList().get(i).setType("PT");
+        
+    } else if (RbtnE.isSelected()) {
+        Gym.getEmployeesList().get(i).setType("E");
+        //then we going to disply new info in the combo that got saved in the array previously
+        txtfNameE.setText(Gym.getEmployeesList().get(i).getfName());
+        txtLNameE.setText(Gym.getEmployeesList().get(i).getlName());
+        txtPhoneE.setText(Integer.toString(Gym.getEmployeesList().get(i).getPhone()));
+        txtaddressE.setText(Gym.getEmployeesList().get(i).getAddress());
+        txtTrainer.setText(Gym.getEmployeesList().get(i).getType());
+        txtSalaryE.setText(Double.toString(Gym.getEmployeesList().get(i).getSalary()));
+        
+    }
+    
+}
+
+            }   initialiseCombo();
+            //now we serialize the new data so the update can get saved
+            fileOut = new FileOutputStream("employees.dat");
+            ObjectOutputStream out = null;
+            try {
+                out = new ObjectOutputStream(fileOut);
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                out.writeObject(Gym.getEmployeesList());
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this,"Employee's Data Altered Successfully"); //message
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fileOut.close();
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnDoneActionPerformed
+
+    private void RbtnPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbtnPTActionPerformed
+        // TODO add your handling code here:
+
+        txtTrainer.setText("PT");
+
+    }//GEN-LAST:event_RbtnPTActionPerformed
+
+    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonYesActionPerformed
+
+    private void RbtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbtnEActionPerformed
+        // TODO add your handling code here:
+                txtTrainer.setText("E");
+
+    }//GEN-LAST:event_RbtnEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -511,8 +828,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         });
     }
 
-      // Method to populate the table
-
+    // Method to populate the table
     private void loadEmployeesIntoTable() {
 
         String[] columns = {"Id", "First Name", "Last Name", "Phone Number", "PT/E"};
@@ -532,7 +848,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         jTableEmployees.setModel(model);
     }
 
- @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     private void loadEmployeesFromFile() {
 
         try (FileInputStream fileIn = new FileInputStream("employees.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
@@ -550,31 +866,65 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RbtnE;
+    private javax.swing.JRadioButton RbtnPT;
+    private javax.swing.JButton btnDone;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonDelete1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelE;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAddEmp;
+    private javax.swing.JPanel jPanelAddEmp1;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPaneAlter;
     private javax.swing.JTable jTableEmployees;
+    private javax.swing.JLabel lblBigTitle;
+    private javax.swing.JLabel lblFNamee;
+    private javax.swing.JLabel lblFNamee1;
     private javax.swing.JLabel lblFname;
     private javax.swing.JLabel lblLName;
+    private javax.swing.JLabel lblLNameE;
     private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhoneE;
     private javax.swing.JLabel lblSalary;
+    private javax.swing.JLabel lblSalaryE;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lbladdress;
+    private javax.swing.JLabel lbladdressE;
     private javax.swing.JTextField txtLName;
+    private javax.swing.JTextField txtLNameE;
     private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtPhoneE;
     private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtSalaryE;
+    private javax.swing.JTextField txtTrainer;
     private javax.swing.JTextField txtaddress;
+    private javax.swing.JTextField txtaddressE;
     private javax.swing.JTextField txtfName;
+    private javax.swing.JTextField txtfNameE;
     // End of variables declaration//GEN-END:variables
+//if the arraylist isnt emplty then we gonna extract the IDs and put them in the comboBox
+    private void initialiseCombo() {
+        if (Gym.getEmployeesList() != null) {
+            jComboBoxID.removeAllItems();
+        }
+        for (Employee emp : Gym.getEmployeesList()) {
+
+            int item = emp.getStaffID();
+            jComboBoxID.addItem(Integer.toString(item));
+
+        }
+
+    }
 }
