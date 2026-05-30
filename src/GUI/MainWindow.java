@@ -10,6 +10,7 @@ import LOGIC.Member;
 import LOGIC.Staff;
 import LOGIC.Student;
 import LOGIC.Trainer;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -146,7 +147,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
         // TODO add your handling code here:
-        String title = "Bahrain Polytechnic GYM report \n";
+        String title = "Bahrain Polytechnic GYM report \n \n";
         try {
             FileWriter reportFile = new FileWriter("report.txt");
             reportFile.write(title);
@@ -179,6 +180,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
             reportFile.write("\nTotal student members: " + studentCount);
             reportFile.close();
+            // show confirmation message
+            JOptionPane.showMessageDialog(rootPane, "Report generated successfully");
+            
+            // open report in default text application
+             // source: https://stackoverflow.com/questions/3487149/how-to-open-the-notepad-file-in-java
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                File report = new File("report.txt");
+                desktop.open(report);
+               
+            }
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }

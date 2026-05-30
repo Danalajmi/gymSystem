@@ -6,6 +6,7 @@ package GUI;
 
 import LOGIC.Employee;
 import LOGIC.Gym;
+import LOGIC.Member;
 import LOGIC.Trainer;
 
 import java.awt.event.ActionEvent;
@@ -33,6 +34,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     public EmployeeDisplay() {
         initComponents();
        loadEmployeesIntoTable();
+       AddTrainers();
     }
 
     /**
@@ -69,6 +71,11 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployees = new javax.swing.JTable();
         jButtonDelete1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblpick = new javax.swing.JLabel();
+        trainerCombo = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        membersArea = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -290,6 +297,46 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("All employees", jPanel2);
 
+        lblpick.setText("Choose a trainer");
+
+        trainerCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trainerComboActionPerformed(evt);
+            }
+        });
+
+        membersArea.setColumns(20);
+        membersArea.setRows(5);
+        jScrollPane2.setViewportView(membersArea);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblpick)
+                        .addGap(58, 58, 58)
+                        .addComponent(trainerCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblpick)
+                    .addComponent(trainerCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("view assigned members", jPanel3);
+
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,6 +523,28 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
+    private void trainerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerComboActionPerformed
+        // TODO add your handling code here:
+         String selectedTrainer = trainerCombo.getSelectedItem().toString();
+         membersArea.setText(null);
+            for (Employee employee : Gym.getEmployeesList()) {
+                if (employee instanceof Trainer) {
+                    Trainer trainer = (Trainer) employee;
+                    String trainerName = trainer.getfName() + " " + trainer.getlName();
+                    if (trainerName.equals(selectedTrainer)) {
+                        if (trainer.getAssignedMembers() != null) {
+                            for (Member member : trainer.getAssignedMembers()) {
+                                String memberName = member.getfName() + " " + member.getlName();
+                                membersArea.append(memberName);
+                                membersArea.append("\n");
+                                
+                            }
+                        }
+                    }
+                }
+            }
+    }//GEN-LAST:event_trainerComboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -548,7 +617,20 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         }
     }
 
+    public void AddTrainers() {
+        int i = 0;
+        do {
+            Employee employee = Gym.getEmployeesList().get(i);
+            if (employee instanceof Trainer) {
+                Trainer trainer = (Trainer) employee;
+                String fullName = trainer.getfName() + " " + trainer.getlName();
+                trainerCombo.addItem(fullName);
+                
 
+            }
+            i++;
+        } while (i < Gym.getEmployeesList().size());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
@@ -559,10 +641,12 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAddEmp;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableEmployees;
     private javax.swing.JLabel lblFname;
@@ -571,6 +655,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private javax.swing.JLabel lblSalary;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lbladdress;
+    private javax.swing.JLabel lblpick;
+    private javax.swing.JTextArea membersArea;
+    private javax.swing.JComboBox<String> trainerCombo;
     private javax.swing.JTextField txtLName;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSalary;
