@@ -275,7 +275,7 @@ public class MainWindow extends javax.swing.JFrame {
                         } else if (memType.equals("student")) {
                             String degree = scan.nextLine();
                             String team = scan.nextLine();
-                            newMember = new Student(degree, team, degree, gender, team, memFName, memLName, memaddress,
+                            newMember = new Student(degree, team, memdob, gender, memType, memFName, memLName, memaddress,
                                     memphone);
                         }
                         Trainer trainer = (Trainer) newEmp;

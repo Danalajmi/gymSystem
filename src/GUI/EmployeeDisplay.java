@@ -76,6 +76,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         trainerCombo = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         membersArea = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -309,6 +310,8 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         membersArea.setRows(5);
         jScrollPane2.setViewportView(membersArea);
 
+        jLabel3.setText("Members:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -316,6 +319,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblpick)
@@ -330,9 +334,11 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpick)
                     .addComponent(trainerCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("view assigned members", jPanel3);
@@ -527,6 +533,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
          String selectedTrainer = trainerCombo.getSelectedItem().toString();
          membersArea.setText(null);
+         membersArea.setEditable(false);
             for (Employee employee : Gym.getEmployeesList()) {
                 if (employee instanceof Trainer) {
                     Trainer trainer = (Trainer) employee;
@@ -584,7 +591,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
     private void loadEmployeesIntoTable() {
 
-        String[] columns = {"Id", "First Name", "Last Name", "Phone Number", "PT/E"};
+        String[] columns = {"Id", "First Name", "Last Name","Address", "Phone Number", "PT/E"};
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         for (Employee e : Gym.getEmployeesList()) {
@@ -592,6 +599,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 e.getStaffID(),
                 e.getfName(),
                 e.getlName(),
+                e.getAddress(),
                 e.getPhone(),
                 e.getType()
             };
@@ -617,6 +625,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     */
     public void AddTrainers() {
         int i = 0;
         do {
@@ -639,6 +650,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
