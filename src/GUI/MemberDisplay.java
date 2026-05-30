@@ -8,10 +8,10 @@ package GUI;
  */
 import GUI.MainWindow;
 import LOGIC.Gym;
-import LOGIC.Member;
 import LOGIC.Staff;
 import LOGIC.Student;
 import LOGIC.Employee;
+import LOGIC.Member;
 import LOGIC.Trainer;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -39,6 +39,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         initComponents();
         AddTrainers();
         loadTrainerMembers();
+        initialiseCombo();
 
     }
 
@@ -90,6 +91,8 @@ public class MemberDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -138,7 +141,43 @@ public class MemberDisplay extends javax.swing.JFrame {
         RemoveMemberButton1 = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        lblAlterMemberTitle = new javax.swing.JLabel();
+        lblFnameM_E = new javax.swing.JLabel();
+        txtGenderM_E = new javax.swing.JTextField();
+        lblLNameM_E = new javax.swing.JLabel();
+        txtLNameM_E = new javax.swing.JTextField();
+        lbladdressM_E = new javax.swing.JLabel();
+        txtaddressM_E = new javax.swing.JTextField();
+        lblPhoneM_E = new javax.swing.JLabel();
+        txtPhoneM_E = new javax.swing.JTextField();
+        lblDOBM_E = new javax.swing.JLabel();
+        txtDOBM_E = new javax.swing.JTextField();
+        lblGenderM_E = new javax.swing.JLabel();
+        jRadioButtonWM_E = new javax.swing.JRadioButton();
+        jRadioButtonMM_E = new javax.swing.JRadioButton();
+        btnAlterMemeberSave = new javax.swing.JButton();
+        jComboBoxMembersID = new javax.swing.JComboBox<>();
+        txtfNameM_E = new javax.swing.JTextField();
+        pnlJoin = new javax.swing.JPanel();
+        pnlStaff1 = new javax.swing.JPanel();
+        lblPosition1 = new javax.swing.JLabel();
+        txtPosition1 = new javax.swing.JTextField();
+        lblDepartment1 = new javax.swing.JLabel();
+        jComboBoxDep1 = new javax.swing.JComboBox<>();
+        txtDisplayDepartment = new javax.swing.JTextField();
+        pnlStudent1 = new javax.swing.JPanel();
+        lblStuduyCourseM_E = new javax.swing.JLabel();
+        ComboBoxCourseM_E = new javax.swing.JComboBox<>();
+        lblSportTeamM_E = new javax.swing.JLabel();
+        ComboBoxTeamM_E = new javax.swing.JComboBox<>();
+        txtTeamDisplyM_E = new javax.swing.JTextField();
+        txtCourseDisplyM_E = new javax.swing.JTextField();
+        lblFnameM_E1 = new javax.swing.JLabel();
+        txtMemberTypeM_E = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMembers = new javax.swing.JTable();
@@ -204,6 +243,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jLabel3.setText("Gender: ");
 
+        buttonGroup2.add(jRadioButtonW);
         jRadioButtonW.setText("Woman");
         jRadioButtonW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +251,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButtonM);
         jRadioButtonM.setText("Man");
 
         btnAddMemeber.setText("Add");
@@ -530,7 +571,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jLabel9)))
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,7 +588,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addComponent(TrainerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addComponent(AssignTrainerButton)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(886, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Assign Trainer ", jPanel1);
@@ -598,7 +639,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jLabel10)))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,13 +656,340 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addComponent(TrainerMemberComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(RemoveMemberButton1)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(877, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Remove Member ", jPanel3);
 
-        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel11.setText("Delete Members");
+        lblAlterMemberTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblAlterMemberTitle.setText("Alter Member's Information");
+
+        lblFnameM_E.setText("First name: ");
+
+        txtGenderM_E.setColumns(10);
+        txtGenderM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenderM_EActionPerformed(evt);
+            }
+        });
+
+        lblLNameM_E.setText("Last name: ");
+
+        txtLNameM_E.setColumns(10);
+        txtLNameM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLNameM_EActionPerformed(evt);
+            }
+        });
+
+        lbladdressM_E.setText("address");
+
+        txtaddressM_E.setColumns(10);
+        txtaddressM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtaddressM_EActionPerformed(evt);
+            }
+        });
+
+        lblPhoneM_E.setText("phone Number");
+
+        txtPhoneM_E.setColumns(10);
+        txtPhoneM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneM_EActionPerformed(evt);
+            }
+        });
+
+        lblDOBM_E.setText("Date of birth");
+
+        txtDOBM_E.setColumns(10);
+        txtDOBM_E.setText("DD/MM/YYYY");
+        txtDOBM_E.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDOBM_EMouseClicked(evt);
+            }
+        });
+
+        lblGenderM_E.setText("Gender: ");
+
+        buttonGroup3.add(jRadioButtonWM_E);
+        jRadioButtonWM_E.setText("Female");
+        jRadioButtonWM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonWM_EActionPerformed(evt);
+            }
+        });
+
+        buttonGroup3.add(jRadioButtonMM_E);
+        jRadioButtonMM_E.setText("Male");
+        jRadioButtonMM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMM_EActionPerformed(evt);
+            }
+        });
+
+        btnAlterMemeberSave.setText("Save");
+        btnAlterMemeberSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterMemeberSaveActionPerformed(evt);
+            }
+        });
+
+        jComboBoxMembersID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxMembersIDActionPerformed(evt);
+            }
+        });
+
+        txtfNameM_E.setColumns(10);
+        txtfNameM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfNameM_EActionPerformed(evt);
+            }
+        });
+
+        lblPosition1.setText("Department");
+
+        txtPosition1.setColumns(10);
+
+        lblDepartment1.setText("Position");
+
+        jComboBoxDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "Creative Media", "Engineering", "Business", "Adminstration", "Health & sanitary", "Services" }));
+        jComboBoxDep1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDep1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlStaff1Layout = new javax.swing.GroupLayout(pnlStaff1);
+        pnlStaff1.setLayout(pnlStaff1Layout);
+        pnlStaff1Layout.setHorizontalGroup(
+            pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStaff1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPosition1)
+                    .addComponent(lblDepartment1))
+                .addGap(18, 18, 18)
+                .addGroup(pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStaff1Layout.createSequentialGroup()
+                        .addComponent(txtDisplayDepartment, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxDep1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlStaff1Layout.createSequentialGroup()
+                        .addComponent(txtPosition1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlStaff1Layout.setVerticalGroup(
+            pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStaff1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPosition1)
+                    .addComponent(jComboBoxDep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDisplayDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDepartment1)
+                    .addComponent(txtPosition1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        pnlStudent1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblStuduyCourseM_E.setText("Study Course");
+        pnlStudent1.add(lblStuduyCourseM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        ComboBoxCourseM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
+        ComboBoxCourseM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxCourseM_EActionPerformed(evt);
+            }
+        });
+        pnlStudent1.add(ComboBoxCourseM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 130, -1));
+
+        lblSportTeamM_E.setText("Your Sport Team");
+        pnlStudent1.add(lblSportTeamM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        ComboBoxTeamM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vollyball", "basketball", "football", "running", "tennis" }));
+        ComboBoxTeamM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxTeamM_EActionPerformed(evt);
+            }
+        });
+        pnlStudent1.add(ComboBoxTeamM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        txtTeamDisplyM_E.setColumns(10);
+        txtTeamDisplyM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTeamDisplyM_EActionPerformed(evt);
+            }
+        });
+        pnlStudent1.add(txtTeamDisplyM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 110, -1));
+        pnlStudent1.add(txtCourseDisplyM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 120, -1));
+
+        javax.swing.GroupLayout pnlJoinLayout = new javax.swing.GroupLayout(pnlJoin);
+        pnlJoin.setLayout(pnlJoinLayout);
+        pnlJoinLayout.setHorizontalGroup(
+            pnlJoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlJoinLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(pnlStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlJoinLayout.createSequentialGroup()
+                .addComponent(pnlStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+        pnlJoinLayout.setVerticalGroup(
+            pnlJoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlJoinLayout.createSequentialGroup()
+                .addComponent(pnlStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        lblFnameM_E1.setText("Please Choose The ID Of The Member You Wish To change Threir Information :");
+
+        txtMemberTypeM_E.setColumns(10);
+        txtMemberTypeM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMemberTypeM_EActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Member Type :");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(lblAlterMemberTitle)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAlterMemeberSave, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblGenderM_E)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGap(122, 122, 122)
+                                            .addComponent(txtGenderM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jRadioButtonMM_E)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jRadioButtonWM_E))
+                                .addComponent(lblDOBM_E)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblFnameM_E)
+                                            .addComponent(lblLNameM_E))
+                                        .addGap(62, 62, 62)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtLNameM_E)
+                                            .addComponent(txtfNameM_E)))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(lbladdressM_E)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtaddressM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(lblPhoneM_E)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtPhoneM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtDOBM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMemberTypeM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(168, 168, 168))))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(lblFnameM_E1)
+                .addGap(29, 29, 29)
+                .addComponent(jComboBoxMembersID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAlterMemberTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxMembersID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFnameM_E1))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFnameM_E)
+                            .addComponent(txtfNameM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLNameM_E)
+                            .addComponent(txtLNameM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbladdressM_E)
+                            .addComponent(txtaddressM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPhoneM_E)
+                            .addComponent(txtPhoneM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDOBM_E)
+                            .addComponent(txtDOBM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMemberTypeM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGenderM_E)
+                    .addComponent(jRadioButtonWM_E)
+                    .addComponent(jRadioButtonMM_E)
+                    .addComponent(txtGenderM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btnAlterMemeberSave)
+                .addGap(894, 894, 894))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Alter Member's Information", jPanel4);
+
+        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel13.setText("Delete Members");
 
         jLabel12.setText("This feature will delete membership of members from the gym");
 
@@ -660,31 +1028,31 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
+                .addComponent(jLabel13)
                 .addGap(307, 307, 307))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
                         .addComponent(jButtonDelete)))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel11)
+                .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
@@ -694,7 +1062,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Delete Members", jPanel4);
+        jTabbedPane1.addTab("Delete Members", jPanel6);
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -719,7 +1087,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 16, Short.MAX_VALUE)
                 .addComponent(btnHome)
                 .addGap(32, 32, 32)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -846,17 +1214,19 @@ public class MemberDisplay extends javax.swing.JFrame {
                 gender = "Male";
             }
             if (jRadioButtonStudent.isSelected()) {
+                String type = "student";
                 String course = jComboBoxCourse.getSelectedItem().toString();
                 if (jRadioButtonTeamY.isSelected()) {
                     String team = jComboBoxTeam.getSelectedItem().toString();
-                    newMember = new Student(course, team, DOB, gender, team, fname, lname, address, phone);
+                    newMember = new Student(course, team, DOB, gender, type, fname, lname, address, phone);
                 } else if (jRadioButtonTeamN.isSelected()) {
-                    newMember = new Student(course, DOB, gender, DOB, fname, lname, address, phone);
+                    newMember = new Student(course, DOB, gender, type, fname, lname, address, phone);
                 }
             } else if (jRadioButtonStaff.isSelected()) {
                 String position = txtPosition.getText();
+                String type = "Staff";
                 String department = jComboBoxDep.getSelectedItem().toString();
-                newMember = new Staff(position, department, DOB, gender, DOB, fname, lname, address, phone);
+                newMember = new Staff(position, department, DOB, gender, type, fname, lname, address, phone);
 
             }
             Gym.addMember(newMember);
@@ -915,13 +1285,13 @@ public class MemberDisplay extends javax.swing.JFrame {
         loadTrainerMembers();
 
     }// GEN-LAST:event_TrainerComboBox2ActionPerformed
-    // private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt)
+     // private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt)
      // {//GEN-FIRST:event_jRadioButtonStaffActionPerformed
      // // TODO add your handling code here:
-    // if(jRadioButtonStaff.isSelected()){
-    // pnlStudent.setVisible(false);
-    // pnlStaff.setVisible(true);
-    // }
+     // if(jRadioButtonStaff.isSelected()){
+     // pnlStudent.setVisible(false);
+     // pnlStaff.setVisible(true);
+     // }
      // }//GEN-LAST:event_jRadioButtonStaffActionPerformed
 
     // private void jRadioButtonStudentActionPerformed(java.awt.event.ActionEvent
@@ -941,7 +1311,7 @@ public class MemberDisplay extends javax.swing.JFrame {
     // }
     // }//GEN-LAST:event_jRadioButtonTeamYActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
 
@@ -952,9 +1322,11 @@ public class MemberDisplay extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnHomeActionPerformed
+    }// GEN-LAST:event_btnHomeActionPerformed
 
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
 
         int selectedIndex = jTabbedPane1.getSelectedIndex();
@@ -966,9 +1338,9 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_jTabbedPane1StateChanged
+    }// GEN-LAST:event_jTabbedPane1StateChanged
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
         int selectedRow = jTableMembers.getSelectedRow();
         if (selectedRow == -1) {
@@ -1017,31 +1389,217 @@ public class MemberDisplay extends javax.swing.JFrame {
                 }
             }
         }
+          // Safe to delete from members list
+        // Gym.getMembersList().remove(toRemove);
 
-        // Safe to delete from members list
-        Gym.getMembersList().remove(toRemove);
+        // if (removedFromTrainer) {
+        //     JOptionPane.showMessageDialog(this,
+        //             "Member deleted successfully and also removed from their trainer’s list.");
+        // } else {
+        //     JOptionPane.showMessageDialog(this,
+        //             "Member deleted successfully.");
+        // }
 
-        if (removedFromTrainer) {
-            JOptionPane.showMessageDialog(this,
-                    "Member deleted successfully and also removed from their trainer’s list.");
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "Member deleted successfully.");
-        }
+        // // Save updated list back to file
+        // try (FileOutputStream fileOut = new FileOutputStream("members.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+        //     out.writeObject(Gym.getMembersList());
+        // } catch (Exception ex) {
+        //     JOptionPane.showMessageDialog(this, "Error saving updated members: " + ex.getMessage());
+        // }
 
-        // Save updated list back to file
-        try (FileOutputStream fileOut = new FileOutputStream("members.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+        // // Refresh table
+        // loadMembersIntoTable();
+        // loadTrainerMembers();
+
+
+    }// GEN-LAST:event_jButtonDeleteActionPerformed
+
+
+    private void txtTeamDisplyM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTeamDisplyM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtTeamDisplyM_EActionPerformed
+
+    private void txtfNameM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfNameM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtfNameM_EActionPerformed
+
+    private void ComboBoxTeamM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ComboBoxTeamM_EActionPerformed
+        // TODO add your handling code here:
+        String AlteredTeam = ComboBoxTeamM_E.getSelectedItem().toString();
+        txtTeamDisplyM_E.setText(AlteredTeam);
+
+    }// GEN-LAST:event_ComboBoxTeamM_EActionPerformed
+
+    private void ComboBoxCourseM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ComboBoxCourseM_EActionPerformed
+        // TODO add your handling code here:
+
+        String AlteredCourse = ComboBoxCourseM_E.getSelectedItem().toString();
+        txtCourseDisplyM_E.setText(AlteredCourse);
+
+    }// GEN-LAST:event_ComboBoxCourseM_EActionPerformed
+
+    private void btnAlterMemeberSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAlterMemeberSaveActionPerformed
+
+        FileOutputStream fileOut = null;
+        try {
+            // TODO add your handling code here:
+            //
+
+            int id = Integer.parseInt(jComboBoxMembersID.getSelectedItem().toString());// take id from combo
+            for (int i = 0; i < Gym.getMembersList().size(); i++) {
+
+                if (Gym.getMembersList().get(i).getMembershipID() == id) { // search for same id from the loop
+                    Gym.getMembersList().get(i).setfName(txtfNameM_E.getText()); // if id found we gonna set new info in
+                                                                                 // the array list
+                    Gym.getMembersList().get(i).setlName(txtLNameM_E.getText());
+                    Gym.getMembersList().get(i).setAddress(txtaddressM_E.getText());
+                    Gym.getMembersList().get(i).setDateOfBirth(txtDOBM_E.getText());
+                    Gym.getMembersList().get(i).setPhone(Integer.parseInt(txtPhoneM_E.getText()));
+                    Gym.getMembersList().get(i).setGender(txtGenderM_E.getText());
+                    Gym.getMembersList().get(i).setType(txtMemberTypeM_E.getText());
+                    if (Gym.getMembersList().get(i) instanceof Staff) {
+                        ((Staff) Gym.getMembersList().get(i)).setPosition(txtPosition1.getText());
+                        ((Staff) Gym.getMembersList().get(i)).setDepartment(txtDisplayDepartment.getText());
+                    } else if (Gym.getMembersList().get(i) instanceof Student) {
+                        ((Student) Gym.getMembersList().get(i)).setCourse(txtCourseDisplyM_E.getText());
+                        ((Student) Gym.getMembersList().get(i)).setTeam(txtTeamDisplyM_E.getText());
+
+                    }
+                    // then we going to disply new info in the combo that got saved in the array
+                    // previously
+
+                    txtfNameM_E.setText(Gym.getMembersList().get(i).getfName());
+                    txtLNameM_E.setText(Gym.getMembersList().get(i).getlName());
+                    txtaddressM_E.setText(Gym.getMembersList().get(i).getAddress());
+                    txtDOBM_E.setText(Gym.getMembersList().get(i).getDateOfBirth());
+                    txtPhoneM_E.setText(Integer.toString(Gym.getMembersList().get(i).getPhone()));
+                    txtGenderM_E.setText(Gym.getMembersList().get(i).getGender());
+                    txtMemberTypeM_E.setText(Gym.getMembersList().get(i).getType());
+                    if (Gym.getMembersList().get(i) instanceof Staff) {
+                        txtPosition1.setText(((Staff) Gym.getMembersList().get(i)).getPosition());
+                        txtDisplayDepartment.setText(((Staff) Gym.getMembersList().get(i)).getDepartment());
+                    } else if (Gym.getMembersList().get(i) instanceof Student) {
+                        txtCourseDisplyM_E.setText(((Student) Gym.getMembersList().get(i)).getCourse());
+                        txtTeamDisplyM_E.setText(((Student) Gym.getMembersList().get(i)).getTeam());
+                    }
+                    break;
+
+                }
+
+            }
+            initialiseCombo();
+
+            fileOut = new FileOutputStream("Members.dat");
+            ObjectOutputStream out = null;
+            try {
+                out = new ObjectOutputStream(fileOut);
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Member's Data Altered Successfully");
             out.writeObject(Gym.getMembersList());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error saving updated members: " + ex.getMessage());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fileOut.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
-        // Refresh table
-        loadMembersIntoTable();
-        loadTrainerMembers();
+    }// GEN-LAST:event_btnAlterMemeberSaveActionPerformed
+
+    private void jRadioButtonWM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonWM_EActionPerformed
+        // TODO add your handling code here:
+        txtGenderM_E.setText("Female");
+
+    }// GEN-LAST:event_jRadioButtonWM_EActionPerformed
+
+    private void txtDOBM_EMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_txtDOBM_EMouseClicked
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtDOBM_EMouseClicked
+
+    private void txtPhoneM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPhoneM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtPhoneM_EActionPerformed
+
+    private void txtaddressM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtaddressM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtaddressM_EActionPerformed
+
+    private void txtLNameM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtLNameM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtLNameM_EActionPerformed
+
+    private void txtGenderM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtGenderM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtGenderM_EActionPerformed
+
+    private void txtMemberTypeM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtMemberTypeM_EActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtMemberTypeM_EActionPerformed
+
+    private void jComboBoxMembersIDActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+        Object selected = jComboBoxMembersID.getSelectedItem();
+        if (selected != null) {
+            int selection = Integer.parseInt(selected.toString());
+            for (Member members : Gym.getMembersList()) {
+                if (members.getMembershipID() == selection) {
+                    txtfNameM_E.setText(members.getlName());
+                    txtLNameM_E.setText(members.getlName());
+                    txtaddressM_E.setText(members.getAddress());
+                    txtDOBM_E.setText(members.getDateOfBirth());
+                    txtPhoneM_E.setText(Integer.toString(members.getPhone()));
+                    txtGenderM_E.setText(members.getGender());
+                    txtMemberTypeM_E.setText(members.getType());
+                    if (members instanceof Student) {
+                        txtCourseDisplyM_E.setText(((Student) members).getCourse());
+                        if (((Student) members).getTeam() != null) {
+                            txtTeamDisplyM_E.setText(((Student) members).getTeam());
+                        } else {
+                            txtTeamDisplyM_E.setText("None");
+                        }
+                    }
+                    if (members instanceof Staff) {
+                        txtDisplayDepartment.setText(((Staff) members).getDepartment());
+                        txtPosition1.setText(((Staff) members).getPosition());
+
+                        pnlStudent1.setVisible(false);
+                        pnlStaff1.setVisible(true);
+
+                    } else {
+                        pnlStudent1.setVisible(true);
+                        pnlStaff1.setVisible(false);
+                    }
+
+                    break;
+
+                }
+            }
+        }
 
 
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+
+
+    }// GEN-LAST:event_jComboBoxMembersIDActionPerformed
+
+    private void jRadioButtonMM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonMM_EActionPerformed
+        // TODO add your handling code here:
+        txtGenderM_E.setText("Male");
+    }// GEN-LAST:event_jRadioButtonMM_EActionPerformed
+
+    private void jComboBoxDep1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxDep1ActionPerformed
+        // TODO add your handling code here:
+        txtDisplayDepartment.setText(jComboBoxDep1.getSelectedItem().toString());
+
+    }// GEN-LAST:event_jComboBoxDep1ActionPerformed
+
+
     private void jRadioButtonTeamNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonTeamNActionPerformed
         // TODO add your handling code here:
         if (jRadioButtonTeamN.isSelected()) {
@@ -1057,10 +1615,11 @@ public class MemberDisplay extends javax.swing.JFrame {
      */
     private void loadMembersFromFile() {
 
-        try (FileInputStream fileIn = new FileInputStream("members.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
+        try (FileInputStream fileIn = new FileInputStream("members.dat");
+                ObjectInputStream in = new ObjectInputStream(fileIn)) {
 
             ArrayList<Member> savedList = (ArrayList<Member>) in.readObject();
-            Gym.setMembersList(savedList);   // update Gym’s list
+            Gym.setMembersList(savedList); // update Gym’s list
 
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this, "No saved members yet.");
@@ -1071,15 +1630,15 @@ public class MemberDisplay extends javax.swing.JFrame {
     }
 
     private void loadMembersIntoTable() {
-        String[] columns = {"Membership Id", "First Name", "Last Name", "Phone Number"};
+        String[] columns = { "Membership Id", "First Name", "Last Name", "Phone Number" };
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         for (Member m : Gym.getMembersList()) {
             Object[] row = {
-                m.getMembershipID(),
-                m.getfName(),
-                m.getlName(),
-                m.getPhone()
+                    m.getMembershipID(),
+                    m.getfName(),
+                    m.getlName(),
+                    m.getPhone()
 
             };
             model.addRow(row);
@@ -1087,8 +1646,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jTableMembers.setModel(model);
     }
-    
-    
+
     public static void main(String args[]) {
 
         try {
@@ -1123,22 +1681,30 @@ public class MemberDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignTrainerButton;
+    private javax.swing.JComboBox<String> ComboBoxCourseM_E;
+    private javax.swing.JComboBox<String> ComboBoxTeamM_E;
     private javax.swing.JComboBox<String> MemberComboBox;
     private javax.swing.JToggleButton RemoveMemberButton1;
     private javax.swing.JComboBox<String> TrainerComboBox;
     private javax.swing.JComboBox<String> TrainerComboBox2;
     private javax.swing.JComboBox<String> TrainerMemberComboBox;
     private javax.swing.JButton btnAddMemeber;
+    private javax.swing.JButton btnAlterMemeberSave;
     private javax.swing.JButton btnHome;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JComboBox<String> jComboBoxCourse;
     private javax.swing.JComboBox<String> jComboBoxDep;
+    private javax.swing.JComboBox<String> jComboBoxDep1;
+    private javax.swing.JComboBox<String> jComboBoxMembersID;
     private javax.swing.JComboBox<String> jComboBoxTeam;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1151,31 +1717,74 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButtonM;
+    private javax.swing.JRadioButton jRadioButtonMM_E;
     private javax.swing.JRadioButton jRadioButtonStaff;
     private javax.swing.JRadioButton jRadioButtonStudent;
     private javax.swing.JRadioButton jRadioButtonTeamN;
     private javax.swing.JRadioButton jRadioButtonTeamY;
     private javax.swing.JRadioButton jRadioButtonW;
+    private javax.swing.JRadioButton jRadioButtonWM_E;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableMembers;
+    private javax.swing.JLabel lblAlterMemberTitle;
     private javax.swing.JLabel lblDOB;
+    private javax.swing.JLabel lblDOBM_E;
     private javax.swing.JLabel lblDepartment;
+    private javax.swing.JLabel lblDepartment1;
     private javax.swing.JLabel lblFname1;
+    private javax.swing.JLabel lblFnameM_E;
+    private javax.swing.JLabel lblFnameM_E1;
+    private javax.swing.JLabel lblGenderM_E;
     private javax.swing.JLabel lblLName1;
+    private javax.swing.JLabel lblLNameM_E;
     private javax.swing.JLabel lblPhone1;
+    private javax.swing.JLabel lblPhoneM_E;
     private javax.swing.JLabel lblPosition;
+    private javax.swing.JLabel lblPosition1;
+    private javax.swing.JLabel lblSportTeamM_E;
+    private javax.swing.JLabel lblStuduyCourseM_E;
     private javax.swing.JLabel lbladdress1;
+    private javax.swing.JLabel lbladdressM_E;
+    private javax.swing.JPanel pnlJoin;
     private javax.swing.JPanel pnlMemberType;
     private javax.swing.JPanel pnlStaff;
+    private javax.swing.JPanel pnlStaff1;
     private javax.swing.JPanel pnlStudent;
+    private javax.swing.JPanel pnlStudent1;
     private javax.swing.JPanel pnlTeam;
+    private javax.swing.JTextField txtCourseDisplyM_E;
     private javax.swing.JTextField txtDOB;
+    private javax.swing.JTextField txtDOBM_E;
+    private javax.swing.JTextField txtDisplayDepartment;
+    private javax.swing.JTextField txtGenderM_E;
     private javax.swing.JTextField txtLName1;
+    private javax.swing.JTextField txtLNameM_E;
+    private javax.swing.JTextField txtMemberTypeM_E;
     private javax.swing.JTextField txtPhone1;
+    private javax.swing.JTextField txtPhoneM_E;
     private javax.swing.JTextField txtPosition;
+    private javax.swing.JTextField txtPosition1;
+    private javax.swing.JTextField txtTeamDisplyM_E;
     private javax.swing.JTextField txtaddress1;
+    private javax.swing.JTextField txtaddressM_E;
     private javax.swing.JTextField txtfName1;
+    private javax.swing.JTextField txtfNameM_E;
     // End of variables declaration//GEN-END:variables
+
+    private void initialiseCombo() {
+        if (Gym.getMembersList() != null) {
+            jComboBoxMembersID.removeAllItems();
+        }
+        for (Member members : Gym.getMembersList()) {
+
+            int item = members.getMembershipID();
+            jComboBoxMembersID.addItem(Integer.toString(item));
+
+        }
+
+    }
 }

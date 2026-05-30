@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/GUI/EmployeeDisplay.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>39</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MainWindow.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Gym.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/MemberDisplay.java</file>
@@ -13,6 +23,14 @@
             <file>file:/Users/danalajmi/Desktop/polyGym/src/LOGIC/Trainer.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/AssignTrainer.java</file>
             <file>file:/Users/danalajmi/Desktop/polyGym/src/GUI/EmployeeDisplay.java</file>
+=======
+            <file>file:/C:/Users/fatim/gymSystem/src/GUI/EmployeeDisplay.java</file>
+            <file>file:/C:/Users/fatim/gymSystem/src/GUI/MemberDisplay.java</file>
+            <file>file:/C:/Users/fatim/gymSystem/src/LOGIC/Member.java</file>
+            <file>file:/C:/Users/fatim/gymSystem/src/LOGIC/Student.java</file>
+            <file>file:/C:/Users/fatim/gymSystem/src/LOGIC/Staff.java</file>
+            <file>file:/C:/Users/fatim/gymSystem/src/LOGIC/Gym.java</file>
+>>>>>>> 341e43d3f07b19fcfc06c569c5c1fbc80a917df8
         </group>
     </open-files>
 </project-private>

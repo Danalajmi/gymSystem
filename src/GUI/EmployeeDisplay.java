@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author danalajmi
  */
+
 public class EmployeeDisplay extends javax.swing.JFrame {
 
     /**
@@ -33,8 +35,10 @@ public class EmployeeDisplay extends javax.swing.JFrame {
      */
     public EmployeeDisplay() {
         initComponents();
-       loadEmployeesIntoTable();
-       AddTrainers();
+        loadEmployeesIntoTable();
+        AddTrainers();
+        initialiseCombo();
+
     }
 
     /**
@@ -47,7 +51,8 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        tabbedPane = new javax.swing.JTabbedPane();
         jPanelAddEmp = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblFname = new javax.swing.JLabel();
@@ -64,26 +69,44 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jRadioButtonYes = new javax.swing.JRadioButton();
         jRadioButtonNo = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployees = new javax.swing.JTable();
         jButtonDelete1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanelAddEmp1 = new javax.swing.JPanel();
+        lblBigTitle = new javax.swing.JLabel();
+        lblFNamee = new javax.swing.JLabel();
+        txtfNameE = new javax.swing.JTextField();
+        lblLNameE = new javax.swing.JLabel();
+        txtLNameE = new javax.swing.JTextField();
+        lbladdressE = new javax.swing.JLabel();
+        txtaddressE = new javax.swing.JTextField();
+        txtPhoneE = new javax.swing.JTextField();
+        lblPhoneE = new javax.swing.JLabel();
+        lblSalaryE = new javax.swing.JLabel();
+        txtTrainer = new javax.swing.JTextField();
+        jLabelE = new javax.swing.JLabel();
+        btnDone = new javax.swing.JButton();
+        txtSalaryE = new javax.swing.JTextField();
+        lblFNamee1 = new javax.swing.JLabel();
+        jComboBoxID = new javax.swing.JComboBox<>();
+        RbtnPT = new javax.swing.JRadioButton();
+        RbtnE = new javax.swing.JRadioButton();
+        viewMembersPane = new javax.swing.JPanel();
         lblpick = new javax.swing.JLabel();
         trainerCombo = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         membersArea = new javax.swing.JTextArea();
-        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(248, 236, 214));
 
-        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPane1StateChanged(evt);
+                tabbedPaneStateChanged(evt);
             }
         });
 
@@ -126,6 +149,11 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
+        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonYesActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -172,7 +200,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                                     .addComponent(lblSalary)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         jPanelAddEmpLayout.setVerticalGroup(
             jPanelAddEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,39 +232,12 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jRadioButtonYes)
                     .addComponent(jRadioButtonNo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(45, 45, 45))
         );
 
-        jTabbedPane1.addTab("Add Employee", jPanelAddEmp);
-
-        jLabel1.setText("Choose Employee to Edit");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(401, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Edit Employee", jPanel1);
+        tabbedPane.addTab("Add Employee", jPanelAddEmp);
 
         jTableEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -279,7 +280,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(220, 220, 220)
@@ -293,10 +294,201 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jButtonDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("All employees", jPanel2);
+        tabbedPane.addTab("All employees", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setText("Members:");
+
+        lblBigTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblBigTitle.setText("Edit employee's Information");
+
+        lblFNamee.setText("First name: ");
+
+        txtfNameE.setColumns(10);
+        txtfNameE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfNameEActionPerformed(evt);
+            }
+        });
+
+        lblLNameE.setText("Last name: ");
+
+        txtLNameE.setColumns(10);
+
+        lbladdressE.setText("address");
+
+        txtaddressE.setColumns(10);
+
+        txtPhoneE.setColumns(10);
+
+        lblPhoneE.setText("phone Number");
+
+        lblSalaryE.setText("Salary");
+
+        txtTrainer.setColumns(10);
+
+        jLabelE.setText("Trainer");
+
+        btnDone.setText("Done");
+        btnDone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoneActionPerformed(evt);
+            }
+        });
+
+        txtSalaryE.setColumns(10);
+        txtSalaryE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalaryEActionPerformed(evt);
+            }
+        });
+
+        lblFNamee1.setText("Please Choose The ID Of The Employee You Wish To change Threir Information :");
+
+        jComboBoxID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(RbtnPT);
+        RbtnPT.setText("PT/Personal Trainer");
+        RbtnPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RbtnPTActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(RbtnE);
+        RbtnE.setText("E/Employee");
+        RbtnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RbtnEActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAddEmp1Layout = new javax.swing.GroupLayout(jPanelAddEmp1);
+        jPanelAddEmp1.setLayout(jPanelAddEmp1Layout);
+        jPanelAddEmp1Layout.setHorizontalGroup(
+            jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(lblBigTitle))
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(btnDone, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblFNamee)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtfNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblLNameE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtLNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lbladdressE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtaddressE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addComponent(lblPhoneE)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtPhoneE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEmp1Layout.createSequentialGroup()
+                        .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelE)
+                            .addComponent(lblSalaryE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTrainer)
+                            .addComponent(txtSalaryE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RbtnPT, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RbtnE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblFNamee1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBoxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
+        );
+        jPanelAddEmp1Layout.setVerticalGroup(
+            jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmp1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblBigTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFNamee1)
+                    .addComponent(jComboBoxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFNamee)
+                    .addComponent(txtfNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLNameE)
+                    .addComponent(txtLNameE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbladdressE)
+                    .addComponent(txtaddressE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPhoneE)
+                    .addComponent(txtPhoneE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSalaryE)
+                    .addComponent(txtSalaryE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelAddEmp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelE)
+                    .addComponent(txtTrainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RbtnE)
+                    .addComponent(RbtnPT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(btnDone)
+                .addGap(32, 32, 32))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelAddEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelAddEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        tabbedPane.addTab("Alter Employee's Information", jPanel3);
 
         lblpick.setText("Choose a trainer");
 
@@ -310,38 +502,33 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         membersArea.setRows(5);
         jScrollPane2.setViewportView(membersArea);
 
-        jLabel3.setText("Members:");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+        javax.swing.GroupLayout viewMembersPaneLayout = new javax.swing.GroupLayout(viewMembersPane);
+        viewMembersPane.setLayout(viewMembersPaneLayout);
+        viewMembersPaneLayout.setHorizontalGroup(
+            viewMembersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewMembersPaneLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(viewMembersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(viewMembersPaneLayout.createSequentialGroup()
                         .addComponent(lblpick)
                         .addGap(58, 58, 58)
                         .addComponent(trainerCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        viewMembersPaneLayout.setVerticalGroup(
+            viewMembersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewMembersPaneLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(viewMembersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpick)
                     .addComponent(trainerCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("view assigned members", jPanel3);
+        tabbedPane.addTab("tab4", viewMembersPane);
 
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -354,7 +541,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton2)
@@ -366,27 +553,29 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabbedPaneStateChanged
+
+    
     private void txtfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfNameActionPerformed
 
-    private void jRadioButtonYesActionPerformed(ActionEvent evt) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'jRadioButtonYesActionPerformed'");
-            }
+
     /**
      *
      *
      * @param evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
             Employee newEmployee;
@@ -403,14 +592,14 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
-           
+
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
             loadEmployeesIntoTable();
             try {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(Gym.getEmployeesList());
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(Gym.getEmployeesList());
 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
@@ -430,9 +619,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, ex, "Error", HEIGHT);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }// GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         try {
@@ -446,9 +635,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }// GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelete1ActionPerformed
+    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonDelete1ActionPerformed
         // TODO add your handling code here:
 
         int selectedRow = jTableEmployees.getSelectedRow();
@@ -467,8 +656,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 this,
                 "Are you sure you want to delete " + fname + " " + lname + "?",
                 "Confirm Deletion",
-                JOptionPane.YES_NO_OPTION
-        );
+                JOptionPane.YES_NO_OPTION);
 
         if (choice != JOptionPane.YES_OPTION) {
             return; // user clicked No, cancel deletion
@@ -494,8 +682,8 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             Trainer trainer = (Trainer) toRemove;
             if (!trainer.getAssignedMembers().isEmpty()) {
                 JOptionPane.showMessageDialog(this, """
-                    This trainer cannot be deleted because members are still assigned.
-                    Please reassign or remove those members first.""");
+                        This trainer cannot be deleted because members are still assigned.
+                        Please reassign or remove those members first.""");
                 return;
             }
         }
@@ -504,8 +692,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         Gym.getEmployeesList().remove(toRemove);
         JOptionPane.showMessageDialog(this, "Employee deleted successfully.");
 
-        //  Save updated list back to file
-        try (FileOutputStream fileOut = new FileOutputStream("employees.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+        // Save updated list back to file
+        try (FileOutputStream fileOut = new FileOutputStream("employees.dat");
+                ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(Gym.getEmployeesList());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error saving updated employees: " + ex.getMessage());
@@ -513,53 +702,164 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         // Refresh table
         loadEmployeesIntoTable();
-    }//GEN-LAST:event_jButtonDelete1ActionPerformed
+    }// GEN-LAST:event_jButtonDelete1ActionPerformed
 
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+    private void jTabbedPaneAlterStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_jTabbedPaneAlterStateChanged
         // TODO add your handling code here:
-           int selectedIndex = jTabbedPane1.getSelectedIndex();
-        String tabTitle = jTabbedPane1.getTitleAt(selectedIndex);
+        int selectedIndex = tabbedPane.getSelectedIndex();
+        String tabTitle = tabbedPane.getTitleAt(selectedIndex);
 
         if ("Delete Employee".equals(tabTitle)) {
             loadEmployeesFromFile();
             loadEmployeesIntoTable();
         }
 
+    }// GEN-LAST:event_jTabbedPaneAlterStateChanged
 
-
-    }//GEN-LAST:event_jTabbedPane1StateChanged
-
-    private void trainerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerComboActionPerformed
+    private void txtfNameEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfNameEActionPerformed
         // TODO add your handling code here:
-         String selectedTrainer = trainerCombo.getSelectedItem().toString();
-         membersArea.setText(null);
-         membersArea.setEditable(false);
-            for (Employee employee : Gym.getEmployeesList()) {
-                if (employee instanceof Trainer) {
-                    Trainer trainer = (Trainer) employee;
-                    String trainerName = trainer.getfName() + " " + trainer.getlName();
-                    if (trainerName.equals(selectedTrainer)) {
-                        if (trainer.getAssignedMembers() != null) {
-                            for (Member member : trainer.getAssignedMembers()) {
-                                String memberName = member.getfName() + " " + member.getlName();
-                                membersArea.append(memberName);
-                                membersArea.append("\n");
-                                
-                            }
+    }// GEN-LAST:event_txtfNameEActionPerformed
+
+    private void txtSalaryEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtSalaryEActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_txtSalaryEActionPerformed
+
+    private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxIDActionPerformed
+        // TODO add your handling code here:
+        // when we click on the ID it attribute should appear (the data changes based on
+        // the ID selected)
+        Object selected = jComboBoxID.getSelectedItem();
+        if (selected != null) {
+            int selection = Integer.parseInt(selected.toString());
+            for (Employee emp : Gym.getEmployeesList()) {
+                if (emp.getStaffID() == selection) {
+                    txtfNameE.setText(emp.getfName());
+                    txtLNameE.setText(emp.getlName());
+                    txtPhoneE.setText(Integer.toString(emp.getPhone()));
+                    txtaddressE.setText(emp.getAddress());
+                    txtTrainer.setText(emp.getType());
+                    txtSalaryE.setText(Double.toString(emp.getSalary()));
+                    break;
+                }
+            }
+        }
+
+    }// GEN-LAST:event_jComboBoxIDActionPerformed
+
+    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDoneActionPerformed
+        FileOutputStream fileOut = null;
+        try {
+            // TODO add your handling code here:
+            // on click
+            int id = Integer.parseInt(jComboBoxID.getSelectedItem().toString());// take id from combo
+            for (int i = 0; i < Gym.getEmployeesList().size(); i++) {
+                // i did basic loop this time just to trin
+
+                if (Gym.getEmployeesList().get(i).getStaffID() == id) { // search for same id from the loop
+                    Gym.getEmployeesList().get(i).setfName(txtfNameE.getText()); // if id found we gonna set new info in
+                                                                                 // the array list
+                    Gym.getEmployeesList().get(i).setlName(txtLNameE.getText());
+                    Gym.getEmployeesList().get(i).setAddress(txtaddressE.getText());
+                    Gym.getEmployeesList().get(i).setPhone(Integer.parseInt(txtPhoneE.getText()));
+                    Gym.getEmployeesList().get(i).setSalary(Double.parseDouble(txtSalaryE.getText()));
+                    if (RbtnPT.isSelected()) {
+                        Gym.getEmployeesList().get(i).setType("PT");
+
+                    } else if (RbtnE.isSelected()) {
+                        Gym.getEmployeesList().get(i).setType("E");
+                        // then we going to disply new info in the combo that got saved in the array
+                        // previously
+                        txtfNameE.setText(Gym.getEmployeesList().get(i).getfName());
+                        txtLNameE.setText(Gym.getEmployeesList().get(i).getlName());
+                        txtPhoneE.setText(Integer.toString(Gym.getEmployeesList().get(i).getPhone()));
+                        txtaddressE.setText(Gym.getEmployeesList().get(i).getAddress());
+                        txtTrainer.setText(Gym.getEmployeesList().get(i).getType());
+                        txtSalaryE.setText(Double.toString(Gym.getEmployeesList().get(i).getSalary()));
+
+                    }
+
+                }
+
+            }
+            initialiseCombo();
+            // now we serialize the new data so the update can get saved
+            fileOut = new FileOutputStream("employees.dat");
+            ObjectOutputStream out = null;
+            try {
+                out = new ObjectOutputStream(fileOut);
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                out.writeObject(Gym.getEmployeesList());
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Employee's Data Altered Successfully"); // message
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fileOut.close();
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }// GEN-LAST:event_btnDoneActionPerformed
+
+    private void RbtnPTActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RbtnPTActionPerformed
+        // TODO add your handling code here:
+
+        txtTrainer.setText("PT");
+
+    }// GEN-LAST:event_RbtnPTActionPerformed
+
+    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonYesActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jRadioButtonYesActionPerformed
+
+    private void RbtnEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RbtnEActionPerformed
+        // TODO add your handling code here:
+        txtTrainer.setText("E");
+
+    }// GEN-LAST:event_RbtnEActionPerformed
+
+    private void trainerComboActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trainerComboActionPerformed
+        // TODO add your handling code here:
+        String selectedTrainer = trainerCombo.getSelectedItem().toString();
+        membersArea.setText(null);
+        membersArea.setEditable(false);
+        for (Employee employee : Gym.getEmployeesList()) {
+            if (employee instanceof Trainer) {
+                Trainer trainer = (Trainer) employee;
+                String trainerName = trainer.getfName() + " " + trainer.getlName();
+                if (trainerName.equals(selectedTrainer)) {
+                    if (trainer.getAssignedMembers() != null) {
+                        for (Member member : trainer.getAssignedMembers()) {
+                            String memberName = member.getfName() + " " + member.getlName();
+                            membersArea.append(memberName);
+                            membersArea.append("\n");
+
                         }
                     }
                 }
             }
-    }//GEN-LAST:event_trainerComboActionPerformed
+        }
+    }// GEN-LAST:event_trainerComboActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -569,15 +869,19 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeDisplay.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -587,21 +891,20 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         });
     }
 
-      // Method to populate the table
-
+    // Method to populate the table
     private void loadEmployeesIntoTable() {
 
-        String[] columns = {"Id", "First Name", "Last Name","Address", "Phone Number", "PT/E"};
+        String[] columns = { "Id", "First Name", "Last Name", "Address", "Phone Number", "PT/E" };
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         for (Employee e : Gym.getEmployeesList()) {
             Object[] row = {
-                e.getStaffID(),
-                e.getfName(),
-                e.getlName(),
-                e.getAddress(),
-                e.getPhone(),
-                e.getType()
+                    e.getStaffID(),
+                    e.getfName(),
+                    e.getlName(),
+                    e.getAddress(),
+                    e.getPhone(),
+                    e.getType()
             };
             model.addRow(row);
         }
@@ -609,13 +912,14 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         jTableEmployees.setModel(model);
     }
 
- @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     private void loadEmployeesFromFile() {
 
-        try (FileInputStream fileIn = new FileInputStream("employees.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
+        try (FileInputStream fileIn = new FileInputStream("employees.dat");
+                ObjectInputStream in = new ObjectInputStream(fileIn)) {
 
             ArrayList<Employee> savedList = (ArrayList<Employee>) in.readObject();
-            Gym.setEmployeesList(savedList);   // update Gym’s list
+            Gym.setEmployeesList(savedList); // update Gym’s list
 
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this, "No saved employees yet.");
@@ -636,44 +940,76 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 Trainer trainer = (Trainer) employee;
                 String fullName = trainer.getfName() + " " + trainer.getlName();
                 trainerCombo.addItem(fullName);
-                
 
             }
             i++;
         } while (i < Gym.getEmployeesList().size());
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RbtnE;
+    private javax.swing.JRadioButton RbtnPT;
+    private javax.swing.JButton btnDone;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonDelete1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jComboBoxID;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelE;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelAddEmp;
+    private javax.swing.JPanel jPanelAddEmp1;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableEmployees;
+    private javax.swing.JLabel lblBigTitle;
+    private javax.swing.JLabel lblFNamee;
+    private javax.swing.JLabel lblFNamee1;
     private javax.swing.JLabel lblFname;
     private javax.swing.JLabel lblLName;
+    private javax.swing.JLabel lblLNameE;
     private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhoneE;
     private javax.swing.JLabel lblSalary;
+    private javax.swing.JLabel lblSalaryE;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lbladdress;
+    private javax.swing.JLabel lbladdressE;
     private javax.swing.JLabel lblpick;
     private javax.swing.JTextArea membersArea;
+    private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JComboBox<String> trainerCombo;
     private javax.swing.JTextField txtLName;
+    private javax.swing.JTextField txtLNameE;
     private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtPhoneE;
     private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtSalaryE;
+    private javax.swing.JTextField txtTrainer;
     private javax.swing.JTextField txtaddress;
+    private javax.swing.JTextField txtaddressE;
     private javax.swing.JTextField txtfName;
+    private javax.swing.JTextField txtfNameE;
+    private javax.swing.JPanel viewMembersPane;
     // End of variables declaration//GEN-END:variables
+    // if the arraylist isnt emplty then we gonna extract the IDs and put them in
+    // the comboBox
+    private void initialiseCombo() {
+        if (Gym.getEmployeesList() != null) {
+            jComboBoxID.removeAllItems();
+        }
+        for (Employee emp : Gym.getEmployeesList()) {
+
+            int item = emp.getStaffID();
+            jComboBoxID.addItem(Integer.toString(item));
+
+        }
+
+    }
 }

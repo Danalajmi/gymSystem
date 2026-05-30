@@ -11,6 +11,11 @@ import java.io.Serializable;
  * @author danalajmi
  */
 public class Employee extends Person implements Serializable{
+    //private static final long serialVersionUID = 1L;
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
 
     private int staffID;
