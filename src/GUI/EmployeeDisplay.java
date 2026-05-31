@@ -782,6 +782,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
      * @return *
      */
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {
+        // cannot switch from employee to trianer and vise versa
         FileOutputStream fileOut = null;
         try {
 
@@ -797,11 +798,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                     Gym.getEmployeesList().get(i).setAddress(txtaddressE.getText());
                     Gym.getEmployeesList().get(i).setPhone(Integer.parseInt(txtPhoneE.getText()));
                     Gym.getEmployeesList().get(i).setSalary(Double.parseDouble(txtSalaryE.getText()));
-                    if (RbtnPT.isSelected()) {
-                        Gym.getEmployeesList().get(i).setType("PT");
-                        
-                    } else if (RbtnE.isSelected()) {
-                        Gym.getEmployeesList().get(i).setType("E");
+                    
                         // then we going to disply new info in the combo that got saved in the array
                         // previously
                         txtfNameE.setText(Gym.getEmployeesList().get(i).getfName());
@@ -810,8 +807,8 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                         txtaddressE.setText(Gym.getEmployeesList().get(i).getAddress());
                         txtTrainer.setText(Gym.getEmployeesList().get(i).getType());
                         txtSalaryE.setText(Double.toString(Gym.getEmployeesList().get(i).getSalary()));
-                        
-                    }
+
+                    
                     
                 }
                 
