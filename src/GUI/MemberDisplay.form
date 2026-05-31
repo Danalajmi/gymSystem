@@ -8,6 +8,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup3">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup4">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -217,9 +219,6 @@
               <Properties>
                 <Property name="columns" type="int" value="10"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtfName1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblLName1">
               <Properties>
@@ -230,9 +229,6 @@
               <Properties>
                 <Property name="columns" type="int" value="10"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLName1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbladdress1">
               <Properties>
@@ -243,9 +239,6 @@
               <Properties>
                 <Property name="columns" type="int" value="10"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtaddress1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPhone1">
               <Properties>
@@ -256,9 +249,6 @@
               <Properties>
                 <Property name="columns" type="int" value="10"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhone1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDOB">
               <Properties>
@@ -437,6 +427,9 @@
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonTeamY">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="buttonGroup4"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                       </Properties>
                       <Events>
@@ -445,6 +438,9 @@
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonTeamN">
                       <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="buttonGroup4"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
                       <Events>
@@ -995,9 +991,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGenderM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblLNameM_E">
                   <Properties>
@@ -1008,9 +1001,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLNameM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbladdressM_E">
                   <Properties>
@@ -1021,9 +1011,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtaddressM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblPhoneM_E">
                   <Properties>
@@ -1034,9 +1021,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblDOBM_E">
                   <Properties>
@@ -1048,9 +1032,6 @@
                     <Property name="columns" type="int" value="10"/>
                     <Property name="text" type="java.lang.String" value="DD/MM/YYYY"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDOBM_EMouseClicked"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblGenderM_E">
                   <Properties>
@@ -1064,9 +1045,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Female"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonWM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonMM_E">
                   <Properties>
@@ -1075,9 +1053,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Male"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonMM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAlterMemeberSave">
                   <Properties>
@@ -1104,9 +1079,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtfNameM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="pnlJoin">
 
@@ -1329,9 +1301,6 @@
                   <Properties>
                     <Property name="columns" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMemberTypeM_EActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>

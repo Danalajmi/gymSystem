@@ -11,6 +11,7 @@ import LOGIC.Staff;
 import LOGIC.Student;
 import LOGIC.Trainer;
 import java.awt.Desktop;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -35,9 +36,11 @@ import javax.swing.JOptionPane;
 public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainWindow
+     * name: MainWinow purpose: Creates new form
      *
      * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
      */
     public MainWindow() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
@@ -145,8 +148,16 @@ public class MainWindow extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Name: btnReportActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: create a report file with member
+     * data
+     * @param evt
+     *
+     */
     private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
-        // TODO add your handling code here:
+
         String title = "Bahrain Polytechnic GYM report \n \n";
         try {
             FileWriter reportFile = new FileWriter("report.txt");
@@ -163,9 +174,9 @@ public class MainWindow extends javax.swing.JFrame {
                     reportFile.write(staffInfo);
                 }
             }
-                reportFile.write("\nTotal staff members: " + staffCount);
+            reportFile.write("\nTotal staff members: " + staffCount);
 
-                reportFile.write("\n \nPolytechnic students \n");
+            reportFile.write("\n \nPolytechnic students \n");
 
             int studentCount = 0;
             for (Member member : Gym.getMembersList()) {
@@ -182,14 +193,14 @@ public class MainWindow extends javax.swing.JFrame {
             reportFile.close();
             // show confirmation message
             JOptionPane.showMessageDialog(rootPane, "Report generated successfully");
-            
+
             // open report in default text application
-             // source: https://stackoverflow.com/questions/3487149/how-to-open-the-notepad-file-in-java
+            // source: https://stackoverflow.com/questions/3487149/how-to-open-the-notepad-file-in-java
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File report = new File("report.txt");
                 desktop.open(report);
-               
+
             }
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -197,6 +208,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnReportActionPerformed
 
+    /**
+     * Name: loadDATFile
+     *
+     * @author Dana Alajmi Purpose/description: fetches data from the DAT files
+     * and populates the ArrayLists with the data by deserializing, there is no
+     * dat file available, it runs a clean start
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
+     */
     private void loadDATFile() throws FileNotFoundException, IOException, ClassNotFoundException {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
@@ -207,6 +228,20 @@ public class MainWindow extends javax.swing.JFrame {
                 fileInEmp = new FileInputStream("employees.dat");
                 ObjectInputStream inEmp = new ObjectInputStream(fileInEmp);
                 Gym.setEmployeesList((ArrayList<Employee>) inEmp.readObject());
+                try {
+                    Member.setID(inEmp.readInt());
+                } catch (EOFException ex) {
+                    int maxID = 0;
+
+                    for (Employee employee : Gym.getEmployeesList()) {
+                        if (employee.getStaffID() > maxID) {
+                            maxID = employee.getStaffID();
+                        }
+                    }
+
+                    Employee.setID(maxID + 1);
+
+                }
             } catch (FileNotFoundException e) {
                 fileInEmp = null;
             }
@@ -215,7 +250,20 @@ public class MainWindow extends javax.swing.JFrame {
                 fileInMember = new FileInputStream("members.dat");
                 ObjectInputStream inMember = new ObjectInputStream(fileInMember);
                 Gym.setMembersList((ArrayList<Member>) inMember.readObject());
+                try {
+                    Member.setID(inMember.readInt());
+                } catch (EOFException ex) {
+                    int maxID = 0;
 
+                    for (Member member : Gym.getMembersList()) {
+                        if (member.getMembershipID() > maxID) {
+                            maxID = member.getMembershipID();
+                        }
+                    }
+
+                    Member.setID(maxID + 1);
+
+                }
             } catch (FileNotFoundException e) {
                 fileInMember = null;
             } catch (ClassNotFoundException ex) {
@@ -232,6 +280,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Name: loadStartUpFile
+     *
+     * @author Dana Alajmi Purpose/description: Get the data from startUp.txt
+     * and populate the ArrayLists, serialize the data and call loadDATFile to
+     * deserialize
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
+     */
     private void loadStartUpFile() throws FileNotFoundException, IOException, ClassNotFoundException {
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
@@ -267,7 +325,7 @@ public class MainWindow extends javax.swing.JFrame {
                         String memdob = scan.nextLine();
                         int memphone = Integer.parseInt(scan.nextLine());
                         String gender = scan.nextLine();
-                      if (memType.equals("staff")) {
+                        if (memType.equals("staff")) {
                             String position = scan.nextLine();
                             String department = scan.nextLine();
                             newMember = new Staff(position, department, memdob, gender, memType, memFName, memLName,
@@ -294,7 +352,7 @@ public class MainWindow extends javax.swing.JFrame {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(Gym.getEmployeesList());
-
+                out.writeInt(Employee.getID());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -305,6 +363,7 @@ public class MainWindow extends javax.swing.JFrame {
                 FileOutputStream memFileOut = new FileOutputStream("members.dat");
                 ObjectOutputStream memOut = new ObjectOutputStream(memFileOut);
                 memOut.writeObject(Gym.getMembersList());
+                memOut.writeInt(Member.getID());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -317,32 +376,52 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-        
-        
-        
     }
 
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEmployeeActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: btnEmployeeActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: call the EmployeeDisplay
+     * constructor and only show that view
+     *
+     * @param evt
+     *
+     */
+    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
+
         EmployeeDisplay empDis = new EmployeeDisplay();
         empDis.setVisible(true);
         this.setVisible(false);
-    }// GEN-LAST:event_btnEmployeeActionPerformed
+    }
 
-    private void btnMemberActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnMemberActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: btnMemberActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: call the MemberDisplay
+     * constructor and only show that view
+     *
+     * @param evt
+     *
+     */
+    private void btnMemberActionPerformed(java.awt.event.ActionEvent evt) {
+
         MemberDisplay memberDisplay = new MemberDisplay();
         memberDisplay.setVisible(true);
         this.setVisible(false);
-    }// GEN-LAST:event_btnMemberActionPerformed
+    }
 
     /**
+     * Name: btnCleanStartActionPerformed
      *
+     * @author Dana Alajmi Purpose/description: clear the ArrayLists, call
+     * loadStartUp
      * @param evt
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
      */
-    private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) throws IOException, ClassNotFoundException {// GEN-FIRST:event_btnCleanStartActionPerformed
-        // TODO add your handling code here:
+    private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) throws IOException, ClassNotFoundException {
+
         JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
         try {
             Gym.getMembersList().clear();
@@ -353,21 +432,14 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }// GEN-LAST:event_btnCleanStartActionPerformed
+    }
 
     /**
+     * Name: main
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

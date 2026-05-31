@@ -27,7 +27,6 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author danalajmi
  */
-
 public class EmployeeDisplay extends javax.swing.JFrame {
 
     /**
@@ -38,7 +37,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         loadEmployeesIntoTable();
         AddTrainers();
         initialiseCombo();
-
+        
     }
 
     /**
@@ -65,7 +64,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         lblPhone = new javax.swing.JLabel();
         lblSalary = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAddEmployee = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jRadioButtonYes = new javax.swing.JRadioButton();
         jRadioButtonNo = new javax.swing.JRadioButton();
@@ -99,16 +98,10 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         trainerCombo = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         membersArea = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(248, 236, 214));
-
-        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                tabbedPaneStateChanged(evt);
-            }
-        });
 
         lblTitle.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblTitle.setText("Add employee");
@@ -116,11 +109,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         lblFname.setText("First name: ");
 
         txtfName.setColumns(10);
-        txtfName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfNameActionPerformed(evt);
-            }
-        });
 
         lblLName.setText("Last name: ");
 
@@ -138,10 +126,10 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         txtSalary.setColumns(10);
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddEmployee.setText("Add");
+        btnAddEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddEmployeeActionPerformed(evt);
             }
         });
 
@@ -149,11 +137,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
-        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonYesActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
@@ -166,7 +149,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addGroup(jPanelAddEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAddEmpLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
+                        .addComponent(btnAddEmployee))
                     .addGroup(jPanelAddEmpLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblTitle))
@@ -233,7 +216,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                     .addComponent(jRadioButtonYes)
                     .addComponent(jRadioButtonNo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnAddEmployee)
                 .addGap(45, 45, 45))
         );
 
@@ -309,11 +292,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         lblFNamee.setText("First name: ");
 
         txtfNameE.setColumns(10);
-        txtfNameE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfNameEActionPerformed(evt);
-            }
-        });
 
         lblLNameE.setText("Last name: ");
 
@@ -341,11 +319,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         });
 
         txtSalaryE.setColumns(10);
-        txtSalaryE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalaryEActionPerformed(evt);
-            }
-        });
 
         lblFNamee1.setText("Please Choose The ID Of The Employee You Wish To change Threir Information :");
 
@@ -528,12 +501,12 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        tabbedPane.addTab("tab4", viewMembersPane);
+        tabbedPane.addTab("view trainer's members", viewMembersPane);
 
-        jButton2.setText("Home");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
 
@@ -544,14 +517,14 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             .addComponent(tabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(btnHome)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -560,23 +533,15 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabbedPaneStateChanged
-
-    
-    private void txtfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtfNameActionPerformed
-
-
     /**
+     * Name: btnAddEmployeeActionPerformed
      *
-     *
+     * @author Dana Alajmi Purpose/description takes in user input and creates a
+     * new employee
      * @param evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
+        
         try {
             Employee newEmployee;
             String fname = txtfName.getText();
@@ -592,7 +557,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
             }
-
+            
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
             loadEmployeesIntoTable();
@@ -600,29 +565,37 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(Gym.getEmployeesList());
-
+                out.writeInt(Employee.getID());
+                
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
             txtfName.setText(null);
             txtLName.setText(null);
             txtaddress.setText(null);
             txtPhone.setText(null);
             txtSalary.setText(null);
             buttonGroup1.clearSelection();
-
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, ex, "Error", HEIGHT);
         }
-    }// GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: btnHomeActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: Close this window and open
+     * MainWindow
+     * @param evt
+     */
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {
+        
         this.setVisible(false);
         try {
             try {
@@ -635,13 +608,20 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }// GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonDelete1ActionPerformed
-        // TODO add your handling code here:
-
+    /**
+     * Name: jButtonDelete1ActionPerformed
+     *
+     *
+     * @author Noor Kamal Purpose/description: deletes user from the table
+     * allowed to run in the race
+     * @param evt
+     */
+    private void jButtonDelete1ActionPerformed(java.awt.event.ActionEvent evt) {
+        
         int selectedRow = jTableEmployees.getSelectedRow();
-
+        
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Please select an employee to delete.");
             return;
@@ -657,7 +637,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 "Are you sure you want to delete " + fname + " " + lname + "?",
                 "Confirm Deletion",
                 JOptionPane.YES_NO_OPTION);
-
+        
         if (choice != JOptionPane.YES_OPTION) {
             return; // user clicked No, cancel deletion
         }
@@ -671,13 +651,13 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 break;
             }
         }
-
+        
         if (toRemove == null) {
             JOptionPane.showMessageDialog(this, "Employee not found.");
             return;
         }
 
-        // 🔑 Business rule: if Trainer, check assigned members
+        // Business rule: if Trainer, check assigned members
         if (toRemove instanceof Trainer) {
             Trainer trainer = (Trainer) toRemove;
             if (!trainer.getAssignedMembers().isEmpty()) {
@@ -693,8 +673,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Employee deleted successfully.");
 
         // Save updated list back to file
-        try (FileOutputStream fileOut = new FileOutputStream("employees.dat");
-                ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+        try (FileOutputStream fileOut = new FileOutputStream("employees.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(Gym.getEmployeesList());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error saving updated employees: " + ex.getMessage());
@@ -702,30 +681,17 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
         // Refresh table
         loadEmployeesIntoTable();
-    }// GEN-LAST:event_jButtonDelete1ActionPerformed
+    }
 
-    private void jTabbedPaneAlterStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_jTabbedPaneAlterStateChanged
-        // TODO add your handling code here:
-        int selectedIndex = tabbedPane.getSelectedIndex();
-        String tabTitle = tabbedPane.getTitleAt(selectedIndex);
+    /**
+     * Name: jComboBoxIDActionPerformed
+     *
+     * @author Fatema Hussain Purpose/description: get employee ID from user
+     * selection and set relevant data in fields
+     * @param evt
+     */
+    private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {
 
-        if ("Delete Employee".equals(tabTitle)) {
-            loadEmployeesFromFile();
-            loadEmployeesIntoTable();
-        }
-
-    }// GEN-LAST:event_jTabbedPaneAlterStateChanged
-
-    private void txtfNameEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfNameEActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtfNameEActionPerformed
-
-    private void txtSalaryEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtSalaryEActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtSalaryEActionPerformed
-
-    private void jComboBoxIDActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxIDActionPerformed
-        // TODO add your handling code here:
         // when we click on the ID it attribute should appear (the data changes based on
         // the ID selected)
         Object selected = jComboBoxID.getSelectedItem();
@@ -743,13 +709,21 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 }
             }
         }
+        
+    }
 
-    }// GEN-LAST:event_jComboBoxIDActionPerformed
-
-    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDoneActionPerformed
+    /**
+     * Name: btnDoneActionPerformed
+     *
+     * @author Fatema Hussain Purpose/description: get user input and update the
+     * appropriate fields allowed to run in the race
+     * @param
+     * @return *
+     */
+    private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {
         FileOutputStream fileOut = null;
         try {
-            // TODO add your handling code here:
+
             // on click
             int id = Integer.parseInt(jComboBoxID.getSelectedItem().toString());// take id from combo
             for (int i = 0; i < Gym.getEmployeesList().size(); i++) {
@@ -757,14 +731,14 @@ public class EmployeeDisplay extends javax.swing.JFrame {
 
                 if (Gym.getEmployeesList().get(i).getStaffID() == id) { // search for same id from the loop
                     Gym.getEmployeesList().get(i).setfName(txtfNameE.getText()); // if id found we gonna set new info in
-                                                                                 // the array list
+                    // the array list
                     Gym.getEmployeesList().get(i).setlName(txtLNameE.getText());
                     Gym.getEmployeesList().get(i).setAddress(txtaddressE.getText());
                     Gym.getEmployeesList().get(i).setPhone(Integer.parseInt(txtPhoneE.getText()));
                     Gym.getEmployeesList().get(i).setSalary(Double.parseDouble(txtSalaryE.getText()));
                     if (RbtnPT.isSelected()) {
                         Gym.getEmployeesList().get(i).setType("PT");
-
+                        
                     } else if (RbtnE.isSelected()) {
                         Gym.getEmployeesList().get(i).setType("E");
                         // then we going to disply new info in the combo that got saved in the array
@@ -775,11 +749,11 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                         txtaddressE.setText(Gym.getEmployeesList().get(i).getAddress());
                         txtTrainer.setText(Gym.getEmployeesList().get(i).getType());
                         txtSalaryE.setText(Double.toString(Gym.getEmployeesList().get(i).getSalary()));
-
+                        
                     }
-
+                    
                 }
-
+                
             }
             initialiseCombo();
             // now we serialize the new data so the update can get saved
@@ -806,27 +780,39 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                 Logger.getLogger(EmployeeDisplay.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }// GEN-LAST:event_btnDoneActionPerformed
+    }
 
-    private void RbtnPTActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RbtnPTActionPerformed
-        // TODO add your handling code here:
-
+    /**
+     * Name: RbtnPTActionPerformed
+     *
+     * @author Fatema Hussain Purpose/description: set the textField to show
+     * user selection allowed to run in the race
+     * @param evt
+     */    
+    private void RbtnPTActionPerformed(java.awt.event.ActionEvent evt) {
         txtTrainer.setText("PT");
+    }
 
-    }// GEN-LAST:event_RbtnPTActionPerformed
-
-    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonYesActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jRadioButtonYesActionPerformed
-
-    private void RbtnEActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RbtnEActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: RbtnEActionPerformed
+     *
+     * @author Fatema Hussain Purpose/description: set the textField to show
+     * user selection allowed to run in the race
+     * @param evt
+     */
+    private void RbtnEActionPerformed(java.awt.event.ActionEvent evt) {
         txtTrainer.setText("E");
+    }
 
-    }// GEN-LAST:event_RbtnEActionPerformed
-
-    private void trainerComboActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trainerComboActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: trainerComboActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: Get a trainers assigned members
+     * list
+     * @param evt
+     */
+    private void trainerComboActionPerformed(java.awt.event.ActionEvent evt) {
+        
         String selectedTrainer = trainerCombo.getSelectedItem().toString();
         membersArea.setText(null);
         membersArea.setEditable(false);
@@ -840,13 +826,79 @@ public class EmployeeDisplay extends javax.swing.JFrame {
                             String memberName = member.getfName() + " " + member.getlName();
                             membersArea.append(memberName);
                             membersArea.append("\n");
-
+                            
                         }
                     }
                 }
             }
         }
-    }// GEN-LAST:event_trainerComboActionPerformed
+    }
+
+    /**
+     * Name: loadEmployeesIntoTable
+     *
+     * @author Noor Kamal Purpose/description: get gym employees and load them
+     * in a table
+     */
+    private void loadEmployeesIntoTable() {
+        
+        String[] columns = {"Id", "First Name", "Last Name", "Address", "Phone Number", "PT/E"};
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+        
+        for (Employee e : Gym.getEmployeesList()) {
+            Object[] row = {
+                e.getStaffID(),
+                e.getfName(),
+                e.getlName(),
+                e.getAddress(),
+                e.getPhone(),
+                e.getType()
+            };
+            model.addRow(row);
+        }
+        
+        jTableEmployees.setModel(model);
+    }
+
+    /**
+     * Name: AddTrainers
+     *
+     * @author Fatima Alrafaei Purpose/description: get trainers and load them
+     * in a JComboBox
+     */
+    public void AddTrainers() {
+        int i = 0;
+        do {
+            Employee employee = Gym.getEmployeesList().get(i);
+            if (employee instanceof Trainer) {
+                Trainer trainer = (Trainer) employee;
+                String fullName = trainer.getfName() + " " + trainer.getlName();
+                trainerCombo.addItem(fullName);
+                
+            }
+            i++;
+        } while (i < Gym.getEmployeesList().size());
+    }
+
+    /**
+     * Name: inisialiseCombo
+     *
+     * @author Fatema Hussain Purpose/description: get employees' ID's and load
+     * them in a JComboBox
+     */
+    private void initialiseCombo() {
+        // if the arraylist isnt emplty then extract the IDs and put them in the comboBox
+        if (Gym.getEmployeesList() != null) {
+            jComboBoxID.removeAllItems();
+        }
+        for (Employee emp : Gym.getEmployeesList()) {
+            
+            int item = emp.getStaffID();
+            jComboBoxID.addItem(Integer.toString(item));
+            
+        }
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -891,69 +943,15 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         });
     }
 
-    // Method to populate the table
-    private void loadEmployeesIntoTable() {
-
-        String[] columns = { "Id", "First Name", "Last Name", "Address", "Phone Number", "PT/E" };
-        DefaultTableModel model = new DefaultTableModel(columns, 0);
-
-        for (Employee e : Gym.getEmployeesList()) {
-            Object[] row = {
-                    e.getStaffID(),
-                    e.getfName(),
-                    e.getlName(),
-                    e.getAddress(),
-                    e.getPhone(),
-                    e.getType()
-            };
-            model.addRow(row);
-        }
-
-        jTableEmployees.setModel(model);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void loadEmployeesFromFile() {
-
-        try (FileInputStream fileIn = new FileInputStream("employees.dat");
-                ObjectInputStream in = new ObjectInputStream(fileIn)) {
-
-            ArrayList<Employee> savedList = (ArrayList<Employee>) in.readObject();
-            Gym.setEmployeesList(savedList); // update Gym’s list
-
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "No saved employees yet.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error loading employees: " + e.getMessage());
-        }
-    }
-
-    /**
-     *
-     */
-    public void AddTrainers() {
-        int i = 0;
-        do {
-            Employee employee = Gym.getEmployeesList().get(i);
-            if (employee instanceof Trainer) {
-                Trainer trainer = (Trainer) employee;
-                String fullName = trainer.getfName() + " " + trainer.getlName();
-                trainerCombo.addItem(fullName);
-
-            }
-            i++;
-        } while (i < Gym.getEmployeesList().size());
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton RbtnE;
     private javax.swing.JRadioButton RbtnPT;
+    private javax.swing.JButton btnAddEmployee;
     private javax.swing.JButton btnDone;
+    private javax.swing.JButton btnHome;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonDelete1;
     private javax.swing.JComboBox<String> jComboBoxID;
     private javax.swing.JLabel jLabel2;
@@ -998,18 +996,5 @@ public class EmployeeDisplay extends javax.swing.JFrame {
     private javax.swing.JTextField txtfNameE;
     private javax.swing.JPanel viewMembersPane;
     // End of variables declaration//GEN-END:variables
-    // if the arraylist isnt emplty then we gonna extract the IDs and put them in
-    // the comboBox
-    private void initialiseCombo() {
-        if (Gym.getEmployeesList() != null) {
-            jComboBoxID.removeAllItems();
-        }
-        for (Employee emp : Gym.getEmployeesList()) {
 
-            int item = emp.getStaffID();
-            jComboBoxID.addItem(Integer.toString(item));
-
-        }
-
-    }
 }

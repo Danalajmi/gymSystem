@@ -10,20 +10,20 @@ import java.io.Serializable;
  *
  * @author danalajmi
  */
-public class Employee extends Person implements Serializable{
+public class Employee extends Person implements Serializable {
     //private static final long serialVersionUID = 1L;
 
     public void setSalary(double salary) {
         this.salary = salary;
     }
 
-
     private int staffID;
     private static int ID = 100;
     private double salary;
     private String type;
+
     /**
-     *
+     * @author Dana Alajmi Purpose: Employee constructor
      * @param salary
      * @param fName
      * @param lName
@@ -39,42 +39,69 @@ public class Employee extends Person implements Serializable{
     }
 
     /**
-     *
+     * Purpose default constructor
      */
     public Employee() {
     }
 
-/**
- *
- * @return
- */
+    /**
+     * Name: getStaffID
+     *
+     * @author Dana Alajmi Purpose/description: get employee id
+     * @return int - staff id
+     */
     public int getStaffID() {
         return staffID;
     }
 
     /**
+     * Name: getSalary
      *
-     * @return
+     * @author Dana Alajmi Purpose/description: get employee salary
+     * @return double - employee salary
      */
     public double getSalary() {
         return salary;
     }
 
     /**
+     * Name: getTypr
      *
-     * @return
+     * @author Fatima Hussain Purpose/description: get staff type
+     * @return String - employee type: PT/E
      */
     public String getType() {
         return type;
     }
-/**
- *
- * @param type
- */
+
+    /**
+     * Name: setType
+     *
+     * @author Fatima Hussain Purpose/description: Change staff Type
+     * @params String type: new employee type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Name: getID
+     *
+     * @author Dana Alajmi Purpose/description: get static id to serialize
+     * @return int - static id
+     */
+    public static int getID() {
+        return ID;
+    }
 
+    /**
+     * Name: setID
+     *
+     * @author Dana Alajmi Purpose/description: set static id in deserialisation
+     * @param int - static ID
+     */
+    public static void setID(int ID) {
+        Employee.ID = ID;
+    }
 
 }

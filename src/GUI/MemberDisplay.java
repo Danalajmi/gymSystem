@@ -39,10 +39,17 @@ public class MemberDisplay extends javax.swing.JFrame {
         initComponents();
         AddTrainers();
         loadTrainerMembers();
+        loadUnassignedMembers();
         initialiseCombo();
 
     }
 
+    /**
+     * Name: AddTrainers
+     *
+     * @author Fatima Alrafaei Purpose/description: gets the list of trainers
+     * and loads them in the appropriate comboboxes
+     */
     public void AddTrainers() {
         int i = 0;
         do {
@@ -58,6 +65,13 @@ public class MemberDisplay extends javax.swing.JFrame {
         } while (i < Gym.getEmployeesList().size());
     }
 
+    /**
+     * Name: loadTrianerMembers
+     *
+     *
+     * @author Fatima Alrefaei Purpose/description: gets the list of members
+     * assigned to the selected trainer
+     */
     public void loadTrainerMembers() {
         if (TrainerComboBox.getSelectedItem() != null) {
             TrainerMemberComboBox.removeAllItems();
@@ -93,6 +107,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -198,38 +213,18 @@ public class MemberDisplay extends javax.swing.JFrame {
         lblFname1.setText("First name: ");
 
         txtfName1.setColumns(10);
-        txtfName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfName1ActionPerformed(evt);
-            }
-        });
 
         lblLName1.setText("Last name: ");
 
         txtLName1.setColumns(10);
-        txtLName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLName1ActionPerformed(evt);
-            }
-        });
 
         lbladdress1.setText("address");
 
         txtaddress1.setColumns(10);
-        txtaddress1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtaddress1ActionPerformed(evt);
-            }
-        });
 
         lblPhone1.setText("phone Number");
 
         txtPhone1.setColumns(10);
-        txtPhone1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhone1ActionPerformed(evt);
-            }
-        });
 
         lblDOB.setText("Date of birth");
 
@@ -288,6 +283,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jLabel5.setText("Are you in a sports Team?");
 
+        buttonGroup4.add(jRadioButtonTeamY);
         jRadioButtonTeamY.setText("Yes");
         jRadioButtonTeamY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,6 +291,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButtonTeamN);
         jRadioButtonTeamN.setText("No");
         jRadioButtonTeamN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -667,66 +664,31 @@ public class MemberDisplay extends javax.swing.JFrame {
         lblFnameM_E.setText("First name: ");
 
         txtGenderM_E.setColumns(10);
-        txtGenderM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGenderM_EActionPerformed(evt);
-            }
-        });
 
         lblLNameM_E.setText("Last name: ");
 
         txtLNameM_E.setColumns(10);
-        txtLNameM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLNameM_EActionPerformed(evt);
-            }
-        });
 
         lbladdressM_E.setText("address");
 
         txtaddressM_E.setColumns(10);
-        txtaddressM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtaddressM_EActionPerformed(evt);
-            }
-        });
 
         lblPhoneM_E.setText("phone Number");
 
         txtPhoneM_E.setColumns(10);
-        txtPhoneM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneM_EActionPerformed(evt);
-            }
-        });
 
         lblDOBM_E.setText("Date of birth");
 
         txtDOBM_E.setColumns(10);
         txtDOBM_E.setText("DD/MM/YYYY");
-        txtDOBM_E.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDOBM_EMouseClicked(evt);
-            }
-        });
 
         lblGenderM_E.setText("Gender: ");
 
         buttonGroup3.add(jRadioButtonWM_E);
         jRadioButtonWM_E.setText("Female");
-        jRadioButtonWM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonWM_EActionPerformed(evt);
-            }
-        });
 
         buttonGroup3.add(jRadioButtonMM_E);
         jRadioButtonMM_E.setText("Male");
-        jRadioButtonMM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMM_EActionPerformed(evt);
-            }
-        });
 
         btnAlterMemeberSave.setText("Save");
         btnAlterMemeberSave.addActionListener(new java.awt.event.ActionListener() {
@@ -742,11 +704,6 @@ public class MemberDisplay extends javax.swing.JFrame {
         });
 
         txtfNameM_E.setColumns(10);
-        txtfNameM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfNameM_EActionPerformed(evt);
-            }
-        });
 
         lblPosition1.setText("Department");
 
@@ -853,11 +810,6 @@ public class MemberDisplay extends javax.swing.JFrame {
         lblFnameM_E1.setText("Please Choose The ID Of The Member You Wish To change Threir Information :");
 
         txtMemberTypeM_E.setColumns(10);
-        txtMemberTypeM_E.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMemberTypeM_EActionPerformed(evt);
-            }
-        });
 
         jLabel11.setText("Member Type :");
 
@@ -1098,30 +1050,46 @@ public class MemberDisplay extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AssignTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AssignTrainerButtonActionPerformed
+    /**
+     * Name: AssignTrainerButtonActionPerfomed
+     *
+     * @author Fatima Alrafaei Purpose/description: takes selected trainer and
+     * member and assigns the member to the trainer allowed to run in the race
+     * @param
+     * @return *
+     */
+    private void AssignTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             String selectedTrainer = TrainerComboBox.getSelectedItem().toString();
             String selectedMember = MemberComboBox.getSelectedItem().toString();
             int i = 0;
             do {
 
-                Trainer trainer = (Trainer) Gym.getEmployeesList().get(i);
-                String trainerName = trainer.getfName() + " " + trainer.getlName();
-                if (trainerName.equals(selectedTrainer)) {
-                    int j = 0;
-                    do {
-                        Member member = Gym.getMembersList().get(j);
-                        String memberName = member.getfName() + " " + member.getlName();
-                        if (memberName.equals(selectedMember)) {
-                            if (trainer.getAssignedMembers().contains(member)) {
-                                throw new Exception("Member is already assigned to a trainer!");
+                if (Gym.getEmployeesList().get(i) instanceof Trainer) {
+
+                    Trainer trainer = (Trainer) Gym.getEmployeesList().get(i);
+                    String trainerName = trainer.getfName() + " " + trainer.getlName();
+                    if (trainerName.equals(selectedTrainer)) {
+                        int j = 0;
+                        do {
+
+                            Member member = Gym.getMembersList().get(j);
+                            String memberName = member.getfName() + " " + member.getlName();
+                            if (memberName.equals(selectedMember)) {
+                                if (trainer.getAssignedMembers().contains(member)) {
+                                    throw new Exception("Member is already assigned to a trainer!");
+                                }
+                                trainer.getAssignedMembers().add(member);
+                                JOptionPane.showMessageDialog(rootPane, "Member is assigned successfully");
+                                // update comboBoxes
+                                loadUnassignedMembers();
+                                loadTrainerMembers();
+                                return;
                             }
-                            trainer.getAssignedMembers().add(member);
-                            JOptionPane.showMessageDialog(rootPane, "Member is assigned successfully");
-                            return;
-                        }
-                        j++;
-                    } while (j < Gym.getMembersList().size());
+                            j++;
+                        } while (j < Gym.getMembersList().size());
+                    }
+
                 }
                 i++;
             } while (i < Gym.getEmployeesList().size());
@@ -1129,34 +1097,82 @@ public class MemberDisplay extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-    }// GEN-LAST:event_AssignTrainerButtonActionPerformed
-
-    private void TrainerComboBoxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TrainerComboBoxActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_TrainerComboBoxActionPerformed
-
-    private void jComboBoxDepActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
-    private void jComboBoxTeamActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxTeamActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jComboBoxTeamActionPerformed
+    private void TrainerComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
 
+    }
+
+    /**
+     * Name: loadUnassignedMembers
+     *
+     * @author Dana Alajmi Purpose/description: get the list of members that are
+     * not in any trainer's members list
+     */
+    private void loadUnassignedMembers() {
+        MemberComboBox.removeAllItems();
+
+        for (Member member : Gym.getMembersList()) {
+            boolean isAssigned = false;
+
+            for (Employee employee : Gym.getEmployeesList()) {
+                if (employee instanceof Trainer) {
+                    Trainer trainer = (Trainer) employee;
+
+                    for (Member assignedMember : trainer.getAssignedMembers()) {
+                        if (assignedMember.getMembershipID() == member.getMembershipID()) {
+                            isAssigned = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (isAssigned) {
+                    break;
+                }
+            }
+
+            if (!isAssigned) {
+                MemberComboBox.addItem(member.getfName() + " " + member.getlName());
+            }
+        }
+    }
+
+    private void jComboBoxDepActionPerformed(java.awt.event.ActionEvent evt) {
+
+    }
+
+    private void jComboBoxTeamActionPerformed(java.awt.event.ActionEvent evt) {
+
+    }
+
+    /**
+     * Name: jRadioButtonTeamYActionPerformed
+     *
+     *
+     * @author Dana Alajmi Purpose/description: show the team panel if the
+     * button is selected
+     */
     private void jRadioButtonTeamYActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+
         if (jRadioButtonTeamY.isSelected()) {
             pnlTeam.setVisible(true);
 
         }
     }
 
-    private void jComboBoxCourseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxCourseActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jComboBoxCourseActionPerformed
+    private void jComboBoxCourseActionPerformed(java.awt.event.ActionEvent evt) {
 
+    }
+
+    /**
+     * Name: jRadioButtonStudentActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: show student info panel and hide
+     * staff & team panels
+     */
     private void jRadioButtonStudentActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+
         if (jRadioButtonStudent.isSelected()) {
 
             pnlStudent.setVisible(true);
@@ -1165,41 +1181,43 @@ public class MemberDisplay extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Name: jRadioButtonStaffActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: show staff info panel and hide
+     * student
+     */
     private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+
         if (jRadioButtonStaff.isSelected()) {
             pnlStudent.setVisible(false);
             pnlStaff.setVisible(true);
         }
     }
 
-    private void txtfName1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfName1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtfName1ActionPerformed
+    /**
+     * Name: txtDOBMouseClicked
+     *
+     * @author Dana Alajmi Purpose/description: clear Date of birth field from
+     * the placeholder
+     */
+    private void txtDOBMouseClicked(java.awt.event.MouseEvent evt) {
 
-    private void txtLName1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtLName1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtLName1ActionPerformed
-
-    private void txtaddress1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtaddress1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtaddress1ActionPerformed
-
-    private void txtPhone1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPhone1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtPhone1ActionPerformed
-
-    private void txtDOBMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_txtDOBMouseClicked
-        // TODO add your handling code here:
         txtDOB.setText(null);
-    }// GEN-LAST:event_txtDOBMouseClicked
+    }
 
-    private void jRadioButtonWActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonWActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jRadioButtonWActionPerformed
+    private void jRadioButtonWActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void btnAddMemeberActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddMemeberActionPerformed
-        // TODO add your handling code here:
+    }
+
+    /**
+     * Name: btnAddMemeberActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: take in user input and create a
+     * member, update unassigned members combobox
+     */
+    private void btnAddMemeberActionPerformed(java.awt.event.ActionEvent evt) {
+
         try {
             Member newMember = null;
             String fname = txtfName1.getText();
@@ -1231,12 +1249,13 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
             Gym.addMember(newMember);
             String fullName = fname + " " + lname;
-            MemberComboBox.addItem(fullName); // add to combo box
+            loadUnassignedMembers(); // add to combo box
 
             try {
                 FileOutputStream fileOut = new FileOutputStream("members.dat");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(Gym.getMembersList());
+                out.writeInt(Member.getID());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1249,54 +1268,70 @@ public class MemberDisplay extends javax.swing.JFrame {
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, ex, "Object has not been initialized", HEIGHT);
         }
-    }// GEN-LAST:event_btnAddMemeberActionPerformed
+    }
 
-    private void MemberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_MemberComboBoxActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_MemberComboBoxActionPerformed
+    private void MemberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void TrainerMemberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TrainerMemberComboBoxActionPerformed
+    }
 
-        // TODO add your handling code here:
-    }// GEN-LAST:event_TrainerMemberComboBoxActionPerformed
+    private void TrainerMemberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void RemoveMemberButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RemoveMemberButton1ActionPerformed
+    }
+
+    /**
+     * Name: RemoveMemberButton1ActionPerformed
+     *
+     * @author Fatima Alrafaei Purpose/description: remove member from their
+     * trainer
+     */
+    private void RemoveMemberButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         String selectedTrainer = TrainerComboBox.getSelectedItem().toString();
         String selectedMember = TrainerMemberComboBox.getSelectedItem().toString();
         for (Employee emp : Gym.getEmployeesList()) {
-            Trainer trainer = (Trainer) emp;
-            String trainerName = trainer.getfName() + " " + trainer.getlName();
-            if (trainerName.equals(selectedTrainer)) {
-                for (int i = 0; i < trainer.getAssignedMembers().size(); i++) {
-                    Member member = trainer.getAssignedMembers().get(i);
-                    String memberName = member.getfName() + " " + member.getlName();
-                    if (memberName.equals(selectedMember)) {
-                        trainer.getAssignedMembers().remove(i);
-                        JOptionPane.showMessageDialog(rootPane, "Member removed successfully");
-                        loadTrainerMembers();
+            if (emp instanceof Trainer) {
+                Trainer trainer = (Trainer) emp;
+                String trainerName = trainer.getfName() + " " + trainer.getlName();
+                if (trainerName.equals(selectedTrainer)) {
+                    for (int i = 0; i < trainer.getAssignedMembers().size(); i++) {
+                        Member member = trainer.getAssignedMembers().get(i);
+                        String memberName = member.getfName() + " " + member.getlName();
+                        if (memberName.equals(selectedMember)) {
+                            trainer.getAssignedMembers().remove(i);
+                            JOptionPane.showMessageDialog(rootPane, "Member removed successfully");
+                            loadTrainerMembers();
+                            loadUnassignedMembers();
+                            try {
+                                FileOutputStream fileempOut = new FileOutputStream("employees.dat");
+                                ObjectOutputStream empout = new ObjectOutputStream(fileempOut);
+                                empout.writeObject(Gym.getEmployeesList());
+                                empout.writeInt(Employee.getID());
+                            } catch (IOException ex) {
+                                Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                     }
                 }
             }
         }
-        // TODO add your handling code here:
-    }// GEN-LAST:event_RemoveMemberButton1ActionPerformed
 
-    private void TrainerComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TrainerComboBox2ActionPerformed
+    }
+
+    private void TrainerComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {
         loadTrainerMembers();
 
-    }// GEN-LAST:event_TrainerComboBox2ActionPerformed
-     // private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt)
+    }
+    // private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt)
      // {//GEN-FIRST:event_jRadioButtonStaffActionPerformed
-     // // TODO add your handling code here:
-     // if(jRadioButtonStaff.isSelected()){
-     // pnlStudent.setVisible(false);
-     // pnlStaff.setVisible(true);
-     // }
+     //
+    // if(jRadioButtonStaff.isSelected()){
+    // pnlStudent.setVisible(false);
+    // pnlStaff.setVisible(true);
+    // }
      // }//GEN-LAST:event_jRadioButtonStaffActionPerformed
 
     // private void jRadioButtonStudentActionPerformed(java.awt.event.ActionEvent
     // evt) {//GEN-FIRST:event_jRadioButtonStudentActionPerformed
-    // // TODO add your handling code here:
+    //
     // if(jRadioButtonStudent.isSelected()){
     // pnlStudent.setVisible(true);
     // pnlStaff.setVisible(false);
@@ -1305,14 +1340,18 @@ public class MemberDisplay extends javax.swing.JFrame {
     // }//GEN-LAST:event_jRadioButtonStudentActionPerformed
     // private void jRadioButtonTeamYActionPerformed(java.awt.event.ActionEvent evt)
     // {//GEN-FIRST:event_jRadioButtonTeamYActionPerformed
-    // // TODO add your handling code here:
+    //
     // if(jRadioButtonTeamY.isSelected()){
     // pnlTeam.setVisible(true);
     // }
     // }//GEN-LAST:event_jRadioButtonTeamYActionPerformed
+        /**
+     * Name: btnHomeActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: open mainWindow
+     */
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
 
         try {
@@ -1322,12 +1361,15 @@ public class MemberDisplay extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }// GEN-LAST:event_btnHomeActionPerformed
+    }
 
-
-
-    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_jTabbedPane1StateChanged
-        // TODO add your handling code here:
+    /**
+     * Name: jTabbedPane1StateChanged
+     *
+     * @author Noor Kamal Purpose/description: loads appropriate data if user
+     * selects Delete Members panel
+     */
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {
 
         int selectedIndex = jTabbedPane1.getSelectedIndex();
         String tabTitle = jTabbedPane1.getTitleAt(selectedIndex);
@@ -1338,10 +1380,16 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         }
 
-    }// GEN-LAST:event_jTabbedPane1StateChanged
+    }
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
+    /**
+     * Name: jButtonDeleteActionPerformed
+     *
+     * @author Noor Kamal Purpose/description: Deletes members from ArrayList
+     * add serializes them
+     */
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+
         int selectedRow = jTableMembers.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Please select a member to delete.");
@@ -1389,68 +1437,53 @@ public class MemberDisplay extends javax.swing.JFrame {
                 }
             }
         }
-          // Safe to delete from members list
-        // Gym.getMembersList().remove(toRemove);
+    }
 
-        // if (removedFromTrainer) {
-        //     JOptionPane.showMessageDialog(this,
-        //             "Member deleted successfully and also removed from their trainer’s list.");
-        // } else {
-        //     JOptionPane.showMessageDialog(this,
-        //             "Member deleted successfully.");
-        // }
+    private void txtTeamDisplyM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
-        // // Save updated list back to file
-        // try (FileOutputStream fileOut = new FileOutputStream("members.dat"); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-        //     out.writeObject(Gym.getMembersList());
-        // } catch (Exception ex) {
-        //     JOptionPane.showMessageDialog(this, "Error saving updated members: " + ex.getMessage());
-        // }
+    }
 
-        // // Refresh table
-        // loadMembersIntoTable();
-        // loadTrainerMembers();
+    /**
+     * Name: ComboBoxTeamM_EActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: set team field to selection
+     */
+    private void ComboBoxTeamM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
-
-    }// GEN-LAST:event_jButtonDeleteActionPerformed
-
-
-    private void txtTeamDisplyM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTeamDisplyM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtTeamDisplyM_EActionPerformed
-
-    private void txtfNameM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfNameM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtfNameM_EActionPerformed
-
-    private void ComboBoxTeamM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ComboBoxTeamM_EActionPerformed
-        // TODO add your handling code here:
         String AlteredTeam = ComboBoxTeamM_E.getSelectedItem().toString();
         txtTeamDisplyM_E.setText(AlteredTeam);
 
-    }// GEN-LAST:event_ComboBoxTeamM_EActionPerformed
+    }
 
-    private void ComboBoxCourseM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ComboBoxCourseM_EActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: ComboBoxTeamM_EActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: set team field to selection
+     */
+    private void ComboBoxCourseM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
         String AlteredCourse = ComboBoxCourseM_E.getSelectedItem().toString();
         txtCourseDisplyM_E.setText(AlteredCourse);
 
-    }// GEN-LAST:event_ComboBoxCourseM_EActionPerformed
+    }
 
-    private void btnAlterMemeberSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAlterMemeberSaveActionPerformed
+    /**
+     * Name: btnAlterMemeberSaveActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: Update members and serialize
+     */
+    private void btnAlterMemeberSaveActionPerformed(java.awt.event.ActionEvent evt) {
 
         FileOutputStream fileOut = null;
         try {
-            // TODO add your handling code here:
-            //
 
+            //
             int id = Integer.parseInt(jComboBoxMembersID.getSelectedItem().toString());// take id from combo
             for (int i = 0; i < Gym.getMembersList().size(); i++) {
 
                 if (Gym.getMembersList().get(i).getMembershipID() == id) { // search for same id from the loop
                     Gym.getMembersList().get(i).setfName(txtfNameM_E.getText()); // if id found we gonna set new info in
-                                                                                 // the array list
+                    // the array list
                     Gym.getMembersList().get(i).setlName(txtLNameM_E.getText());
                     Gym.getMembersList().get(i).setAddress(txtaddressM_E.getText());
                     Gym.getMembersList().get(i).setDateOfBirth(txtDOBM_E.getText());
@@ -1510,46 +1543,33 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         }
 
-    }// GEN-LAST:event_btnAlterMemeberSaveActionPerformed
+    }
 
-    private void jRadioButtonWM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonWM_EActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: jRadioButtonWM_EActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: set gender field to selection
+     */
+    private void jRadioButtonWM_EActionPerformed(java.awt.event.ActionEvent evt) {
+
         txtGenderM_E.setText("Female");
 
-    }// GEN-LAST:event_jRadioButtonWM_EActionPerformed
+    }
 
-    private void txtDOBM_EMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_txtDOBM_EMouseClicked
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtDOBM_EMouseClicked
+    /**
+     * Name: jComboBoxMembersIDActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: take in the ID from the combo
+     * box and set fields from it's data
+     */
+    private void jComboBoxMembersIDActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void txtPhoneM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtPhoneM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtPhoneM_EActionPerformed
-
-    private void txtaddressM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtaddressM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtaddressM_EActionPerformed
-
-    private void txtLNameM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtLNameM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtLNameM_EActionPerformed
-
-    private void txtGenderM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtGenderM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtGenderM_EActionPerformed
-
-    private void txtMemberTypeM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtMemberTypeM_EActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_txtMemberTypeM_EActionPerformed
-
-    private void jComboBoxMembersIDActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        // TODO add your handling code here:
         Object selected = jComboBoxMembersID.getSelectedItem();
         if (selected != null) {
             int selection = Integer.parseInt(selected.toString());
             for (Member members : Gym.getMembersList()) {
                 if (members.getMembershipID() == selection) {
-                    txtfNameM_E.setText(members.getlName());
+                    txtfNameM_E.setText(members.getfName());
                     txtLNameM_E.setText(members.getlName());
                     txtaddressM_E.setText(members.getAddress());
                     txtDOBM_E.setText(members.getDateOfBirth());
@@ -1582,41 +1602,53 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         }
 
+    }
 
+    /**
+     * Name: jRadioButtonMM_EActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: set gender field to selection
+     */
+    private void jRadioButtonMM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
-
-
-    }// GEN-LAST:event_jComboBoxMembersIDActionPerformed
-
-    private void jRadioButtonMM_EActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonMM_EActionPerformed
-        // TODO add your handling code here:
         txtGenderM_E.setText("Male");
-    }// GEN-LAST:event_jRadioButtonMM_EActionPerformed
+    }
 
-    private void jComboBoxDep1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBoxDep1ActionPerformed
-        // TODO add your handling code here:
+    /**
+     * Name: jComboBoxDep1ActionPerformed
+     *
+     * @author Fatima Hussain Purpose/description: set department field to
+     * selection
+     */
+    private void jComboBoxDep1ActionPerformed(java.awt.event.ActionEvent evt) {
+
         txtDisplayDepartment.setText(jComboBoxDep1.getSelectedItem().toString());
 
-    }// GEN-LAST:event_jComboBoxDep1ActionPerformed
+    }
 
+    /**
+     * Name: jRadioButtonTeamNActionPerformed
+     *
+     * @author Dana Alajmi Purpose/description: hide team panel if student isn't
+     * in a team
+     */
+    private void jRadioButtonTeamNActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void jRadioButtonTeamNActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonTeamNActionPerformed
-        // TODO add your handling code here:
         if (jRadioButtonTeamN.isSelected()) {
 
-            pnlTeam.setVisible(true);
+            pnlTeam.setVisible(false);
 
         }
     }
-    // GEN-LAST:event_jRadioButtonTeamNActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Name: loadMembersFromFile
+     *
+     * @author Noor Kamal Purpose/description: deserialise members.dat
      */
     private void loadMembersFromFile() {
 
-        try (FileInputStream fileIn = new FileInputStream("members.dat");
-                ObjectInputStream in = new ObjectInputStream(fileIn)) {
+        try (FileInputStream fileIn = new FileInputStream("members.dat"); ObjectInputStream in = new ObjectInputStream(fileIn)) {
 
             ArrayList<Member> savedList = (ArrayList<Member>) in.readObject();
             Gym.setMembersList(savedList); // update Gym’s list
@@ -1629,16 +1661,21 @@ public class MemberDisplay extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Name: loadMembersIntoTable
+     *
+     * @author Noor Kamal Purpose/description: populate table with member data
+     */
     private void loadMembersIntoTable() {
-        String[] columns = { "Membership Id", "First Name", "Last Name", "Phone Number" };
+        String[] columns = {"Membership Id", "First Name", "Last Name", "Phone Number"};
         DefaultTableModel model = new DefaultTableModel(columns, 0);
 
         for (Member m : Gym.getMembersList()) {
             Object[] row = {
-                    m.getMembershipID(),
-                    m.getfName(),
-                    m.getlName(),
-                    m.getPhone()
+                m.getMembershipID(),
+                m.getfName(),
+                m.getlName(),
+                m.getPhone()
 
             };
             model.addRow(row);
@@ -1669,6 +1706,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MemberDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+
         // </editor-fold>
 
         /* Create and display the form */
@@ -1694,6 +1732,7 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JComboBox<String> jComboBoxCourse;
     private javax.swing.JComboBox<String> jComboBoxDep;
