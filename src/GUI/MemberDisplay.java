@@ -278,7 +278,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         jLabel4.setText("Study Course");
 
-        jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
+        jComboBoxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase", "Bachelor of Web Media", "Bachelor of Visual Design", "Bachelor of Film & Animation", "Bachelor of Arts in Digital Filmmaking", "Bachelor of Arts in Animation and Visual Effects", "Diploma in Interactive Design", "Diploma in Social Media Marketing", "Master of Science in Engineering in Sustainable Energy Systems", "Master of Science in Reliability & Maintenance Management", "Bachelor of Engineering  (Mechanical)", "Bachelor of Engineering (Electronics)", "Bachelor of Engineering (Electrical)", "Bachelor of Engineering (Electromechanical)", "Bachelor of Engineering (Communications and Networks)", "Bachelor of Engineering (Chemical and Industrial Processes Engineering)", "Bachelor of Engineering (Civil)", "Bachelor of Engineering (Industrial Instrumentation and Automatic Control)", "Bachelor of Engineering (Renewable and Clean Energy)", "Bachelor of Engineering (Industrial Design and Process)", "Bachelor of Mechanical Engineering (for holders of the EASA Part-66 Aircraft Maintenance Qualification", "Diploma in Engineering (Petroleum and Process Plant Operations)", "Master of Human Resource Management & Organizational Design", "Bachelor of Digital and Social Media Marketing", "Bachelor of Business (Management)", "Bachelor of Business (Marketing)", "Bachelor of Business (Human Resource Management)", "Master of Science in Supply Chain Management", "Master in International Trade and Strategy", "Bachelor of International Logistics Management", "Bachelor of Science in Supply Chain Management", "Customized Bachelor of International Logistics Management (for ATPL holders)", "Master of Science in Sustainability Accounting and Finance", "Bachelor of Science in Financial Technology", "Bachelor of Business (Accounting)", "Bachelor of Business (Banking and Finance)", "Foundation Programme", "General Studies", "Bachelor of Engineering (Mechanical)", "Bachelor of Engineering (Electrical)", "Bachelor of Engineering (Civil)", "Bachelor of Engineering (Chemical and Process Engineering)", "Bachelor of Engineering (Industrial Instrumentation and Automatic Control)", "Bachelor of Information and Communications Technology (Programming)", "Bachelor of Information and Communications Technology (Networking)", "Bachelor of Information and Communications Technology (Cybersecurity)", "Bachelor of Visual Design", "Bachelor of Business (Human Resource Management)", "Bachelor of Business (Accounting)", "Certificate in Infection Prevention and Control", "Certificate in Tertiary Teaching and Learning", "Post Graduate Certificate in Teaching and Learning for Higher Education" }));
         jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCourseActionPerformed(evt);
@@ -331,25 +331,26 @@ public class MemberDisplay extends javax.swing.JFrame {
         pnlStudentLayout.setHorizontalGroup(
             pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlStudentLayout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addGap(12, 12, 12)
-                .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(pnlTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(pnlStudentLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
                 .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jRadioButtonTeamY)
-                    .addComponent(jRadioButtonTeamN)))
+                    .addComponent(pnlTeam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlStudentLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jRadioButtonTeamY)
+                            .addComponent(jRadioButtonTeamN)))
+                    .addGroup(pnlStudentLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         pnlStudentLayout.setVerticalGroup(
             pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlStudentLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStudentLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel4))
+                .addGroup(pnlStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel5)
@@ -715,7 +716,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         lblDepartment1.setText("Position");
 
-        jComboBoxDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "Creative Media", "Engineering", "Business", "Adminstration", "Health & sanitary", "Services" }));
+        jComboBoxDep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT", "Creative Media", "Engineering", "Business", "Adminstration", "Health & sanitary", "Services", "Deanship of Applied Research & Innovation", "Deanship of International Relations", "Professional Development" }));
         jComboBoxDep1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDep1ActionPerformed(evt);
@@ -734,9 +735,9 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlStaff1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlStaff1Layout.createSequentialGroup()
-                        .addComponent(txtDisplayDepartment, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                        .addComponent(txtDisplayDepartment)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxDep1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxDep1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlStaff1Layout.createSequentialGroup()
                         .addComponent(txtPosition1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -759,7 +760,7 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         lblStuduyCourseM_E.setText("Study Course");
 
-        ComboBoxCourseM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
+        ComboBoxCourseM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase", "Bachelor of Web Media", "Bachelor of Visual Design", "Bachelor of Film & Animation", "Bachelor of Arts in Digital Filmmaking", "Bachelor of Arts in Animation and Visual Effects", "Diploma in Interactive Design", "Diploma in Social Media Marketing", "Master of Science in Engineering in Sustainable Energy Systems", "Master of Science in Reliability & Maintenance Management", "Bachelor of Engineering  (Mechanical)", "Bachelor of Engineering (Electronics)", "Bachelor of Engineering (Electrical)", "Bachelor of Engineering (Electromechanical)", "Bachelor of Engineering (Communications and Networks)", "Bachelor of Engineering (Chemical and Industrial Processes Engineering)", "Bachelor of Engineering (Civil)", "Bachelor of Engineering (Industrial Instrumentation and Automatic Control)", "Bachelor of Engineering (Renewable and Clean Energy)", "Bachelor of Engineering (Industrial Design and Process)", "Bachelor of Mechanical Engineering (for holders of the EASA Part-66 Aircraft Maintenance Qualification", "Diploma in Engineering (Petroleum and Process Plant Operations)", "Master of Human Resource Management & Organizational Design", "Bachelor of Digital and Social Media Marketing", "Bachelor of Business (Management)", "Bachelor of Business (Marketing)", "Bachelor of Business (Human Resource Management)", "Master of Science in Supply Chain Management", "Master in International Trade and Strategy", "Bachelor of International Logistics Management", "Bachelor of Science in Supply Chain Management", "Customized Bachelor of International Logistics Management (for ATPL holders)", "Master of Science in Sustainability Accounting and Finance", "Bachelor of Science in Financial Technology", "Bachelor of Business (Accounting)", "Bachelor of Business (Banking and Finance)", "Foundation Programme", "General Studies", "Bachelor of Engineering (Mechanical)", "Bachelor of Engineering (Electrical)", "Bachelor of Engineering (Civil)", "Bachelor of Engineering (Chemical and Process Engineering)", "Bachelor of Engineering (Industrial Instrumentation and Automatic Control)", "Bachelor of Information and Communications Technology (Programming)", "Bachelor of Information and Communications Technology (Networking)", "Bachelor of Information and Communications Technology (Cybersecurity)", "Bachelor of Visual Design", "Bachelor of Business (Human Resource Management)", "Bachelor of Business (Accounting)", "Certificate in Infection Prevention and Control", "Certificate in Tertiary Teaching and Learning", "Post Graduate Certificate in Teaching and Learning for Higher Education" }));
         ComboBoxCourseM_E.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxCourseM_EActionPerformed(evt);
@@ -792,9 +793,6 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(txtCourseDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnlStudent1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(ComboBoxCourseM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(pnlStudent1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(lblSportTeamM_E))
             .addGroup(pnlStudent1Layout.createSequentialGroup()
@@ -802,6 +800,9 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addComponent(txtTeamDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(ComboBoxTeamM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(ComboBoxCourseM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlStudent1Layout.setVerticalGroup(
             pnlStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -826,11 +827,11 @@ public class MemberDisplay extends javax.swing.JFrame {
             pnlJoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlJoinLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(pnlStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlJoinLayout.createSequentialGroup()
-                .addComponent(pnlStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addComponent(pnlStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlJoinLayout.setVerticalGroup(
             pnlJoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -903,7 +904,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMemberTypeM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(168, 168, 168))))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
@@ -1394,7 +1395,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         String selectedMember = TrainerMemberComboBox.getSelectedItem().toString();
         for (Employee emp : Gym.getEmployeesList()) {
             if (emp instanceof Trainer) {
-                System.out.println("here");
+                
                 Trainer trainer = (Trainer) emp;
                 String trainerName = trainer.getfName() + " " + trainer.getlName();
                 if (trainerName.equals(selectedTrainer)) {
@@ -1403,7 +1404,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                         String memberName = member.getfName() + " " + member.getlName();
                         if (memberName.equals(selectedMember)) {
                             trainer.getAssignedMembers().remove(i);
-                            System.out.println("here2");
+                            
                             JOptionPane.showMessageDialog(rootPane, "Member removed successfully");
                             loadTrainerMembers();
                             loadUnassignedMembers();

@@ -363,33 +363,35 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                              <Component id="jComboBoxCourse" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="pnlTeam" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonTeamY" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonTeamN" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlTeam" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonTeamY" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonTeamN" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jComboBoxCourse" min="-2" pref="224" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <EmptySpace pref="324" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jComboBoxCourse" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxCourse" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                               <Component id="jRadioButtonTeamY" min="-2" max="-2" attributes="0"/>
@@ -410,11 +412,62 @@
                     <Component class="javax.swing.JComboBox" name="jComboBoxCourse">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
+                          <StringArray count="55">
                             <StringItem index="0" value="ICT. Programming"/>
                             <StringItem index="1" value="ICT. Cyber Security"/>
                             <StringItem index="2" value="ICT. Network"/>
                             <StringItem index="3" value="ICT. DataBase"/>
+                            <StringItem index="4" value="Bachelor of Web Media"/>
+                            <StringItem index="5" value="Bachelor of Visual Design"/>
+                            <StringItem index="6" value="Bachelor of Film &amp; Animation"/>
+                            <StringItem index="7" value="Bachelor of Arts in Digital Filmmaking"/>
+                            <StringItem index="8" value="Bachelor of Arts in Animation and Visual Effects"/>
+                            <StringItem index="9" value="Diploma in Interactive Design"/>
+                            <StringItem index="10" value="Diploma in Social Media Marketing"/>
+                            <StringItem index="11" value="Master of Science in Engineering in Sustainable Energy Systems"/>
+                            <StringItem index="12" value="Master of Science in Reliability &amp; Maintenance Management"/>
+                            <StringItem index="13" value="Bachelor of Engineering  (Mechanical)"/>
+                            <StringItem index="14" value="Bachelor of Engineering (Electronics)"/>
+                            <StringItem index="15" value="Bachelor of Engineering (Electrical)"/>
+                            <StringItem index="16" value="Bachelor of Engineering (Electromechanical)"/>
+                            <StringItem index="17" value="Bachelor of Engineering (Communications and Networks)"/>
+                            <StringItem index="18" value="Bachelor of Engineering (Chemical and Industrial Processes Engineering)"/>
+                            <StringItem index="19" value="Bachelor of Engineering (Civil)"/>
+                            <StringItem index="20" value="Bachelor of Engineering (Industrial Instrumentation and Automatic Control)"/>
+                            <StringItem index="21" value="Bachelor of Engineering (Renewable and Clean Energy)"/>
+                            <StringItem index="22" value="Bachelor of Engineering (Industrial Design and Process)"/>
+                            <StringItem index="23" value="Bachelor of Mechanical Engineering (for holders of the EASA Part-66 Aircraft Maintenance Qualification"/>
+                            <StringItem index="24" value="Diploma in Engineering (Petroleum and Process Plant Operations)"/>
+                            <StringItem index="25" value="Master of Human Resource Management &amp; Organizational Design"/>
+                            <StringItem index="26" value="Bachelor of Digital and Social Media Marketing"/>
+                            <StringItem index="27" value="Bachelor of Business (Management)"/>
+                            <StringItem index="28" value="Bachelor of Business (Marketing)"/>
+                            <StringItem index="29" value="Bachelor of Business (Human Resource Management)"/>
+                            <StringItem index="30" value="Master of Science in Supply Chain Management"/>
+                            <StringItem index="31" value="Master in International Trade and Strategy"/>
+                            <StringItem index="32" value="Bachelor of International Logistics Management"/>
+                            <StringItem index="33" value="Bachelor of Science in Supply Chain Management"/>
+                            <StringItem index="34" value="Customized Bachelor of International Logistics Management (for ATPL holders)"/>
+                            <StringItem index="35" value="Master of Science in Sustainability Accounting and Finance"/>
+                            <StringItem index="36" value="Bachelor of Science in Financial Technology"/>
+                            <StringItem index="37" value="Bachelor of Business (Accounting)"/>
+                            <StringItem index="38" value="Bachelor of Business (Banking and Finance)"/>
+                            <StringItem index="39" value="Foundation Programme"/>
+                            <StringItem index="40" value="General Studies"/>
+                            <StringItem index="41" value="Bachelor of Engineering (Mechanical)"/>
+                            <StringItem index="42" value="Bachelor of Engineering (Electrical)"/>
+                            <StringItem index="43" value="Bachelor of Engineering (Civil)"/>
+                            <StringItem index="44" value="Bachelor of Engineering (Chemical and Process Engineering)"/>
+                            <StringItem index="45" value="Bachelor of Engineering (Industrial Instrumentation and Automatic Control)"/>
+                            <StringItem index="46" value="Bachelor of Information and Communications Technology (Programming)"/>
+                            <StringItem index="47" value="Bachelor of Information and Communications Technology (Networking)"/>
+                            <StringItem index="48" value="Bachelor of Information and Communications Technology (Cybersecurity)"/>
+                            <StringItem index="49" value="Bachelor of Visual Design"/>
+                            <StringItem index="50" value="Bachelor of Business (Human Resource Management)"/>
+                            <StringItem index="51" value="Bachelor of Business (Accounting)"/>
+                            <StringItem index="52" value="Certificate in Infection Prevention and Control"/>
+                            <StringItem index="53" value="Certificate in Tertiary Teaching and Learning"/>
+                            <StringItem index="54" value="Post Graduate Certificate in Teaching and Learning for Higher Education"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -901,7 +954,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtMemberTypeM_E" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="pnlJoin" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlJoin" min="-2" pref="282" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
                               </Group>
@@ -1092,12 +1145,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="pnlStudent1" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlStudent1" min="-2" pref="230" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="pnlStaff1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              <Component id="pnlStaff1" min="-2" pref="270" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1127,9 +1180,9 @@
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtDisplayDepartment" pref="90" max="32767" attributes="0"/>
+                                          <Component id="txtDisplayDepartment" max="32767" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jComboBoxDep1" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxDep1" min="-2" pref="117" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="txtPosition1" min="-2" max="-2" attributes="0"/>
@@ -1178,7 +1231,7 @@
                         <Component class="javax.swing.JComboBox" name="jComboBoxDep1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="7">
+                              <StringArray count="10">
                                 <StringItem index="0" value="ICT"/>
                                 <StringItem index="1" value="Creative Media"/>
                                 <StringItem index="2" value="Engineering"/>
@@ -1186,6 +1239,9 @@
                                 <StringItem index="4" value="Adminstration"/>
                                 <StringItem index="5" value="Health &amp; sanitary"/>
                                 <StringItem index="6" value="Services"/>
+                                <StringItem index="7" value="Deanship of Applied Research &amp; Innovation"/>
+                                <StringItem index="8" value="Deanship of International Relations"/>
+                                <StringItem index="9" value="Professional Development"/>
                               </StringArray>
                             </Property>
                           </Properties>
@@ -1212,10 +1268,6 @@
                                   <Component id="txtCourseDisplyM_E" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-                                  <Component id="ComboBoxCourseM_E" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="lblSportTeamM_E" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1224,6 +1276,10 @@
                                   <Component id="txtTeamDisplyM_E" min="-2" pref="110" max="-2" attributes="0"/>
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="ComboBoxTeamM_E" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="ComboBoxCourseM_E" min="-2" pref="187" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1257,11 +1313,62 @@
                         <Component class="javax.swing.JComboBox" name="ComboBoxCourseM_E">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
+                              <StringArray count="55">
                                 <StringItem index="0" value="ICT. Programming"/>
                                 <StringItem index="1" value="ICT. Cyber Security"/>
                                 <StringItem index="2" value="ICT. Network"/>
                                 <StringItem index="3" value="ICT. DataBase"/>
+                                <StringItem index="4" value="Bachelor of Web Media"/>
+                                <StringItem index="5" value="Bachelor of Visual Design"/>
+                                <StringItem index="6" value="Bachelor of Film &amp; Animation"/>
+                                <StringItem index="7" value="Bachelor of Arts in Digital Filmmaking"/>
+                                <StringItem index="8" value="Bachelor of Arts in Animation and Visual Effects"/>
+                                <StringItem index="9" value="Diploma in Interactive Design"/>
+                                <StringItem index="10" value="Diploma in Social Media Marketing"/>
+                                <StringItem index="11" value="Master of Science in Engineering in Sustainable Energy Systems"/>
+                                <StringItem index="12" value="Master of Science in Reliability &amp; Maintenance Management"/>
+                                <StringItem index="13" value="Bachelor of Engineering  (Mechanical)"/>
+                                <StringItem index="14" value="Bachelor of Engineering (Electronics)"/>
+                                <StringItem index="15" value="Bachelor of Engineering (Electrical)"/>
+                                <StringItem index="16" value="Bachelor of Engineering (Electromechanical)"/>
+                                <StringItem index="17" value="Bachelor of Engineering (Communications and Networks)"/>
+                                <StringItem index="18" value="Bachelor of Engineering (Chemical and Industrial Processes Engineering)"/>
+                                <StringItem index="19" value="Bachelor of Engineering (Civil)"/>
+                                <StringItem index="20" value="Bachelor of Engineering (Industrial Instrumentation and Automatic Control)"/>
+                                <StringItem index="21" value="Bachelor of Engineering (Renewable and Clean Energy)"/>
+                                <StringItem index="22" value="Bachelor of Engineering (Industrial Design and Process)"/>
+                                <StringItem index="23" value="Bachelor of Mechanical Engineering (for holders of the EASA Part-66 Aircraft Maintenance Qualification"/>
+                                <StringItem index="24" value="Diploma in Engineering (Petroleum and Process Plant Operations)"/>
+                                <StringItem index="25" value="Master of Human Resource Management &amp; Organizational Design"/>
+                                <StringItem index="26" value="Bachelor of Digital and Social Media Marketing"/>
+                                <StringItem index="27" value="Bachelor of Business (Management)"/>
+                                <StringItem index="28" value="Bachelor of Business (Marketing)"/>
+                                <StringItem index="29" value="Bachelor of Business (Human Resource Management)"/>
+                                <StringItem index="30" value="Master of Science in Supply Chain Management"/>
+                                <StringItem index="31" value="Master in International Trade and Strategy"/>
+                                <StringItem index="32" value="Bachelor of International Logistics Management"/>
+                                <StringItem index="33" value="Bachelor of Science in Supply Chain Management"/>
+                                <StringItem index="34" value="Customized Bachelor of International Logistics Management (for ATPL holders)"/>
+                                <StringItem index="35" value="Master of Science in Sustainability Accounting and Finance"/>
+                                <StringItem index="36" value="Bachelor of Science in Financial Technology"/>
+                                <StringItem index="37" value="Bachelor of Business (Accounting)"/>
+                                <StringItem index="38" value="Bachelor of Business (Banking and Finance)"/>
+                                <StringItem index="39" value="Foundation Programme"/>
+                                <StringItem index="40" value="General Studies"/>
+                                <StringItem index="41" value="Bachelor of Engineering (Mechanical)"/>
+                                <StringItem index="42" value="Bachelor of Engineering (Electrical)"/>
+                                <StringItem index="43" value="Bachelor of Engineering (Civil)"/>
+                                <StringItem index="44" value="Bachelor of Engineering (Chemical and Process Engineering)"/>
+                                <StringItem index="45" value="Bachelor of Engineering (Industrial Instrumentation and Automatic Control)"/>
+                                <StringItem index="46" value="Bachelor of Information and Communications Technology (Programming)"/>
+                                <StringItem index="47" value="Bachelor of Information and Communications Technology (Networking)"/>
+                                <StringItem index="48" value="Bachelor of Information and Communications Technology (Cybersecurity)"/>
+                                <StringItem index="49" value="Bachelor of Visual Design"/>
+                                <StringItem index="50" value="Bachelor of Business (Human Resource Management)"/>
+                                <StringItem index="51" value="Bachelor of Business (Accounting)"/>
+                                <StringItem index="52" value="Certificate in Infection Prevention and Control"/>
+                                <StringItem index="53" value="Certificate in Tertiary Teaching and Learning"/>
+                                <StringItem index="54" value="Post Graduate Certificate in Teaching and Learning for Higher Education"/>
                               </StringArray>
                             </Property>
                           </Properties>
