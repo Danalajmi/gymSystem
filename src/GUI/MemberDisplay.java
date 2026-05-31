@@ -42,6 +42,9 @@ public class MemberDisplay extends javax.swing.JFrame {
         loadUnassignedMembers();
         initialiseCombo();
 
+        txtMemberTypeM_E.setEditable(false);
+        txtMemberTypeM_E.setEnabled(false);
+
     }
 
     /**
@@ -811,6 +814,11 @@ public class MemberDisplay extends javax.swing.JFrame {
         lblFnameM_E1.setText("Please Choose The ID Of The Member You Wish To change Threir Information :");
 
         txtMemberTypeM_E.setColumns(10);
+        txtMemberTypeM_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMemberTypeM_EActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Member Type :");
 
@@ -1416,6 +1424,12 @@ public class MemberDisplay extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void txtMemberTypeM_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMemberTypeM_EActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_txtMemberTypeM_EActionPerformed
     /**
      * Name: btnHomeActionPerformed
      *
