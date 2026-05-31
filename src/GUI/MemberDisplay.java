@@ -1237,12 +1237,43 @@ public class MemberDisplay extends javax.swing.JFrame {
             String lname = txtLName1.getText();
             String address = txtaddress1.getText();
             int phone = Integer.parseInt(txtPhone1.getText());
+            String phoneText = txtPhone1.getText();
             String DOB = txtDOB.getText();
             String gender = null;
+
+            // Handle empty fields
+            if (fname.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Must add member first name");
+                return;
+            }
+
+            if (lname.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Must add member last name");
+                return;
+            }
+
+            if (address.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Must add member address");
+                return;
+            }
+
+            if (phoneText.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Must add phone number");
+                return;
+            }
+
+            if (DOB.isEmpty() || DOB.equals("DD/MM/YYYY")) {
+                JOptionPane.showMessageDialog(rootPane, "Must add date of birth");
+                return;
+            }
+
             if (jRadioButtonW.isSelected()) {
                 gender = "Female";
             } else if (jRadioButtonM.isSelected()) {
                 gender = "Male";
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Must select gender");
+                return;
             }
             if (jRadioButtonStudent.isSelected()) {
                 String type = "student";
@@ -1252,16 +1283,29 @@ public class MemberDisplay extends javax.swing.JFrame {
                     newMember = new Student(course, team, DOB, gender, type, fname, lname, address, phone);
                 } else if (jRadioButtonTeamN.isSelected()) {
                     newMember = new Student(course, DOB, gender, type, fname, lname, address, phone);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Must select whether the student is in a sports team");
+                    return;
                 }
             } else if (jRadioButtonStaff.isSelected()) {
                 String position = txtPosition.getText();
                 String type = "Staff";
                 String department = jComboBoxDep.getSelectedItem().toString();
+
+                if (position.isEmpty()) {
+                    JOptionPane.showMessageDialog(rootPane, "Must add staff position");
+                    return;
+                }
+
                 newMember = new Staff(position, department, DOB, gender, type, fname, lname, address, phone);
 
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Must select member type: Student or Staff");
+                return;
             }
+
             Gym.addMember(newMember);
-            String fullName = fname + " " + lname;
+
             loadUnassignedMembers(); // add to combo box
             initialiseCombo();
             try {
@@ -1275,7 +1319,17 @@ public class MemberDisplay extends javax.swing.JFrame {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            JOptionPane.showMessageDialog(this, "Member Added to gym!", "Success", HEIGHT);
+            JOptionPane.showMessageDialog(this, "Member Added to gym!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            txtfName1.setText("");
+            txtLName1.setText("");
+            txtaddress1.setText("");
+            txtPhone1.setText("");
+            txtDOB.setText("DD/MM/YYYY");
+            txtPosition.setText("");
+            buttonGroup1.clearSelection();
+            buttonGroup2.clearSelection();
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, ex, "Expected a number", HEIGHT);
         } catch (NullPointerException ex) {
