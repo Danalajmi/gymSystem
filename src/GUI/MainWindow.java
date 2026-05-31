@@ -309,6 +309,8 @@ public class MainWindow extends javax.swing.JFrame {
      * @throws java.lang.ClassNotFoundException
      */
     private void loadStartUpFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+        Employee.setID(100);
+        Member.setID(100);
         Path pathEmp = Paths.get("employees.dat");
         Path pathMember = Paths.get("members.dat");
         if (Files.exists(pathEmp) || Files.exists(pathMember)) {

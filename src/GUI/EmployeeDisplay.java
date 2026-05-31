@@ -37,9 +37,9 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         loadEmployeesIntoTable();
         AddTrainers();
         initialiseCombo();
-        txtTrainer.setEditable(false) ;              
+        txtTrainer.setEditable(false);
         txtTrainer.setEnabled(false);
-        
+
     }
 
     /**
@@ -881,17 +881,21 @@ public class EmployeeDisplay extends javax.swing.JFrame {
      * in a JComboBox
      */
     public void AddTrainers() {
-        int i = 0;
-        do {
-            Employee employee = Gym.getEmployeesList().get(i);
-            if (employee instanceof Trainer) {
-                Trainer trainer = (Trainer) employee;
-                String fullName = trainer.getfName() + " " + trainer.getlName();
-                trainerCombo.addItem(fullName);
+        try {
+            int i = 0;
+            do {
+                Employee employee = Gym.getEmployeesList().get(i);
+                if (employee instanceof Trainer) {
+                    Trainer trainer = (Trainer) employee;
+                    String fullName = trainer.getfName() + " " + trainer.getlName();
+                    trainerCombo.addItem(fullName);
 
-            }
-            i++;
-        } while (i < Gym.getEmployeesList().size());
+                }
+                i++;
+            } while (i < Gym.getEmployeesList().size());
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(rootPane, "Employee List is empty");
+        }
     }
 
     /**

@@ -54,7 +54,8 @@ public class MemberDisplay extends javax.swing.JFrame {
      * and loads them in the appropriate comboboxes
      */
     public void AddTrainers() {
-        int i = 0;
+        try {
+                    int i = 0;
         do {
             Employee employee = Gym.getEmployeesList().get(i);
             if (employee instanceof Trainer) {
@@ -66,6 +67,9 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
             i++;
         } while (i < Gym.getEmployeesList().size());
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(rootPane, "Employee List is empty");
+        }
     }
 
     /**
@@ -831,7 +835,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlJoinLayout.createSequentialGroup()
                 .addComponent(pnlStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         pnlJoinLayout.setVerticalGroup(
             pnlJoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -904,8 +908,8 @@ public class MemberDisplay extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtMemberTypeM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(168, 168, 168))))
+                            .addComponent(pnlJoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(146, 146, 146))))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(lblFnameM_E1)
@@ -1275,7 +1279,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             String fname = txtfName1.getText();
             String lname = txtLName1.getText();
             String address = txtaddress1.getText();
-            int phone = Integer.parseInt(txtPhone1.getText());
+
             String phoneText = txtPhone1.getText();
             String DOB = txtDOB.getText();
             String gender = null;
@@ -1314,6 +1318,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Must select gender");
                 return;
             }
+            int phone = Integer.parseInt(txtPhone1.getText());
             if (jRadioButtonStudent.isSelected()) {
                 String type = "student";
                 String course = jComboBoxCourse.getSelectedItem().toString();
@@ -1395,7 +1400,7 @@ public class MemberDisplay extends javax.swing.JFrame {
         String selectedMember = TrainerMemberComboBox.getSelectedItem().toString();
         for (Employee emp : Gym.getEmployeesList()) {
             if (emp instanceof Trainer) {
-                
+
                 Trainer trainer = (Trainer) emp;
                 String trainerName = trainer.getfName() + " " + trainer.getlName();
                 if (trainerName.equals(selectedTrainer)) {
@@ -1404,7 +1409,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                         String memberName = member.getfName() + " " + member.getlName();
                         if (memberName.equals(selectedMember)) {
                             trainer.getAssignedMembers().remove(i);
-                            
+
                             JOptionPane.showMessageDialog(rootPane, "Member removed successfully");
                             loadTrainerMembers();
                             loadUnassignedMembers();
@@ -1614,21 +1619,101 @@ public class MemberDisplay extends javax.swing.JFrame {
             for (int i = 0; i < Gym.getMembersList().size(); i++) {
 
                 if (Gym.getMembersList().get(i).getMembershipID() == id) { // search for same id from the loop
-                    Gym.getMembersList().get(i).setfName(txtfNameM_E.getText()); // if id found we gonna set new info in
-                    // the array list
-                    Gym.getMembersList().get(i).setlName(txtLNameM_E.getText());
-                    Gym.getMembersList().get(i).setAddress(txtaddressM_E.getText());
-                    Gym.getMembersList().get(i).setDateOfBirth(txtDOBM_E.getText());
-                    Gym.getMembersList().get(i).setPhone(Integer.parseInt(txtPhoneM_E.getText()));
-                    Gym.getMembersList().get(i).setGender(txtGenderM_E.getText());
-                    Gym.getMembersList().get(i).setType(txtMemberTypeM_E.getText());
-                    if (Gym.getMembersList().get(i) instanceof Staff) {
-                        ((Staff) Gym.getMembersList().get(i)).setPosition(txtPosition1.getText());
-                        ((Staff) Gym.getMembersList().get(i)).setDepartment(txtDisplayDepartment.getText());
-                    } else if (Gym.getMembersList().get(i) instanceof Student) {
-                        ((Student) Gym.getMembersList().get(i)).setCourse(txtCourseDisplyM_E.getText());
-                        ((Student) Gym.getMembersList().get(i)).setTeam(txtTeamDisplyM_E.getText());
+                    Member member = Gym.getMembersList().get(i);
 
+                    String fname = txtfNameM_E.getText();
+                    String lname = txtLNameM_E.getText();
+                    String address = txtaddressM_E.getText();
+                    String dob = txtDOBM_E.getText().trim();
+                    String phoneText = txtPhoneM_E.getText();
+                    String gender = txtGenderM_E.getText();
+
+                    if (fname.isEmpty()) {
+                        JOptionPane.showMessageDialog(rootPane, "First name cannot be empty.");
+                        return;
+                    }
+
+                    if (lname.isEmpty()) {
+                        JOptionPane.showMessageDialog(rootPane, "Last name cannot be empty.");
+                        return;
+                    }
+
+                    if (address.isEmpty()) {
+                        JOptionPane.showMessageDialog(rootPane, "Address cannot be empty.");
+                        return;
+                    }
+
+                    if (dob.isEmpty() || dob.equals("DD/MM/YYYY")) {
+                        JOptionPane.showMessageDialog(rootPane, "Date of birth cannot be empty.");
+                        return;
+                    }
+
+                    if (phoneText.isEmpty()) {
+                        JOptionPane.showMessageDialog(rootPane, "Phone number cannot be empty.");
+                        return;
+                    }
+
+                    if (gender.isEmpty()) {
+                        JOptionPane.showMessageDialog(rootPane, "Gender cannot be empty.");
+                        return;
+                    }
+
+                    int phone;
+
+                    try {
+                        phone = Integer.parseInt(phoneText);
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(rootPane, "Phone number must be a valid number.");
+                        return;
+                    }
+
+// Set common member info
+                    member.setfName(fname);
+                    member.setlName(lname);
+                    member.setAddress(address);
+                    member.setDateOfBirth(dob);
+                    member.setPhone(phone);
+                    member.setGender(gender);
+                    
+
+// Set Staff or Student-specific info
+                    if (member instanceof Staff) {
+                        Staff staff = (Staff) member;
+
+                        String position = txtPosition1.getText().trim();
+                        String department = txtDisplayDepartment.getText().trim();
+
+                        if (position.isEmpty()) {
+                            JOptionPane.showMessageDialog(rootPane, "Position cannot be empty.");
+                            return;
+                        }
+
+                        if (department.isEmpty()) {
+                            JOptionPane.showMessageDialog(rootPane, "Department cannot be empty.");
+                            return;
+                        }
+
+                        staff.setPosition(position);
+                        staff.setDepartment(department);
+
+                    } else if (member instanceof Student) {
+                        Student student = (Student) member;
+
+                        String course = txtCourseDisplyM_E.getText();
+                        String team = txtTeamDisplyM_E.getText();
+
+                        if (course.isEmpty()) {
+                            JOptionPane.showMessageDialog(rootPane, "Course cannot be empty.");
+                            return;
+                        }
+
+                        if (team.isEmpty()) {
+                            JOptionPane.showMessageDialog(rootPane, "Team cannot be empty.");
+                            return;
+                        }
+
+                        student.setCourse(course);
+                        student.setTeam(team);
                     }
                     // then we going to disply new info in the combo that got saved in the array
                     // previously
@@ -1654,7 +1739,7 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
             initialiseCombo();
 
-            fileOut = new FileOutputStream("Members.dat");
+            fileOut = new FileOutputStream("members.dat");
             ObjectOutputStream out = null;
             try {
                 out = new ObjectOutputStream(fileOut);
