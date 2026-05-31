@@ -78,7 +78,7 @@ public class MemberDisplay extends javax.swing.JFrame {
     public void loadTrainerMembers() {
         if (TrainerComboBox.getSelectedItem() != null) {
             TrainerMemberComboBox.removeAllItems();
-            String selectedTrainer = TrainerComboBox.getSelectedItem().toString();
+            String selectedTrainer = TrainerComboBox2.getSelectedItem().toString();
             for (Employee employee : Gym.getEmployeesList()) {
                 if (employee instanceof Trainer) {
                     Trainer trainer = (Trainer) employee;
@@ -757,10 +757,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        pnlStudent1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         lblStuduyCourseM_E.setText("Study Course");
-        pnlStudent1.add(lblStuduyCourseM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         ComboBoxCourseM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICT. Programming", "ICT. Cyber Security", "ICT. Network", "ICT. DataBase" }));
         ComboBoxCourseM_E.addActionListener(new java.awt.event.ActionListener() {
@@ -768,10 +765,8 @@ public class MemberDisplay extends javax.swing.JFrame {
                 ComboBoxCourseM_EActionPerformed(evt);
             }
         });
-        pnlStudent1.add(ComboBoxCourseM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 130, -1));
 
         lblSportTeamM_E.setText("Your Sport Team");
-        pnlStudent1.add(lblSportTeamM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         ComboBoxTeamM_E.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vollyball", "basketball", "football", "running", "tennis" }));
         ComboBoxTeamM_E.addActionListener(new java.awt.event.ActionListener() {
@@ -779,7 +774,6 @@ public class MemberDisplay extends javax.swing.JFrame {
                 ComboBoxTeamM_EActionPerformed(evt);
             }
         });
-        pnlStudent1.add(ComboBoxTeamM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         txtTeamDisplyM_E.setColumns(10);
         txtTeamDisplyM_E.addActionListener(new java.awt.event.ActionListener() {
@@ -787,8 +781,44 @@ public class MemberDisplay extends javax.swing.JFrame {
                 txtTeamDisplyM_EActionPerformed(evt);
             }
         });
-        pnlStudent1.add(txtTeamDisplyM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 110, -1));
-        pnlStudent1.add(txtCourseDisplyM_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 120, -1));
+
+        javax.swing.GroupLayout pnlStudent1Layout = new javax.swing.GroupLayout(pnlStudent1);
+        pnlStudent1.setLayout(pnlStudent1Layout);
+        pnlStudent1Layout.setHorizontalGroup(
+            pnlStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblStuduyCourseM_E)
+                .addGap(1, 1, 1)
+                .addComponent(txtCourseDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(ComboBoxCourseM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblSportTeamM_E))
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(txtTeamDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(ComboBoxTeamM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlStudent1Layout.setVerticalGroup(
+            pnlStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStudent1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pnlStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStuduyCourseM_E)
+                    .addComponent(txtCourseDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(ComboBoxCourseM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(lblSportTeamM_E)
+                .addGap(13, 13, 13)
+                .addGroup(pnlStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTeamDisplyM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxTeamM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout pnlJoinLayout = new javax.swing.GroupLayout(pnlJoin);
         pnlJoin.setLayout(pnlJoinLayout);
@@ -1360,10 +1390,11 @@ public class MemberDisplay extends javax.swing.JFrame {
      * trainer
      */
     private void RemoveMemberButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        String selectedTrainer = TrainerComboBox.getSelectedItem().toString();
+        String selectedTrainer = TrainerComboBox2.getSelectedItem().toString();
         String selectedMember = TrainerMemberComboBox.getSelectedItem().toString();
         for (Employee emp : Gym.getEmployeesList()) {
             if (emp instanceof Trainer) {
+                System.out.println("here");
                 Trainer trainer = (Trainer) emp;
                 String trainerName = trainer.getfName() + " " + trainer.getlName();
                 if (trainerName.equals(selectedTrainer)) {
@@ -1372,6 +1403,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                         String memberName = member.getfName() + " " + member.getlName();
                         if (memberName.equals(selectedMember)) {
                             trainer.getAssignedMembers().remove(i);
+                            System.out.println("here2");
                             JOptionPane.showMessageDialog(rootPane, "Member removed successfully");
                             loadTrainerMembers();
                             loadUnassignedMembers();
