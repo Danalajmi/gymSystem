@@ -1149,9 +1149,11 @@ public class MemberDisplay extends javax.swing.JFrame {
                 }
                 i++;
             } while (i < Gym.getEmployeesList().size());
-        } catch (Exception ex) {
+        } catch(NullPointerException ex){
+            JOptionPane.showMessageDialog(rootPane, "No member or trainer selected");
+        }catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        } 
 
     }
 
@@ -1396,7 +1398,8 @@ public class MemberDisplay extends javax.swing.JFrame {
      * trainer
      */
     private void RemoveMemberButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        String selectedTrainer = TrainerComboBox2.getSelectedItem().toString();
+        try {
+                   String selectedTrainer = TrainerComboBox2.getSelectedItem().toString();
         String selectedMember = TrainerMemberComboBox.getSelectedItem().toString();
         for (Employee emp : Gym.getEmployeesList()) {
             if (emp instanceof Trainer) {
@@ -1427,6 +1430,9 @@ public class MemberDisplay extends javax.swing.JFrame {
             }
         }
 
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(rootPane, "No member or Trainer selected");
+        }
     }
 
     private void TrainerComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1746,8 +1752,8 @@ public class MemberDisplay extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "Member's Data Altered Successfully");
             out.writeObject(Gym.getMembersList());
+            JOptionPane.showMessageDialog(this, "Member's Data Altered Successfully");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
