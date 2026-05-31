@@ -39,7 +39,6 @@ public class EmployeeDisplay extends javax.swing.JFrame {
         initialiseCombo();
         txtTrainer.setEditable(false);
         txtTrainer.setEnabled(false);
-
     }
 
     /**

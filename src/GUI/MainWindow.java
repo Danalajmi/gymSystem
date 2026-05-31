@@ -174,7 +174,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         String title = "Bahrain Polytechnic GYM report \n \n";
         try {
-            FileWriter reportFile = new FileWriter("report.txt");
+            FileWriter reportFile = new FileWriter("MarketingReport.txt");
             reportFile.write(title);
             reportFile.write("Polytechnic staff \n");
 
@@ -212,7 +212,7 @@ public class MainWindow extends javax.swing.JFrame {
             // source: https://stackoverflow.com/questions/3487149/how-to-open-the-notepad-file-in-java
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
-                File report = new File("report.txt");
+                File report = new File("MarketingReport.txt");
                 desktop.open(report);
 
             }
@@ -247,7 +247,7 @@ public class MainWindow extends javax.swing.JFrame {
                 ObjectInputStream inEmp = new ObjectInputStream(fileInEmp);
                 Gym.setEmployeesList((ArrayList<Employee>) inEmp.readObject());
                 try {
-                    Member.setID(inEmp.readInt());
+                    Employee.setID(inEmp.readInt());
                 } catch (EOFException ex) {
                     int maxID = 0;
 
@@ -442,7 +442,10 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private void btnCleanStartActionPerformed(java.awt.event.ActionEvent evt) throws IOException, ClassNotFoundException {
 
-        JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
+        int result = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to initialise a fresh start");
+        if (result != JOptionPane.YES_OPTION) {
+            return;
+        }
         try {
             Gym.getMembersList().clear();
             Gym.getEmployeesList().clear();

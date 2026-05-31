@@ -80,7 +80,7 @@ public class MemberDisplay extends javax.swing.JFrame {
      * assigned to the selected trainer
      */
     public void loadTrainerMembers() {
-        if (TrainerComboBox.getSelectedItem() != null) {
+        if (TrainerComboBox2.getSelectedItem() != null) {
             TrainerMemberComboBox.removeAllItems();
             String selectedTrainer = TrainerComboBox2.getSelectedItem().toString();
             for (Employee employee : Gym.getEmployeesList()) {
