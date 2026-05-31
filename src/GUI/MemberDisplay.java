@@ -1362,7 +1362,7 @@ public class MemberDisplay extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
-        /**
+    /**
      * Name: btnHomeActionPerformed
      *
      * @author Dana Alajmi Purpose/description: open mainWindow
@@ -1453,6 +1453,20 @@ public class MemberDisplay extends javax.swing.JFrame {
                     removedFromTrainer = true;
                 }
             }
+        }
+        Gym.getMembersList().remove(toRemove);
+        JOptionPane.showMessageDialog(rootPane, "Member deleted");
+        loadMembersIntoTable();
+
+        try {
+            FileOutputStream fileOut = new FileOutputStream("members.dat");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(Gym.getMembersList());
+            out.writeInt(Member.getID());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MemberDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
