@@ -6,7 +6,10 @@ package LOGIC;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author danalajmi
+ */
 public class Trainer extends Employee implements Serializable{
 
     private ArrayList<Member> assignedMembers;
@@ -27,7 +30,7 @@ public class Trainer extends Employee implements Serializable{
 
 /**
  * name: getAssignedMembers
- * @return ArrayList<Member>
+ * @return ArrayList
  */
     public ArrayList<Member> getAssignedMembers() {
         return assignedMembers;

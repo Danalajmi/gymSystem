@@ -18,6 +18,9 @@ public class Member extends Person implements Serializable {
     private String gender;
     private String type;
 
+    /**
+     *
+     */
     public Member() {
     }
 

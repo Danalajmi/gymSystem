@@ -6,7 +6,10 @@ package LOGIC;
 
 import java.io.Serializable;
 
-
+/**
+ *
+ * @author danalajmi
+ */
 abstract public class Person implements Serializable{
     private String fName;
     private String lName;
@@ -26,6 +29,9 @@ abstract public class Person implements Serializable{
         this.phone = phone;
     }
 
+    /**
+     *
+     */
     public Person() {
     }
 

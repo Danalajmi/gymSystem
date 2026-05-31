@@ -16,6 +16,9 @@ public class Gym implements Serializable {
     private static ArrayList<Member> membersList = new ArrayList<>();
     private static ArrayList<Employee> employeesList = new ArrayList<>();
 
+    /**
+     *
+     */
     public Gym() {
 
     }

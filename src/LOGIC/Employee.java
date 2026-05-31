@@ -13,6 +13,11 @@ import java.io.Serializable;
 public class Employee extends Person implements Serializable {
     //private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     * @param salary
+     */
+
     public void setSalary(double salary) {
         this.salary = salary;
     }
@@ -78,7 +83,7 @@ public class Employee extends Person implements Serializable {
      * Name: setType
      *
      * @author Fatima Hussain Purpose/description: Change staff Type
-     * @params String type: new employee type
+     * @param type
      */
     public void setType(String type) {
         this.type = type;
@@ -98,7 +103,7 @@ public class Employee extends Person implements Serializable {
      * Name: setID
      *
      * @author Dana Alajmi Purpose/description: set static id in deserialisation
-     * @param int - static ID
+     * @param ID
      */
     public static void setID(int ID) {
         Employee.ID = ID;

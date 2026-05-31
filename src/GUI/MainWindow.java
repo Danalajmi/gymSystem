@@ -285,7 +285,7 @@ public class MainWindow extends javax.swing.JFrame {
             } catch (FileNotFoundException e) {
                 fileInMember = null;
             } catch (ClassNotFoundException ex) {
-                System.out.println("class not found");
+                JOptionPane.showMessageDialog(this,"class not found");
             }
 
         } else {

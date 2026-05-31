@@ -904,47 +904,43 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="btnAlterMemeberSave" min="-2" pref="125" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblGenderM_E" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="122" pref="122" max="-2" attributes="0"/>
-                                                      <Component id="txtGenderM_E" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblGenderM_E" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDOBM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="lblFnameM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="lblLNameM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="txtLNameM_E" max="32767" attributes="0"/>
+                                                          <Component id="txtfNameM_E" max="32767" attributes="0"/>
+                                                      </Group>
                                                   </Group>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jRadioButtonMM_E" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jRadioButtonWM_E" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lblDOBM_E" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblFnameM_E" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="lblLNameM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="lbladdressM_E" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="txtaddressM_E" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="txtLNameM_E" max="32767" attributes="0"/>
-                                                      <Component id="txtfNameM_E" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="lbladdressM_E" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="txtaddressM_E" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="lblPhoneM_E" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtPhoneM_E" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtDOBM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="lblPhoneM_E" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="txtPhoneM_E" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="txtDOBM_E" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jRadioButtonMM_E" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="jRadioButtonWM_E" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -1022,9 +1018,8 @@
                               <Component id="lblGenderM_E" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonWM_E" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonMM_E" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtGenderM_E" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="btnAlterMemeberSave" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="894" max="-2" attributes="0"/>
                       </Group>
@@ -1043,11 +1038,6 @@
                 <Component class="javax.swing.JLabel" name="lblFnameM_E">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="First name: "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtGenderM_E">
-                  <Properties>
-                    <Property name="columns" type="int" value="10"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblLNameM_E">

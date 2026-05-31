@@ -22,6 +22,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.RootPaneUI;
 import javax.swing.table.DefaultTableModel;
@@ -166,7 +167,6 @@ public class MemberDisplay extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         lblAlterMemberTitle = new javax.swing.JLabel();
         lblFnameM_E = new javax.swing.JLabel();
-        txtGenderM_E = new javax.swing.JTextField();
         lblLNameM_E = new javax.swing.JLabel();
         txtLNameM_E = new javax.swing.JTextField();
         lbladdressM_E = new javax.swing.JLabel();
@@ -672,8 +672,6 @@ public class MemberDisplay extends javax.swing.JFrame {
 
         lblFnameM_E.setText("First name: ");
 
-        txtGenderM_E.setColumns(10);
-
         lblLNameM_E.setText("Last name: ");
 
         txtLNameM_E.setColumns(10);
@@ -871,37 +869,34 @@ public class MemberDisplay extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAlterMemeberSave, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblGenderM_E)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblGenderM_E)
+                                    .addComponent(lblDOBM_E)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
-                                            .addGap(122, 122, 122)
-                                            .addComponent(txtGenderM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jRadioButtonMM_E)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jRadioButtonWM_E))
-                                .addComponent(lblDOBM_E)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblFnameM_E)
-                                            .addComponent(lblLNameM_E))
-                                        .addGap(62, 62, 62)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtLNameM_E)
-                                            .addComponent(txtfNameM_E)))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(lbladdressM_E)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtaddressM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(lblPhoneM_E)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPhoneM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtDOBM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblFnameM_E)
+                                                .addComponent(lblLNameM_E))
+                                            .addGap(62, 62, 62)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtLNameM_E)
+                                                .addComponent(txtfNameM_E)))
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addComponent(lbladdressM_E)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtaddressM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addComponent(lblPhoneM_E)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPhoneM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtDOBM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                                    .addComponent(jRadioButtonMM_E)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(jRadioButtonWM_E))))))
+                                .addGap(137, 137, 137)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -959,9 +954,8 @@ public class MemberDisplay extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGenderM_E)
                     .addComponent(jRadioButtonWM_E)
-                    .addComponent(jRadioButtonMM_E)
-                    .addComponent(txtGenderM_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jRadioButtonMM_E))
+                .addGap(33, 33, 33)
                 .addComponent(btnAlterMemeberSave)
                 .addGap(894, 894, 894))
         );
@@ -1632,8 +1626,14 @@ public class MemberDisplay extends javax.swing.JFrame {
                     String address = txtaddressM_E.getText();
                     String dob = txtDOBM_E.getText().trim();
                     String phoneText = txtPhoneM_E.getText();
-                    String gender = txtGenderM_E.getText();
-
+                    String gender;
+                    if (jRadioButtonMM_E.isSelected()) {
+                        gender = "Male";
+                    }else if(jRadioButtonWM_E.isSelected()){
+                        gender = "Female";
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Please select a gender");
+                    }
                     if (fname.isEmpty()) {
                         JOptionPane.showMessageDialog(rootPane, "First name cannot be empty.");
                         return;
@@ -1659,10 +1659,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                         return;
                     }
 
-                    if (gender.isEmpty()) {
-                        JOptionPane.showMessageDialog(rootPane, "Gender cannot be empty.");
-                        return;
-                    }
+
 
                     int phone;
 
@@ -1729,7 +1726,7 @@ public class MemberDisplay extends javax.swing.JFrame {
                     txtaddressM_E.setText(Gym.getMembersList().get(i).getAddress());
                     txtDOBM_E.setText(Gym.getMembersList().get(i).getDateOfBirth());
                     txtPhoneM_E.setText(Integer.toString(Gym.getMembersList().get(i).getPhone()));
-                    txtGenderM_E.setText(Gym.getMembersList().get(i).getGender());
+                    
                     txtMemberTypeM_E.setText(Gym.getMembersList().get(i).getType());
                     if (Gym.getMembersList().get(i) instanceof Staff) {
                         txtPosition1.setText(((Staff) Gym.getMembersList().get(i)).getPosition());
@@ -1775,8 +1772,7 @@ public class MemberDisplay extends javax.swing.JFrame {
      */
     private void jRadioButtonWM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
-        txtGenderM_E.setText("Female");
-
+    
     }
 
     /**
@@ -1797,7 +1793,13 @@ public class MemberDisplay extends javax.swing.JFrame {
                     txtaddressM_E.setText(members.getAddress());
                     txtDOBM_E.setText(members.getDateOfBirth());
                     txtPhoneM_E.setText(Integer.toString(members.getPhone()));
-                    txtGenderM_E.setText(members.getGender());
+
+                    if (members.getGender().equalsIgnoreCase("male")) {
+                        jRadioButtonMM_E.setSelected(true);
+                    }else if(members.getGender().equalsIgnoreCase("female")){
+                        jRadioButtonWM_E.setSelected(true);
+                    }
+                        
                     txtMemberTypeM_E.setText(members.getType());
                     if (members instanceof Student) {
                         txtCourseDisplyM_E.setText(((Student) members).getCourse());
@@ -1810,7 +1812,6 @@ public class MemberDisplay extends javax.swing.JFrame {
                     if (members instanceof Staff) {
                         txtDisplayDepartment.setText(((Staff) members).getDepartment());
                         txtPosition1.setText(((Staff) members).getPosition());
-
                         pnlStudent1.setVisible(false);
                         pnlStaff1.setVisible(true);
 
@@ -1834,7 +1835,7 @@ public class MemberDisplay extends javax.swing.JFrame {
      */
     private void jRadioButtonMM_EActionPerformed(java.awt.event.ActionEvent evt) {
 
-        txtGenderM_E.setText("Male");
+       
     }
 
     /**
@@ -1907,6 +1908,10 @@ public class MemberDisplay extends javax.swing.JFrame {
         jTableMembers.setModel(model);
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
 
         try {
@@ -2023,7 +2028,6 @@ public class MemberDisplay extends javax.swing.JFrame {
     private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtDOBM_E;
     private javax.swing.JTextField txtDisplayDepartment;
-    private javax.swing.JTextField txtGenderM_E;
     private javax.swing.JTextField txtLName1;
     private javax.swing.JTextField txtLNameM_E;
     private javax.swing.JTextField txtMemberTypeM_E;
