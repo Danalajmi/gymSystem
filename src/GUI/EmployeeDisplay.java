@@ -564,20 +564,52 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             String fname = txtfName.getText();
             String lname = txtLName.getText();
             String address = txtaddress.getText();
+            String phoneText = txtPhone.getText();
+            String salaryText = txtSalary.getText();
             int phone = Integer.parseInt(txtPhone.getText());
             double salary = Double.parseDouble(txtSalary.getText());
             String type;
+            
+            if (fname.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Must add first name");
+            return;
+        }
+
+        if (lname.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Must add last name");
+            return;
+        }
+
+        if (address.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Must add address");
+            return;
+        }
+
+        if (phoneText.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Must add phone number");
+            return;
+        }
+
+        if (salaryText.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Must add salary");
+            return;
+        }
+            
             if (jRadioButtonYes.isSelected()) {
                 type = "PT";
                 newEmployee = new Trainer(salary, fname, lname, address, phone, type);
-            } else {
+            } else if (jRadioButtonNo.isSelected()) {
                 type = "E";
                 newEmployee = new Employee(salary, fname, lname, address, phone, type);
-            }
+            } else {
+            JOptionPane.showMessageDialog(rootPane, "Please select whether the employee is a trainer.");
+            return;
+        }
             
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
             loadEmployeesIntoTable();
+            initialiseCombo();
             try {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -598,10 +630,21 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             buttonGroup1.clearSelection();
             
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(rootPane, ex, "Expected a number", HEIGHT);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex, "Error", HEIGHT);
-        }
+        JOptionPane.showMessageDialog(
+            rootPane,
+            "Phone and salary must be valid numbers.",
+            "Expected a number",
+            JOptionPane.ERROR_MESSAGE
+        );
+
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(
+            rootPane,
+            ex.getMessage(),
+            "Error",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
     }
 
     /**
