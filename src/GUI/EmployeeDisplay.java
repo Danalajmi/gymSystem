@@ -609,6 +609,7 @@ public class EmployeeDisplay extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Created");
             Gym.addEmployee(newEmployee);
             loadEmployeesIntoTable();
+            AddTrainers();
             initialiseCombo();
             try {
                 FileOutputStream fileOut = new FileOutputStream("employees.dat");
